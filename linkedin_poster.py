@@ -19,7 +19,8 @@ import time
 
 # These are set as GitHub Secrets (or environment variables)
 LINKEDIN_ACCESS_TOKEN = os.environ.get('LINKEDIN_ACCESS_TOKEN')
-LINKEDIN_ORG_ID = os.environ.get('LINKEDIN_ORG_ID')  # Your company/organization ID
+
+# User ID will be fetched automatically from the token
 
 # Random delay settings (in seconds)
 MIN_RANDOM_DELAY = 0
@@ -115,12 +116,50 @@ def register_image_upload(image_url):
     # LinkedIn's image API requires multi-step upload process
     return None
 
+def get_user_id():
+    """Fetch the user's LinkedIn ID from the access token."""
+    headers = {
+        'Authorization': f'Bearer {LINKEDIN_ACCESS_TOKEN}',
+    }
+    
+    try:
+        # Try userinfo endpoint first
+        response = requests.get('https://api.linkedin.com/v2/userinfo', headers=headers)
+        if response.status_code == 200:
+            data = response.json()
+            user_id = data.get('sub')
+            if user_id:
+                print(f"✓ Found User ID: {user_id}")
+                return user_id
+        
+        # Fallback to /me endpoint
+        response = requests.get('https://api.linkedin.com/v2/me', headers=headers)
+        if response.status_code == 200:
+            data = response.json()
+            user_id = data.get('id')
+            if user_id:
+                print(f"✓ Found User ID: {user_id}")
+                return user_id
+        
+        print(f"✗ Could not fetch User ID. Status: {response.status_code}")
+        print(f"  Response: {response.text[:200]}")
+        return None
+        
+    except Exception as e:
+        print(f"✗ Exception fetching User ID: {str(e)}")
+        return None
+
 def post_to_linkedin(message, post_number):
-    """Post message to LinkedIn Page."""
-    if not LINKEDIN_ACCESS_TOKEN or not LINKEDIN_ORG_ID:
-        print("ERROR: Missing LINKEDIN_ACCESS_TOKEN or LINKEDIN_ORG_ID")
-        print("Set these as environment variables or GitHub Secrets")
+    """Post message to LinkedIn personal profile."""
+    if not LINKEDIN_ACCESS_TOKEN:
+        print("ERROR: Missing LINKEDIN_ACCESS_TOKEN")
+        print("Set this as environment variable or GitHub Secret")
         return False, "Missing credentials"
+    
+    # Get user ID from token
+    user_id = get_user_id()
+    if not user_id:
+        return False, "Could not fetch User ID"
     
     headers = {
         'Authorization': f'Bearer {LINKEDIN_ACCESS_TOKEN}',
@@ -128,9 +167,9 @@ def post_to_linkedin(message, post_number):
         'X-Restli-Protocol-Version': '2.0.0'
     }
     
-    # LinkedIn post payload (text only - image requires complex upload process)
+    # LinkedIn post payload for personal profile
     payload = {
-        "author": f"urn:li:organization:{LINKEDIN_ORG_ID}",
+        "author": f"urn:li:person:{user_id}",
         "lifecycleState": "PUBLISHED",
         "specificContent": {
             "com.linkedin.ugc.ShareContent": {
