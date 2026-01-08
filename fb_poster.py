@@ -32,7 +32,7 @@ GRAPH_API_PHOTOS_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/photos"
 
 # Image URLs - UPDATE THIS to your actual image location
 IMAGE_BASE_URL = "https://raw.githubusercontent.com/saadevelopmentsinc-cpu/scsk-fb-autoposter/main/images/ad-"
-IMAGE_EXTENSION = ".png"  # Change to .png if your files are PNG
+IMAGE_EXTENSION = ".png"  # Change to .jpg if your files are JPG
 
 # Image rotation: ad-10 every 3rd post, random 1-9 otherwise
 RANDOM_IMAGE_COUNT = 9   # Random images (ad-1 through ad-9)
@@ -210,11 +210,14 @@ def main():
     print("=" * 50)
     
     # Add random delay for natural posting intervals (25-32 min effective)
-    if os.environ.get('GITHUB_ACTIONS'):  # Only delay in GitHub Actions
+    # Skip delay if triggered manually (workflow_dispatch)
+    if os.environ.get('GITHUB_ACTIONS') and os.environ.get('GITHUB_EVENT_NAME') != 'workflow_dispatch':
         delay = random.randint(MIN_RANDOM_DELAY, MAX_RANDOM_DELAY)
         print(f"Random delay: {delay // 60}m {delay % 60}s")
         time.sleep(delay)
         print(f"Posting at: {datetime.now().strftime('%H:%M:%S')}")
+    else:
+        print("Manual run - skipping delay")
     
     # Load content and posting log
     posts = load_content()
