@@ -11,6 +11,7 @@ import csv
 import requests
 from datetime import datetime, timedelta
 import random
+import time
 
 # =============================================================================
 # CONFIGURATION
@@ -19,6 +20,11 @@ import random
 # These are set as GitHub Secrets (or environment variables)
 PAGE_ACCESS_TOKEN = os.environ.get('FB_PAGE_ACCESS_TOKEN')
 PAGE_ID = os.environ.get('FB_PAGE_ID')
+
+# Random delay settings (in seconds)
+# Workflow runs every 25 min, we add 0-7 min random delay = 25-32 min effective interval
+MIN_RANDOM_DELAY = 0
+MAX_RANDOM_DELAY = 420  # 7 minutes in seconds
 
 # Facebook Graph API endpoint
 GRAPH_API_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/feed"
@@ -59,14 +65,17 @@ def save_posted_log(log):
         json.dump(log, f, indent=2)
 
 def get_next_posts(posts, posted_log, count=1):
-    """Get next posts that haven't been posted yet."""
+    """Get next posts that haven't been posted yet. Cycles back to start when done."""
     posted_ids = set(posted_log['posted_ids'])
     available = [p for p in posts if p['id'] not in posted_ids]
     
     if not available:
-        # All posts have been used, reset the cycle
-        print("All posts exhausted. Resetting cycle...")
+        # All posts have been used, reset and start from beginning
+        print("=" * 50)
+        print("🔄 ALL POSTS COMPLETE! Starting fresh cycle...")
+        print("=" * 50)
         posted_log['posted_ids'] = []
+        save_posted_log(posted_log)
         available = posts
     
     return available[:count]
@@ -150,6 +159,13 @@ def main():
     print("SCSK Facebook Auto-Poster")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
+    
+    # Add random delay for natural posting intervals (25-32 min effective)
+    if os.environ.get('GITHUB_ACTIONS'):  # Only delay in GitHub Actions
+        delay = random.randint(MIN_RANDOM_DELAY, MAX_RANDOM_DELAY)
+        print(f"Random delay: {delay // 60}m {delay % 60}s")
+        time.sleep(delay)
+        print(f"Posting at: {datetime.now().strftime('%H:%M:%S')}")
     
     # Load content and posting log
     posts = load_content()
