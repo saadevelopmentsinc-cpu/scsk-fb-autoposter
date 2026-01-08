@@ -26,8 +26,17 @@ PAGE_ID = os.environ.get('FB_PAGE_ID')
 MIN_RANDOM_DELAY = 0
 MAX_RANDOM_DELAY = 420  # 7 minutes in seconds
 
-# Facebook Graph API endpoint
+# Facebook Graph API endpoints
 GRAPH_API_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/feed"
+GRAPH_API_PHOTOS_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/photos"
+
+# Image URLs - UPDATE THIS to your actual image location
+# Option 1: Your website
+IMAGE_BASE_URL = "https://raw.githubusercontent.com/saadevelopmentsinc-cpu/scsk-fb-autoposter/main/images/ad-"
+# Option 2: GitHub raw (uncomment and update if using GitHub)
+# IMAGE_BASE_URL = "https://raw.githubusercontent.com/saadevelopmentsinc-cpu/scsk-fb-autoposter/main/images/ad-"
+
+IMAGE_COUNT = 8  # Number of images (1 to 8)
 
 # Path to content file
 CONTENT_FILE = "content.csv"
@@ -92,12 +101,46 @@ def format_post(post):
     return full_post
 
 def post_to_facebook(message):
-    """Post message to Facebook Page."""
+    """Post message with random image to Facebook Page."""
     if not PAGE_ACCESS_TOKEN or not PAGE_ID:
         print("ERROR: Missing FB_PAGE_ACCESS_TOKEN or FB_PAGE_ID")
         print("Set these as environment variables or GitHub Secrets")
         return False, "Missing credentials"
     
+    # Pick a random image (1 to IMAGE_COUNT)
+    image_num = random.randint(1, IMAGE_COUNT)
+    image_url = f"{IMAGE_BASE_URL}{image_num}.png"
+    
+    print(f"📷 Using image: ad-{image_num}.png")
+    
+    # Post as photo with caption (message becomes the caption)
+    payload = {
+        'caption': message,
+        'url': image_url,
+        'access_token': PAGE_ACCESS_TOKEN
+    }
+    
+    try:
+        response = requests.post(GRAPH_API_PHOTOS_URL, data=payload)
+        result = response.json()
+        
+        if 'id' in result:
+            print(f"✓ Posted successfully! Post ID: {result['id']}")
+            return True, result['id']
+        else:
+            error = result.get('error', {}).get('message', 'Unknown error')
+            print(f"✗ Failed to post: {error}")
+            
+            # Fallback: try posting without image
+            print("Attempting text-only fallback...")
+            return post_to_facebook_text_only(message)
+            
+    except Exception as e:
+        print(f"✗ Exception: {str(e)}")
+        return False, str(e)
+
+def post_to_facebook_text_only(message):
+    """Fallback: Post message without image."""
     payload = {
         'message': message,
         'access_token': PAGE_ACCESS_TOKEN
@@ -108,11 +151,11 @@ def post_to_facebook(message):
         result = response.json()
         
         if 'id' in result:
-            print(f"✓ Posted successfully! Post ID: {result['id']}")
+            print(f"✓ Posted (text-only) successfully! Post ID: {result['id']}")
             return True, result['id']
         else:
             error = result.get('error', {}).get('message', 'Unknown error')
-            print(f"✗ Failed to post: {error}")
+            print(f"✗ Text-only also failed: {error}")
             return False, error
             
     except Exception as e:
