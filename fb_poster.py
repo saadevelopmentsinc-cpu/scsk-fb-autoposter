@@ -31,12 +31,13 @@ GRAPH_API_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/feed"
 GRAPH_API_PHOTOS_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/photos"
 
 # Image URLs - UPDATE THIS to your actual image location
-# Option 1: Your website
 IMAGE_BASE_URL = "https://raw.githubusercontent.com/saadevelopmentsinc-cpu/scsk-fb-autoposter/main/images/ad-"
-# Option 2: GitHub raw (uncomment and update if using GitHub)
-# IMAGE_BASE_URL = "https://raw.githubusercontent.com/saadevelopmentsinc-cpu/scsk-fb-autoposter/main/images/ad-"
+IMAGE_EXTENSION = ".png"  # Change to .png if your files are PNG
 
-IMAGE_COUNT = 8  # Number of images (1 to 8)
+# Image rotation: ad-10 every 3rd post, random 1-9 otherwise
+RANDOM_IMAGE_COUNT = 9   # Random images (ad-1 through ad-9)
+FEATURED_IMAGE = 10      # ad-10 appears every 3rd post
+FEATURED_EVERY = 3       # Show featured image every X posts
 
 # Path to content file
 CONTENT_FILE = "content.csv"
@@ -100,18 +101,23 @@ def format_post(post):
     
     return full_post
 
-def post_to_facebook(message):
-    """Post message with random image to Facebook Page."""
+def post_to_facebook(message, post_number):
+    """Post message with image to Facebook Page. ad-10 every 3rd post, random otherwise."""
     if not PAGE_ACCESS_TOKEN or not PAGE_ID:
         print("ERROR: Missing FB_PAGE_ACCESS_TOKEN or FB_PAGE_ID")
         print("Set these as environment variables or GitHub Secrets")
         return False, "Missing credentials"
     
-    # Pick a random image (1 to IMAGE_COUNT)
-    image_num = random.randint(1, IMAGE_COUNT)
-    image_url = f"{IMAGE_BASE_URL}{image_num}.png"
+    # Pick image: ad-10 every 3rd post, random 1-9 otherwise
+    if post_number % FEATURED_EVERY == 0:
+        image_num = FEATURED_IMAGE
+        print(f"📷 Using FEATURED image: ad-{image_num}{IMAGE_EXTENSION} (every {FEATURED_EVERY}rd post)")
+    else:
+        image_num = random.randint(1, RANDOM_IMAGE_COUNT)
+        print(f"📷 Using random image: ad-{image_num}{IMAGE_EXTENSION}")
     
-    print(f"📷 Using image: ad-{image_num}.png")
+    image_url = f"{IMAGE_BASE_URL}{image_num}{IMAGE_EXTENSION}"
+    print(f"   URL: {image_url}")
     
     # Post as photo with caption (message becomes the caption)
     payload = {
@@ -232,8 +238,9 @@ def main():
     print(message[:200] + "..." if len(message) > 200 else message)
     print("-" * 40)
     
-    # Post to Facebook
-    success, result = post_to_facebook(message)
+    # Post to Facebook (pass post number for image rotation)
+    post_number = len(posted_log['posted_ids']) + 1
+    success, result = post_to_facebook(message, post_number)
     
     if success:
         # Update log
