@@ -1,0 +1,234 @@
+#!/usr/bin/env python3
+"""
+SCSK Facebook Auto-Poster
+Posts scheduled content to your Facebook Page automatically.
+Designed to run via GitHub Actions (free tier).
+"""
+
+import os
+import json
+import csv
+import requests
+from datetime import datetime, timedelta
+import random
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+# These are set as GitHub Secrets (or environment variables)
+PAGE_ACCESS_TOKEN = os.environ.get('FB_PAGE_ACCESS_TOKEN')
+PAGE_ID = os.environ.get('FB_PAGE_ID')
+
+# Facebook Graph API endpoint
+GRAPH_API_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/feed"
+
+# Path to content file
+CONTENT_FILE = "content.csv"
+POSTED_LOG = "posted.json"
+
+# =============================================================================
+# HELPER FUNCTIONS
+# =============================================================================
+
+def load_content():
+    """Load content from CSV file."""
+    posts = []
+    with open(CONTENT_FILE, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            posts.append({
+                'id': row['id'],
+                'pillar': row['pillar'],
+                'content': row['content'],
+                'hashtags': row['hashtags'],
+                'cta': row['cta']
+            })
+    return posts
+
+def load_posted_log():
+    """Load log of already posted content."""
+    if os.path.exists(POSTED_LOG):
+        with open(POSTED_LOG, 'r') as f:
+            return json.load(f)
+    return {'posted_ids': [], 'last_post_time': None}
+
+def save_posted_log(log):
+    """Save posted log."""
+    with open(POSTED_LOG, 'w') as f:
+        json.dump(log, f, indent=2)
+
+def get_next_posts(posts, posted_log, count=1):
+    """Get next posts that haven't been posted yet."""
+    posted_ids = set(posted_log['posted_ids'])
+    available = [p for p in posts if p['id'] not in posted_ids]
+    
+    if not available:
+        # All posts have been used, reset the cycle
+        print("All posts exhausted. Resetting cycle...")
+        posted_log['posted_ids'] = []
+        available = posts
+    
+    return available[:count]
+
+def format_post(post):
+    """Format post content for Facebook."""
+    content = post['content']
+    hashtags = post['hashtags']
+    cta = post['cta']
+    
+    # Combine content with hashtags and CTA
+    full_post = f"{content}\n\n{cta}\n\n{hashtags}"
+    
+    return full_post
+
+def post_to_facebook(message):
+    """Post message to Facebook Page."""
+    if not PAGE_ACCESS_TOKEN or not PAGE_ID:
+        print("ERROR: Missing FB_PAGE_ACCESS_TOKEN or FB_PAGE_ID")
+        print("Set these as environment variables or GitHub Secrets")
+        return False, "Missing credentials"
+    
+    payload = {
+        'message': message,
+        'access_token': PAGE_ACCESS_TOKEN
+    }
+    
+    try:
+        response = requests.post(GRAPH_API_URL, data=payload)
+        result = response.json()
+        
+        if 'id' in result:
+            print(f"✓ Posted successfully! Post ID: {result['id']}")
+            return True, result['id']
+        else:
+            error = result.get('error', {}).get('message', 'Unknown error')
+            print(f"✗ Failed to post: {error}")
+            return False, error
+            
+    except Exception as e:
+        print(f"✗ Exception: {str(e)}")
+        return False, str(e)
+
+def post_to_facebook_scheduled(message, scheduled_time):
+    """Schedule a post for later (requires additional permissions)."""
+    if not PAGE_ACCESS_TOKEN or not PAGE_ID:
+        return False, "Missing credentials"
+    
+    # Convert to Unix timestamp
+    timestamp = int(scheduled_time.timestamp())
+    
+    payload = {
+        'message': message,
+        'published': 'false',
+        'scheduled_publish_time': timestamp,
+        'access_token': PAGE_ACCESS_TOKEN
+    }
+    
+    try:
+        response = requests.post(GRAPH_API_URL, data=payload)
+        result = response.json()
+        
+        if 'id' in result:
+            print(f"✓ Scheduled for {scheduled_time}! Post ID: {result['id']}")
+            return True, result['id']
+        else:
+            error = result.get('error', {}).get('message', 'Unknown error')
+            print(f"✗ Failed to schedule: {error}")
+            return False, error
+            
+    except Exception as e:
+        return False, str(e)
+
+# =============================================================================
+# MAIN EXECUTION
+# =============================================================================
+
+def main():
+    """Main execution - posts one piece of content."""
+    print("=" * 50)
+    print("SCSK Facebook Auto-Poster")
+    print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("=" * 50)
+    
+    # Load content and posting log
+    posts = load_content()
+    posted_log = load_posted_log()
+    
+    print(f"Total posts available: {len(posts)}")
+    print(f"Already posted: {len(posted_log['posted_ids'])}")
+    
+    # Get next post
+    next_posts = get_next_posts(posts, posted_log, count=1)
+    
+    if not next_posts:
+        print("No posts available!")
+        return
+    
+    post = next_posts[0]
+    message = format_post(post)
+    
+    print(f"\nPosting [{post['pillar']}] - ID: {post['id']}")
+    print("-" * 40)
+    print(message[:200] + "..." if len(message) > 200 else message)
+    print("-" * 40)
+    
+    # Post to Facebook
+    success, result = post_to_facebook(message)
+    
+    if success:
+        # Update log
+        posted_log['posted_ids'].append(post['id'])
+        posted_log['last_post_time'] = datetime.now().isoformat()
+        posted_log['last_post_id'] = result
+        save_posted_log(posted_log)
+        print(f"\n✓ Log updated. Total posted: {len(posted_log['posted_ids'])}")
+    else:
+        print(f"\n✗ Post failed: {result}")
+        # Exit with error code for GitHub Actions
+        exit(1)
+
+def batch_post(count=5, delay_minutes=30):
+    """Post multiple times with delays (for local running)."""
+    import time
+    
+    print(f"Batch posting {count} posts with {delay_minutes} min delays")
+    
+    for i in range(count):
+        print(f"\n--- Post {i+1}/{count} ---")
+        main()
+        
+        if i < count - 1:
+            print(f"Waiting {delay_minutes} minutes...")
+            time.sleep(delay_minutes * 60)
+
+def test_mode():
+    """Test without actually posting."""
+    print("=" * 50)
+    print("TEST MODE - No actual posting")
+    print("=" * 50)
+    
+    posts = load_content()
+    posted_log = load_posted_log()
+    
+    print(f"Total posts: {len(posts)}")
+    print(f"Already posted: {len(posted_log['posted_ids'])}")
+    
+    next_posts = get_next_posts(posts, posted_log, count=3)
+    
+    print(f"\nNext {len(next_posts)} posts would be:")
+    for i, post in enumerate(next_posts, 1):
+        print(f"\n--- Post {i} [{post['pillar']}] ---")
+        print(format_post(post)[:300] + "...")
+
+if __name__ == "__main__":
+    import sys
+    
+    if len(sys.argv) > 1:
+        if sys.argv[1] == 'test':
+            test_mode()
+        elif sys.argv[1] == 'batch':
+            count = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+            batch_post(count=count)
+    else:
+        main()
