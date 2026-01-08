@@ -1,4 +1,7 @@
 {
-  "posted_ids": [],
-  "last_post_time": null
+  "posted_ids": [
+    "001"
+  ],
+  "last_post_time": "2026-01-08T22:11:00.235292",
+  "last_post_id": "urn:li:share:7415153075264344064"
 }
