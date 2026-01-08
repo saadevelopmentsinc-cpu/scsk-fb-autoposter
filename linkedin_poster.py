@@ -19,8 +19,7 @@ import time
 
 # These are set as GitHub Secrets (or environment variables)
 LINKEDIN_ACCESS_TOKEN = os.environ.get('LINKEDIN_ACCESS_TOKEN')
-
-# User ID will be fetched automatically from the token
+LINKEDIN_USER_ID = os.environ.get('LINKEDIN_USER_ID')  # Optional - will try to auto-fetch if not set
 
 # Random delay settings (in seconds)
 MIN_RANDOM_DELAY = 0
@@ -117,13 +116,19 @@ def register_image_upload(image_url):
     return None
 
 def get_user_id():
-    """Fetch the user's LinkedIn ID from the access token."""
+    """Get the user's LinkedIn ID - from env var or fetch from API."""
+    # First check if manually provided
+    if LINKEDIN_USER_ID:
+        print(f"✓ Using provided User ID: {LINKEDIN_USER_ID}")
+        return LINKEDIN_USER_ID
+    
+    # Try to fetch from API
     headers = {
         'Authorization': f'Bearer {LINKEDIN_ACCESS_TOKEN}',
     }
     
     try:
-        # Try userinfo endpoint first
+        # Try userinfo endpoint first (requires openid scope)
         response = requests.get('https://api.linkedin.com/v2/userinfo', headers=headers)
         if response.status_code == 200:
             data = response.json()
@@ -142,11 +147,71 @@ def get_user_id():
                 return user_id
         
         print(f"✗ Could not fetch User ID. Status: {response.status_code}")
-        print(f"  Response: {response.text[:200]}")
+        print(f"  Add LINKEDIN_USER_ID to your GitHub secrets")
         return None
         
     except Exception as e:
         print(f"✗ Exception fetching User ID: {str(e)}")
+        return None
+
+def upload_image_to_linkedin(image_url, user_id):
+    """Download image and upload to LinkedIn, return asset URN."""
+    headers = {
+        'Authorization': f'Bearer {LINKEDIN_ACCESS_TOKEN}',
+        'Content-Type': 'application/json',
+        'X-Restli-Protocol-Version': '2.0.0'
+    }
+    
+    try:
+        # Step 1: Register the upload
+        register_payload = {
+            "registerUploadRequest": {
+                "recipes": ["urn:li:digitalmediaRecipe:feedshare-image"],
+                "owner": f"urn:li:person:{user_id}",
+                "serviceRelationships": [{
+                    "relationshipType": "OWNER",
+                    "identifier": "urn:li:userGeneratedContent"
+                }]
+            }
+        }
+        
+        response = requests.post(
+            'https://api.linkedin.com/v2/assets?action=registerUpload',
+            headers=headers,
+            json=register_payload
+        )
+        
+        if response.status_code != 200:
+            print(f"  ✗ Image register failed: {response.status_code}")
+            return None
+        
+        upload_data = response.json()
+        upload_url = upload_data['value']['uploadMechanism']['com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest']['uploadUrl']
+        asset = upload_data['value']['asset']
+        
+        # Step 2: Download the image
+        img_response = requests.get(image_url)
+        if img_response.status_code != 200:
+            print(f"  ✗ Could not download image from {image_url}")
+            return None
+        
+        # Step 3: Upload the image to LinkedIn
+        upload_headers = {
+            'Authorization': f'Bearer {LINKEDIN_ACCESS_TOKEN}',
+            'Content-Type': 'application/octet-stream',
+        }
+        
+        upload_response = requests.put(upload_url, headers=upload_headers, data=img_response.content)
+        
+        if upload_response.status_code in [200, 201]:
+            print(f"  ✓ Image uploaded successfully")
+            return asset
+        else:
+            print(f"  ✗ Image upload failed: {upload_response.status_code}")
+            return None
+            
+    except Exception as e:
+        print(f"  ✗ Image upload exception: {str(e)}")
         return None
 
 def post_to_linkedin(message, post_number):
@@ -156,7 +221,7 @@ def post_to_linkedin(message, post_number):
         print("Set this as environment variable or GitHub Secret")
         return False, "Missing credentials"
     
-    # Get user ID from token
+    # Get user ID from env or API
     user_id = get_user_id()
     if not user_id:
         return False, "Could not fetch User ID"
@@ -167,22 +232,51 @@ def post_to_linkedin(message, post_number):
         'X-Restli-Protocol-Version': '2.0.0'
     }
     
-    # LinkedIn post payload for personal profile
-    payload = {
-        "author": f"urn:li:person:{user_id}",
-        "lifecycleState": "PUBLISHED",
-        "specificContent": {
-            "com.linkedin.ugc.ShareContent": {
-                "shareCommentary": {
-                    "text": message
-                },
-                "shareMediaCategory": "NONE"
+    # Get image URL
+    image_url = get_image_url(post_number)
+    
+    # Try to upload image
+    asset_urn = upload_image_to_linkedin(image_url, user_id)
+    
+    if asset_urn:
+        # Post WITH image
+        payload = {
+            "author": f"urn:li:person:{user_id}",
+            "lifecycleState": "PUBLISHED",
+            "specificContent": {
+                "com.linkedin.ugc.ShareContent": {
+                    "shareCommentary": {
+                        "text": message
+                    },
+                    "shareMediaCategory": "IMAGE",
+                    "media": [{
+                        "status": "READY",
+                        "media": asset_urn
+                    }]
+                }
+            },
+            "visibility": {
+                "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
             }
-        },
-        "visibility": {
-            "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
         }
-    }
+    else:
+        # Fallback: Post WITHOUT image
+        print("  Posting without image (fallback)")
+        payload = {
+            "author": f"urn:li:person:{user_id}",
+            "lifecycleState": "PUBLISHED",
+            "specificContent": {
+                "com.linkedin.ugc.ShareContent": {
+                    "shareCommentary": {
+                        "text": message
+                    },
+                    "shareMediaCategory": "NONE"
+                }
+            },
+            "visibility": {
+                "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
+            }
+        }
     
     try:
         response = requests.post(LINKEDIN_API_URL, headers=headers, json=payload)
