@@ -22,8 +22,9 @@ LINKEDIN_ACCESS_TOKEN = os.environ.get('LINKEDIN_ACCESS_TOKEN')
 LINKEDIN_USER_ID = os.environ.get('LINKEDIN_USER_ID')  # Optional - will try to auto-fetch if not set
 
 # Random delay settings (in seconds)
+# Workflow runs every 2 hours, we add 0-60 min random delay = 2-3 hr effective interval
 MIN_RANDOM_DELAY = 0
-MAX_RANDOM_DELAY = 420  # 7 minutes in seconds
+MAX_RANDOM_DELAY = 3600  # 60 minutes in seconds
 
 # LinkedIn API endpoint
 LINKEDIN_API_URL = "https://api.linkedin.com/v2/ugcPosts"
