@@ -4,13 +4,12 @@
 name: LinkedIn Auto-Poster
 
 on:
-  # Run every 25 minutes during active hours (script adds 0-7 min random delay)
-  # Offset by 12 minutes from Facebook to spread posts out
+  # Run every 2 hours during active hours (script adds 0-60 min random delay = 2-3 hr effective)
+  # Times in UTC - AEST = UTC+10
   schedule:
-    - cron: '12,37 20-23 * * *'   # 6am-10am AEST (offset)
-    - cron: '12,37 0-11 * * *'    # 10am-10pm AEST (offset)
-    - cron: '2,27,52 20-23 * * *' # Fill gaps
-    - cron: '2,27,52 0-11 * * *'  # Fill gaps
+    # Every 2 hours from 6am-10pm AEST
+    - cron: '0 20,22 * * *'      # 6am, 8am AEST
+    - cron: '0 0,2,4,6,8,10,12 * * *'  # 10am-10pm AEST (every 2 hrs)
   
   # Allow manual trigger
   workflow_dispatch:
@@ -39,6 +38,7 @@ jobs:
       - name: Run LinkedIn Poster
         env:
           LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_USER_ID: ${{ secrets.LINKEDIN_USER_ID }}
         run: |
           python linkedin_poster.py
       
