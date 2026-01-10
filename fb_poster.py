@@ -22,9 +22,9 @@ PAGE_ACCESS_TOKEN = os.environ.get('FB_PAGE_ACCESS_TOKEN')
 PAGE_ID = os.environ.get('FB_PAGE_ID')
 
 # Random delay settings (in seconds)
-# Workflow runs every 25 min, we add 0-7 min random delay = 25-32 min effective interval
+# Workflow runs every 45 min, we add 0-12 min random delay = 45-57 min effective interval
 MIN_RANDOM_DELAY = 0
-MAX_RANDOM_DELAY = 420  # 7 minutes in seconds
+MAX_RANDOM_DELAY = 720  # 12 minutes in seconds
 
 # Facebook Graph API endpoints
 GRAPH_API_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/feed"
