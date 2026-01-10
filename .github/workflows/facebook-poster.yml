@@ -4,16 +4,16 @@
 name: Facebook Auto-Poster
 
 on:
-  # Run every 25 minutes during active hours (script adds 0-7 min random delay = 25-32 min effective)
+  # Run every 45 minutes during active hours (script adds 0-12 min random delay = 45-57 min effective)
   # Times in UTC - adjust for your timezone (AEST = UTC+10)
   schedule:
-    # Every 25 minutes from 6am-10pm AEST
+    # Every 45 minutes from 6am-10pm AEST
     # 6am AEST = 8pm UTC (previous day)
     # 10pm AEST = 12pm UTC
-    - cron: '0,25,50 20-23 * * *'    # 6am-10am AEST
-    - cron: '0,25,50 0-11 * * *'     # 10am-10pm AEST
-    - cron: '15,40 20-23 * * *'      # Fill gaps
-    - cron: '15,40 0-11 * * *'       # Fill gaps
+    - cron: '0,45 20-23 * * *'    # 6am-10am AEST
+    - cron: '0,45 0-11 * * *'     # 10am-10pm AEST
+    - cron: '30 21-23 * * *'      # Fill gaps morning
+    - cron: '30 0-10 * * *'       # Fill gaps afternoon
   
   # Allow manual trigger
   workflow_dispatch:
