@@ -42,10 +42,14 @@ jobs:
         run: |
           python linkedin_poster.py
       
-      - name: Commit updated log
+      - name: Commit and push log
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add posted_linkedin.json
-          git diff --staged --quiet || git commit -m "Update LinkedIn posted log [skip ci]"
-          git push
+          git add posted.json
+          git commit -m "Update posted log [skip ci]" || exit 0
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            echo "Retry $i..."
+            sleep 5
+          done
