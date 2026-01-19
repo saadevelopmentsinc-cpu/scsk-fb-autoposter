@@ -1,17 +1,13 @@
 # .github/workflows/facebook-poster.yml
-# This workflow posts to Facebook on a schedule
+# This workflow posts to Facebook on a schedule with random intervals
 
 name: Facebook Auto-Poster
 
 on:
-  # Run every 4 hours from 6am to 10pm AEST (UTC+10)
-  # That's 5 posts per day (6am, 10am, 2pm, 6pm, 10pm AEST)
+  # Run every hour and let the script decide randomly whether to post
+  # This creates truly random intervals between 1h 47min and 2h 38min
   schedule:
-    - cron: '0 20 * * *'    # 6am AEST
-    - cron: '0 0 * * *'     # 10am AEST
-    - cron: '0 4 * * *'     # 2pm AEST
-    - cron: '0 8 * * *'     # 6pm AEST
-    - cron: '0 12 * * *'    # 10pm AEST
+    - cron: '0 * * * *'  # Every hour
   
   # Allow manual trigger
   workflow_dispatch:
@@ -53,16 +49,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add posted.json
           git diff --staged --quiet || git commit -m "Update posted log [skip ci]"
-          git push
-
-  # Optional: Post summary to track activity
-  notify:
-    runs-on: ubuntu-latest
-    needs: post
-    if: always()
-    
-    steps:
-      - name: Post summary
-        run: |
-          echo "Facebook posting job completed"
-          echo "Status: ${{ needs.post.result }}"
+          git push || true
