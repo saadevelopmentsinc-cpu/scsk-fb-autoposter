@@ -140,11 +140,6 @@ def post_to_facebook(message, image_path=None):
     # Add random delay to avoid consistent timing patterns
     add_random_delay()
     
-    payload = {
-        'message': message,
-        'access_token': PAGE_ACCESS_TOKEN
-    }
-    
     # Add headers to look more like a real request
     headers = {
         'User-Agent': get_random_user_agent(),
@@ -158,10 +153,22 @@ def post_to_facebook(message, image_path=None):
         # Handle image attachment if provided
         if image_path and os.path.exists(image_path):
             print(f"Attaching image: {image_path}")
+            
+            payload = {
+                'message': message,
+                'access_token': PAGE_ACCESS_TOKEN
+            }
+            
+            # Open file and post with multipart form data
             with open(image_path, 'rb') as f:
-                files = {'source': f}
+                files = {'source': (os.path.basename(image_path), f, 'image/jpeg')}
                 response = requests.post(GRAPH_API_URL, data=payload, files=files, headers=headers, timeout=30)
         else:
+            # Text-only post
+            payload = {
+                'message': message,
+                'access_token': PAGE_ACCESS_TOKEN
+            }
             response = requests.post(GRAPH_API_URL, data=payload, headers=headers, timeout=30)
         
         result = response.json()
