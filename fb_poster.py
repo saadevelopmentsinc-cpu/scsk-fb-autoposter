@@ -247,23 +247,26 @@ def main():
     print(message[:200] + "..." if len(message) > 200 else message)
     print("-" * 40)
     
-    # Attach image every 3 posts - randomly select from images/ folder
+    # Attach image with EVERY post
+    # Every 3rd post: Screenshot1.jpg
+    # Other posts: Random from ad-1 to ad-10
     image_path = None
     posts_count = len(posted_log['posted_ids'])
     
     if (posts_count + 1) % 3 == 0:  # Every 3rd post
-        image_files = [
-            'ad-1.png', 'ad-2.png', 'ad-3.png', 'ad-4.png', 'ad-5.png',
-            'ad-6.png', 'ad-7.png', 'ad-8.png', 'ad-9.png', 'ad-10.png',
-            'Screenshot1.jpg'
-        ]
-        selected_image = random.choice(image_files)
-        image_path = os.path.join(os.path.dirname(__file__), 'images', selected_image)
-        if os.path.exists(image_path):
-            print(f"📸 Adding random image: {selected_image}")
-        else:
-            print(f"⚠️  Image not found: images/{selected_image}")
-            image_path = None
+        selected_image = 'Screenshot1.jpg'
+        print(f"📸 Adding featured image: {selected_image}")
+    else:
+        # Random ad image
+        ad_images = ['ad-1.png', 'ad-2.png', 'ad-3.png', 'ad-4.png', 'ad-5.png',
+                     'ad-6.png', 'ad-7.png', 'ad-8.png', 'ad-9.png', 'ad-10.png']
+        selected_image = random.choice(ad_images)
+        print(f"📸 Adding random ad image: {selected_image}")
+    
+    image_path = os.path.join(os.path.dirname(__file__), 'images', selected_image)
+    if not os.path.exists(image_path):
+        print(f"⚠️  Image not found: images/{selected_image}")
+        image_path = None
     
     # Post to Facebook
     success, result = post_to_facebook(message, image_path=image_path)
