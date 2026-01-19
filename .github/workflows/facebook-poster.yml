@@ -4,16 +4,14 @@
 name: Facebook Auto-Poster
 
 on:
-  # Run every 45 minutes during active hours (script adds 0-12 min random delay = 45-57 min effective)
-  # Times in UTC - adjust for your timezone (AEST = UTC+10)
+  # Run every 4 hours from 6am to 10pm AEST (UTC+10)
+  # That's 5 posts per day (6am, 10am, 2pm, 6pm, 10pm AEST)
   schedule:
-    # Every 45 minutes from 6am-10pm AEST
-    # 6am AEST = 8pm UTC (previous day)
-    # 10pm AEST = 12pm UTC
-    - cron: '0,45 20-23 * * *'    # 6am-10am AEST
-    - cron: '0,45 0-11 * * *'     # 10am-10pm AEST
-    - cron: '30 21-23 * * *'      # Fill gaps morning
-    - cron: '30 0-10 * * *'       # Fill gaps afternoon
+    - cron: '0 20 * * *'    # 6am AEST
+    - cron: '0 0 * * *'     # 10am AEST
+    - cron: '0 4 * * *'     # 2pm AEST
+    - cron: '0 8 * * *'     # 6pm AEST
+    - cron: '0 12 * * *'    # 10pm AEST
   
   # Allow manual trigger
   workflow_dispatch:
@@ -26,8 +24,6 @@ on:
 jobs:
   post:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     
     steps:
       - name: Checkout repository
@@ -51,17 +47,13 @@ jobs:
         run: |
           python fb_poster.py
       
-      - name: Commit and push log
+      - name: Commit updated log
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add posted.json
-          git commit -m "Update posted log [skip ci]" || exit 0
-          for i in 1 2 3; do
-            git pull --rebase origin main && git push && break
-            echo "Retry $i..."
-            sleep 5
-          done
+          git diff --staged --quiet || git commit -m "Update posted log [skip ci]"
+          git push
 
   # Optional: Post summary to track activity
   notify:
