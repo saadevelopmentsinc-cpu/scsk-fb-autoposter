@@ -255,32 +255,35 @@ def main():
     post = next_posts[0]
     message = format_post_variant(post)  # Use variant formatting
     
+    # Debug info
+    remaining = len(posts) - len(posted_log['posted_ids'])
     print(f"\nPosting [{post['pillar']}] - ID: {post['id']}")
+    print(f"Progress: {len(posted_log['posted_ids']) + 1}/{len(posts)} posts")
+    print(f"Remaining: {remaining - 1}")
     print("-" * 40)
     print(message[:200] + "..." if len(message) > 200 else message)
     print("-" * 40)
     
     # Post to Facebook
-    # Attach image every 3 posts (posts 3, 6, 9, etc.) - rotates through 11 images
+    # Attach image every 3 posts - randomly select from 11 images
     image_path = None
     posts_count = len(posted_log['posted_ids'])
     
     if (posts_count + 1) % 3 == 0:  # Every 3rd post
-        # Rotate through 11 images in the images/ folder
+        # Randomly select from 11 images
         image_files = [
             'ad-1.png', 'ad-2.png', 'ad-3.png', 'ad-4.png', 'ad-5.png',
             'ad-6.png', 'ad-7.png', 'ad-8.png', 'ad-9.png', 'ad-10.png',
             'Screenshot1.jpg'
         ]
         
-        # Calculate which image to use (cycles through the list)
-        image_index = (posts_count // 3) % len(image_files)
-        selected_image = image_files[image_index]
+        # Randomly pick an image
+        selected_image = random.choice(image_files)
         
         # Look for images in the images/ folder
         image_path = os.path.join(os.path.dirname(__file__), 'images', selected_image)
         if os.path.exists(image_path):
-            print(f"📸 Adding image ({image_index + 1}/11): {selected_image}")
+            print(f"📸 Adding random image: {selected_image}")
         else:
             print(f"⚠️  Image not found: images/{selected_image}")
             image_path = None
@@ -334,11 +337,19 @@ def test_mode():
         print(format_post_variant(post))
         print()
 
+def reset_posted_log():
+    """Reset the posted log - clears all posted IDs to start fresh."""
+    save_posted_log({'posted_ids': [], 'last_post_time': None})
+    print("✓ Posted log reset! All posts are available again.")
+    print("✓ Next run will start from the beginning of content.csv")
+
 if __name__ == "__main__":
     import sys
     
     if len(sys.argv) > 1:
-        if sys.argv[1] == 'test':
+        if sys.argv[1] == '--reset':
+            reset_posted_log()
+        elif sys.argv[1] == 'test':
             test_mode()
         elif sys.argv[1] == 'batch':
             count = int(sys.argv[2]) if len(sys.argv) > 2 else 5
