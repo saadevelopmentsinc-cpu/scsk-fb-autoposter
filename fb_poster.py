@@ -131,8 +131,8 @@ def add_random_delay():
     delay = random.uniform(0.5, 2.5)  # 0.5 to 2.5 seconds
     time.sleep(delay)
 
-def post_to_facebook(message):
-    """Post message to Facebook Page with anti-detection measures."""
+def post_to_facebook(message, image_path=None):
+    """Post message to Facebook Page with optional image attachment."""
     if not PAGE_ACCESS_TOKEN or not PAGE_ID:
         print("ERROR: Missing FB_PAGE_ACCESS_TOKEN or FB_PAGE_ID")
         return False, "Missing credentials"
@@ -155,7 +155,15 @@ def post_to_facebook(message):
         # Add random delay before request
         add_random_delay()
         
-        response = requests.post(GRAPH_API_URL, data=payload, headers=headers, timeout=30)
+        # Handle image attachment if provided
+        if image_path and os.path.exists(image_path):
+            print(f"Attaching image: {image_path}")
+            with open(image_path, 'rb') as f:
+                files = {'source': f}
+                response = requests.post(GRAPH_API_URL, data=payload, files=files, headers=headers, timeout=30)
+        else:
+            response = requests.post(GRAPH_API_URL, data=payload, headers=headers, timeout=30)
+        
         result = response.json()
         
         if 'id' in result:
@@ -253,7 +261,31 @@ def main():
     print("-" * 40)
     
     # Post to Facebook
-    success, result = post_to_facebook(message)
+    # Attach image every 3 posts (posts 3, 6, 9, etc.) - rotates through 11 images
+    image_path = None
+    posts_count = len(posted_log['posted_ids'])
+    
+    if (posts_count + 1) % 3 == 0:  # Every 3rd post
+        # Rotate through 11 images in the images/ folder
+        image_files = [
+            'ad-1.png', 'ad-2.png', 'ad-3.png', 'ad-4.png', 'ad-5.png',
+            'ad-6.png', 'ad-7.png', 'ad-8.png', 'ad-9.png', 'ad-10.png',
+            'Screenshot1.jpg'
+        ]
+        
+        # Calculate which image to use (cycles through the list)
+        image_index = (posts_count // 3) % len(image_files)
+        selected_image = image_files[image_index]
+        
+        # Look for images in the images/ folder
+        image_path = os.path.join(os.path.dirname(__file__), 'images', selected_image)
+        if os.path.exists(image_path):
+            print(f"📸 Adding image ({image_index + 1}/11): {selected_image}")
+        else:
+            print(f"⚠️  Image not found: images/{selected_image}")
+            image_path = None
+    
+    success, result = post_to_facebook(message, image_path=image_path)
     
     if success:
         # Update log
