@@ -174,12 +174,22 @@ def post_to_facebook(message):
 # MAIN EXECUTION
 # =============================================================================
 
-def should_post_now(posted_log):
+def should_post_now(posted_log, skip_wait=False):
     """
     Check if enough time has passed since last post.
     Random interval between 107-158 minutes (1h47m to 2h38m).
-    Returns (should_post: bool, minutes_until_next: int)
+    
+    Args:
+        posted_log: The log of posted content
+        skip_wait: If True (manual trigger), skip the wait check and post immediately
+    
+    Returns:
+        (should_post: bool, minutes_until_next: int)
     """
+    # Skip wait check if manually triggered
+    if skip_wait:
+        return True, 0
+    
     if not posted_log['last_post_time']:
         # First post, always post
         return True, 0
@@ -211,8 +221,16 @@ def main():
     print(f"Total posts available: {len(posts)}")
     print(f"Already posted: {len(posted_log['posted_ids'])}")
     
+    # Check if this is a manual trigger (workflow_dispatch)
+    # GitHub Actions sets GITHUB_EVENT_NAME env var
+    event_name = os.environ.get('GITHUB_EVENT_NAME', 'schedule')
+    skip_wait = event_name == 'workflow_dispatch'
+    
+    if skip_wait:
+        print("\n🚀 MANUAL TRIGGER - Skipping wait time!")
+    
     # Check if enough time has passed
-    should_post, wait_minutes = should_post_now(posted_log)
+    should_post, wait_minutes = should_post_now(posted_log, skip_wait=skip_wait)
     if not should_post:
         print(f"\nNot time to post yet. Wait {wait_minutes} more minutes.")
         if posted_log['last_post_time']:
