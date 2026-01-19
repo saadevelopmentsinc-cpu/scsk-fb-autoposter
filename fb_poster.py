@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 """
-SCSK Facebook Auto-Poster - ENHANCED VERSION
+SCSK Facebook Auto-Poster - ENHANCED
 Posts scheduled content to your Facebook Page automatically.
 Designed to run via GitHub Actions (free tier).
 
-Anti-Throttling Features:
-- Random post formatting (line breaks, spacing)
-- Randomized delays between API calls
-- Variable hashtag placement
-- Random emoji usage (construction-themed)
-- Content variation
+Features:
+- Random post formatting (avoids detection)
+- Random emoji usage
+- Random delays between requests
 - User-Agent spoofing
-- Staggered posting times (not exact hour marks)
+- Manual trigger skip (no wait time)
+- Image rotation every 3 posts
+- Anti-throttling tactics
 """
 
 import os
 import json
 import csv
 import requests
-import random
 import time
 from datetime import datetime, timedelta
+import random
 
 # =============================================================================
 # CONFIGURATION
@@ -30,6 +30,7 @@ PAGE_ACCESS_TOKEN = os.environ.get('FB_PAGE_ACCESS_TOKEN')
 PAGE_ID = os.environ.get('FB_PAGE_ID')
 
 GRAPH_API_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/feed"
+
 CONTENT_FILE = "content.csv"
 POSTED_LOG = "posted.json"
 
@@ -79,35 +80,30 @@ def get_next_posts(posts, posted_log, count=1):
     
     return available[:count]
 
-def format_post_variant(post):
-    """Format post content with randomized variations to avoid detection."""
+def format_post(post):
+    """Format post content with random variations."""
     content = post['content']
     hashtags = post['hashtags']
     cta = post['cta']
     
-    # Randomly decide content ordering to avoid pattern detection
+    # Randomly vary formatting
     variant = random.choice([1, 2, 3, 4, 5])
     
     if variant == 1:
-        # Classic format
         full_post = f"{content}\n\n{cta}\n\n{hashtags}"
     elif variant == 2:
-        # Hashtags first (less common = looks less bot-like)
         full_post = f"{hashtags}\n\n{content}\n\n{cta}"
     elif variant == 3:
-        # CTA in middle
         full_post = f"{content}\n\n{hashtags}\n\n{cta}"
     elif variant == 4:
-        # Extra spacing (humans often do this)
         full_post = f"{content}\n\n\n{cta}\n\n{hashtags}"
     else:
-        # Minimal spacing (another human variation)
         full_post = f"{content}\n{cta}\n{hashtags}"
     
-    # Randomly add an emoji (humans often do this, bots less commonly)
-    if random.choice([True, False, False]):  # 33% chance
+    # Randomly add emoji (33% chance)
+    if random.choice([True, False, False]):
         emoji = random.choice(EMOJIS)
-        insert_pos = random.choice([0, -1])  # Start or end
+        insert_pos = random.choice([0, -1])
         if insert_pos == 0:
             full_post = f"{emoji} {full_post}"
         else:
@@ -116,7 +112,7 @@ def format_post_variant(post):
     return full_post
 
 def get_random_user_agent():
-    """Return a random User-Agent to avoid detection."""
+    """Return random User-Agent."""
     user_agents = [
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
@@ -127,48 +123,53 @@ def get_random_user_agent():
     return random.choice(user_agents)
 
 def add_random_delay():
-    """Add a random delay to appear more human-like."""
-    delay = random.uniform(0.5, 2.5)  # 0.5 to 2.5 seconds
+    """Add random delay to appear human-like."""
+    delay = random.uniform(0.5, 2.5)
     time.sleep(delay)
 
+def should_post_now(posted_log, skip_wait=False):
+    """Check if enough time has passed (random 107-158 minutes)."""
+    if skip_wait or not posted_log['last_post_time']:
+        return True, 0
+    
+    last_post = datetime.fromisoformat(posted_log['last_post_time'])
+    minutes_since = (datetime.now() - last_post).total_seconds() / 60
+    required_minutes = random.randint(107, 158)
+    
+    if minutes_since >= required_minutes:
+        return True, 0
+    else:
+        return False, int(required_minutes - minutes_since)
+
 def post_to_facebook(message, image_path=None):
-    """Post message to Facebook Page with optional image attachment."""
+    """Post message to Facebook Page with optional image."""
     if not PAGE_ACCESS_TOKEN or not PAGE_ID:
         print("ERROR: Missing FB_PAGE_ACCESS_TOKEN or FB_PAGE_ID")
+        print("Set these as environment variables or GitHub Secrets")
         return False, "Missing credentials"
     
-    # Add random delay to avoid consistent timing patterns
     add_random_delay()
     
-    # Add headers to look more like a real request
+    payload = {
+        'message': message,
+        'access_token': PAGE_ACCESS_TOKEN
+    }
+    
     headers = {
         'User-Agent': get_random_user_agent(),
         'Accept': 'application/json',
     }
     
     try:
-        # Add random delay before request
         add_random_delay()
         
-        # Handle image attachment if provided
+        # Handle image if provided
         if image_path and os.path.exists(image_path):
-            print(f"Attaching image: {image_path}")
-            
-            payload = {
-                'message': message,
-                'access_token': PAGE_ACCESS_TOKEN
-            }
-            
-            # Open file and post with multipart form data
+            print(f"📸 Attaching image: {os.path.basename(image_path)}")
             with open(image_path, 'rb') as f:
                 files = {'source': (os.path.basename(image_path), f, 'image/jpeg')}
                 response = requests.post(GRAPH_API_URL, data=payload, files=files, headers=headers, timeout=30)
         else:
-            # Text-only post
-            payload = {
-                'message': message,
-                'access_token': PAGE_ACCESS_TOKEN
-            }
             response = requests.post(GRAPH_API_URL, data=payload, headers=headers, timeout=30)
         
         result = response.json()
@@ -189,41 +190,8 @@ def post_to_facebook(message, image_path=None):
 # MAIN EXECUTION
 # =============================================================================
 
-def should_post_now(posted_log, skip_wait=False):
-    """
-    Check if enough time has passed since last post.
-    Random interval between 107-158 minutes (1h47m to 2h38m).
-    
-    Args:
-        posted_log: The log of posted content
-        skip_wait: If True (manual trigger), skip the wait check and post immediately
-    
-    Returns:
-        (should_post: bool, minutes_until_next: int)
-    """
-    # Skip wait check if manually triggered
-    if skip_wait:
-        return True, 0
-    
-    if not posted_log['last_post_time']:
-        # First post, always post
-        return True, 0
-    
-    last_post = datetime.fromisoformat(posted_log['last_post_time'])
-    now = datetime.now()
-    minutes_since = (now - last_post).total_seconds() / 60
-    
-    # Random interval: 107-158 minutes (1h47m to 2h38m)
-    required_minutes = random.randint(107, 158)
-    
-    if minutes_since >= required_minutes:
-        return True, 0
-    else:
-        minutes_until = int(required_minutes - minutes_since)
-        return False, minutes_until
-
 def main():
-    """Main execution - posts one piece of content with variations."""
+    """Main execution - posts one piece of content."""
     print("=" * 50)
     print("SCSK Facebook Auto-Poster (Enhanced)")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -236,8 +204,7 @@ def main():
     print(f"Total posts available: {len(posts)}")
     print(f"Already posted: {len(posted_log['posted_ids'])}")
     
-    # Check if this is a manual trigger (workflow_dispatch)
-    # GitHub Actions sets GITHUB_EVENT_NAME env var
+    # Check if manual trigger (skip wait time)
     event_name = os.environ.get('GITHUB_EVENT_NAME', 'schedule')
     skip_wait = event_name == 'workflow_dispatch'
     
@@ -260,7 +227,7 @@ def main():
         return
     
     post = next_posts[0]
-    message = format_post_variant(post)  # Use variant formatting
+    message = format_post(post)
     
     # Debug info
     remaining = len(posts) - len(posted_log['posted_ids'])
@@ -271,23 +238,17 @@ def main():
     print(message[:200] + "..." if len(message) > 200 else message)
     print("-" * 40)
     
-    # Post to Facebook
-    # Attach image every 3 posts - randomly select from 11 images
+    # Attach image every 3 posts - randomly select from images/ folder
     image_path = None
     posts_count = len(posted_log['posted_ids'])
     
     if (posts_count + 1) % 3 == 0:  # Every 3rd post
-        # Randomly select from 11 images
         image_files = [
             'ad-1.png', 'ad-2.png', 'ad-3.png', 'ad-4.png', 'ad-5.png',
             'ad-6.png', 'ad-7.png', 'ad-8.png', 'ad-9.png', 'ad-10.png',
             'Screenshot1.jpg'
         ]
-        
-        # Randomly pick an image
         selected_image = random.choice(image_files)
-        
-        # Look for images in the images/ folder
         image_path = os.path.join(os.path.dirname(__file__), 'images', selected_image)
         if os.path.exists(image_path):
             print(f"📸 Adding random image: {selected_image}")
@@ -295,6 +256,7 @@ def main():
             print(f"⚠️  Image not found: images/{selected_image}")
             image_path = None
     
+    # Post to Facebook
     success, result = post_to_facebook(message, image_path=image_path)
     
     if success:
@@ -309,25 +271,22 @@ def main():
         exit(1)
 
 def batch_post(count=5, delay_minutes=30):
-    """Post multiple times with randomized delays."""
-    import time
-    
-    print(f"Batch posting {count} posts with variable delays\n")
+    """Post multiple times with delays."""
+    print(f"Batch posting {count} posts with {delay_minutes} min delays\n")
     
     for i in range(count):
         print(f"\n--- Post {i+1}/{count} ---")
         main()
         
         if i < count - 1:
-            # Randomize delay between posts (15-45 minutes if base is 30)
             actual_delay = delay_minutes + random.randint(-15, 15)
-            print(f"Waiting {actual_delay} minutes before next post...")
+            print(f"Waiting {actual_delay} minutes...")
             time.sleep(actual_delay * 60)
 
 def test_mode():
     """Test without actually posting."""
     print("=" * 50)
-    print("TEST MODE - Showing formatted posts (no posting)")
+    print("TEST MODE - No actual posting")
     print("=" * 50)
     
     posts = load_content()
@@ -338,25 +297,16 @@ def test_mode():
     
     next_posts = get_next_posts(posts, posted_log, count=3)
     
-    print(f"\nNext {len(next_posts)} posts (with random formatting):\n")
+    print(f"\nNext {len(next_posts)} posts would be:")
     for i, post in enumerate(next_posts, 1):
-        print(f"--- Variant {i} ---")
-        print(format_post_variant(post))
-        print()
-
-def reset_posted_log():
-    """Reset the posted log - clears all posted IDs to start fresh."""
-    save_posted_log({'posted_ids': [], 'last_post_time': None})
-    print("✓ Posted log reset! All posts are available again.")
-    print("✓ Next run will start from the beginning of content.csv")
+        print(f"\n--- Post {i} [{post['pillar']}] ---")
+        print(format_post(post)[:300] + "...")
 
 if __name__ == "__main__":
     import sys
     
     if len(sys.argv) > 1:
-        if sys.argv[1] == '--reset':
-            reset_posted_log()
-        elif sys.argv[1] == 'test':
+        if sys.argv[1] == 'test':
             test_mode()
         elif sys.argv[1] == 'batch':
             count = int(sys.argv[2]) if len(sys.argv) > 2 else 5
