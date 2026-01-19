@@ -150,11 +150,6 @@ def post_to_facebook(message, image_path=None):
     
     add_random_delay()
     
-    payload = {
-        'message': message,
-        'access_token': PAGE_ACCESS_TOKEN
-    }
-    
     headers = {
         'User-Agent': get_random_user_agent(),
         'Accept': 'application/json',
@@ -163,20 +158,34 @@ def post_to_facebook(message, image_path=None):
     try:
         add_random_delay()
         
-        # Handle image if provided
+        # If image provided, post as photo (different endpoint)
         if image_path and os.path.exists(image_path):
             print(f"📸 Attaching image: {os.path.basename(image_path)}")
+            
+            # Use photos endpoint for image posts
+            photo_url = f"https://graph.facebook.com/v18.0/{PAGE_ID}/photos"
+            
             with open(image_path, 'rb') as f:
-                files = {'source': (os.path.basename(image_path), f, 'image/jpeg')}
-                response = requests.post(GRAPH_API_URL, data=payload, files=files, headers=headers, timeout=30)
+                files = {'source': f}
+                data = {
+                    'message': message,
+                    'access_token': PAGE_ACCESS_TOKEN
+                }
+                response = requests.post(photo_url, files=files, data=data, headers=headers, timeout=30)
         else:
+            # Text-only post
+            payload = {
+                'message': message,
+                'access_token': PAGE_ACCESS_TOKEN
+            }
             response = requests.post(GRAPH_API_URL, data=payload, headers=headers, timeout=30)
         
         result = response.json()
         
-        if 'id' in result:
-            print(f"✓ Posted successfully! Post ID: {result['id']}")
-            return True, result['id']
+        if 'id' in result or 'post_id' in result:
+            post_id = result.get('id') or result.get('post_id')
+            print(f"✓ Posted successfully! Post ID: {post_id}")
+            return True, post_id
         else:
             error = result.get('error', {}).get('message', 'Unknown error')
             print(f"✗ Failed to post: {error}")
