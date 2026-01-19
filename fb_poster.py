@@ -174,6 +174,29 @@ def post_to_facebook(message):
 # MAIN EXECUTION
 # =============================================================================
 
+def should_post_now(posted_log):
+    """
+    Check if enough time has passed since last post.
+    Random interval between 107-158 minutes (1h47m to 2h38m).
+    Returns (should_post: bool, minutes_until_next: int)
+    """
+    if not posted_log['last_post_time']:
+        # First post, always post
+        return True, 0
+    
+    last_post = datetime.fromisoformat(posted_log['last_post_time'])
+    now = datetime.now()
+    minutes_since = (now - last_post).total_seconds() / 60
+    
+    # Random interval: 107-158 minutes (1h47m to 2h38m)
+    required_minutes = random.randint(107, 158)
+    
+    if minutes_since >= required_minutes:
+        return True, 0
+    else:
+        minutes_until = int(required_minutes - minutes_since)
+        return False, minutes_until
+
 def main():
     """Main execution - posts one piece of content with variations."""
     print("=" * 50)
@@ -187,6 +210,14 @@ def main():
     
     print(f"Total posts available: {len(posts)}")
     print(f"Already posted: {len(posted_log['posted_ids'])}")
+    
+    # Check if enough time has passed
+    should_post, wait_minutes = should_post_now(posted_log)
+    if not should_post:
+        print(f"\nNot time to post yet. Wait {wait_minutes} more minutes.")
+        if posted_log['last_post_time']:
+            print(f"Last post: {posted_log['last_post_time']}")
+        return
     
     # Get next post
     next_posts = get_next_posts(posts, posted_log, count=1)
