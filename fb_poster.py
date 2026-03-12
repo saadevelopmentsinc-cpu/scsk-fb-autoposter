@@ -29,7 +29,8 @@ import random
 PAGE_ACCESS_TOKEN = os.environ.get('FB_PAGE_ACCESS_TOKEN')
 PAGE_ID = os.environ.get('FB_PAGE_ID')
 
-GRAPH_API_URL = f"https://graph.facebook.com/v18.0/{PAGE_ID}/feed"
+GRAPH_API_VERSION = "v21.0"
+GRAPH_API_URL = f"https://graph.facebook.com/{GRAPH_API_VERSION}/{PAGE_ID}/feed"
 
 CONTENT_FILE = "content.csv"
 POSTED_LOG = "posted.json"
@@ -141,11 +142,24 @@ def should_post_now(posted_log, skip_wait=False):
     else:
         return False, int(required_minutes - minutes_since)
 
+def validate_token():
+    """Quick check that the token is valid before attempting to post."""
+    url = f"https://graph.facebook.com/{GRAPH_API_VERSION}/me"
+    resp = requests.get(url, params={'access_token': PAGE_ACCESS_TOKEN}, timeout=10)
+    data = resp.json()
+    if 'error' in data:
+        msg = data['error'].get('message', 'Unknown error')
+        print(f"❌ Token validation failed: {msg}")
+        print("   → Go to developers.facebook.com/tools/explorer and generate a new Page access token.")
+        return False
+    print(f"✓ Token valid — posting as: {data.get('name', data.get('id', 'unknown'))}")
+    return True
+
 def post_to_facebook(message, image_path=None):
     """Post message to Facebook Page with optional image."""
     if not PAGE_ACCESS_TOKEN or not PAGE_ID:
         print("ERROR: Missing FB_PAGE_ACCESS_TOKEN or FB_PAGE_ID")
-        print("Set these as environment variables or GitHub Secrets")
+        print("Set these as GitHub Secrets: Settings → Secrets → Actions")
         return False, "Missing credentials"
     
     add_random_delay()
@@ -158,12 +172,10 @@ def post_to_facebook(message, image_path=None):
     try:
         add_random_delay()
         
-        # If image provided, post as photo (different endpoint)
         if image_path and os.path.exists(image_path):
             print(f"📸 Attaching image: {os.path.basename(image_path)}")
             
-            # Use photos endpoint for image posts
-            photo_url = f"https://graph.facebook.com/v18.0/{PAGE_ID}/photos"
+            photo_url = f"https://graph.facebook.com/{GRAPH_API_VERSION}/{PAGE_ID}/photos"
             
             with open(image_path, 'rb') as f:
                 files = {'source': f}
@@ -173,13 +185,13 @@ def post_to_facebook(message, image_path=None):
                 }
                 response = requests.post(photo_url, files=files, data=data, headers=headers, timeout=30)
         else:
-            # Text-only post
             payload = {
                 'message': message,
                 'access_token': PAGE_ACCESS_TOKEN
             }
             response = requests.post(GRAPH_API_URL, data=payload, headers=headers, timeout=30)
         
+        print(f"HTTP Status: {response.status_code}")
         result = response.json()
         
         if 'id' in result or 'post_id' in result:
@@ -187,9 +199,15 @@ def post_to_facebook(message, image_path=None):
             print(f"✓ Posted successfully! Post ID: {post_id}")
             return True, post_id
         else:
-            error = result.get('error', {}).get('message', 'Unknown error')
-            print(f"✗ Failed to post: {error}")
-            return False, error
+            error_data = result.get('error', {})
+            error_msg = error_data.get('message', 'Unknown error')
+            error_code = error_data.get('code', 'N/A')
+            error_subcode = error_data.get('error_subcode', 'N/A')
+            print(f"✗ Failed to post:")
+            print(f"   Code: {error_code} / Subcode: {error_subcode}")
+            print(f"   Message: {error_msg}")
+            print(f"   Full response: {result}")
+            return False, error_msg
             
     except Exception as e:
         print(f"✗ Exception: {str(e)}")
@@ -204,7 +222,12 @@ def main():
     print("=" * 50)
     print("SCSK Facebook Auto-Poster (Enhanced)")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"API:  Graph API {GRAPH_API_VERSION}")
     print("=" * 50)
+    
+    # Validate token before doing anything else
+    if not validate_token():
+        exit(1)
     
     # Load content and posting log
     posts = load_content()
@@ -253,11 +276,10 @@ def main():
     image_path = None
     posts_count = len(posted_log['posted_ids'])
     
-    if (posts_count + 1) % 3 == 0:  # Every 3rd post
+    if (posts_count + 1) % 3 == 0:
         selected_image = 'Screenshot1.jpg'
         print(f"📸 Adding featured image: {selected_image}")
     else:
-        # Random ad image
         ad_images = ['ad-1.png', 'ad-2.png', 'ad-3.png', 'ad-4.png', 'ad-5.png',
                      'ad-6.png', 'ad-7.png', 'ad-8.png', 'ad-9.png', 'ad-10.png']
         selected_image = random.choice(ad_images)
@@ -272,7 +294,6 @@ def main():
     success, result = post_to_facebook(message, image_path=image_path)
     
     if success:
-        # Update log
         posted_log['posted_ids'].append(post['id'])
         posted_log['last_post_time'] = datetime.now().isoformat()
         posted_log['last_post_id'] = result
