@@ -18,8 +18,8 @@ import time
 # =============================================================================
 
 # These are set as GitHub Secrets (or environment variables)
-LINKEDIN_ACCESS_TOKEN = os.environ.get('LINKEDIN_ACCESS_TOKEN')
-LINKEDIN_USER_ID = os.environ.get('LINKEDIN_USER_ID')  # Optional - will try to auto-fetch if not set
+LINKEDIN_ACCESS_TOKEN = (os.environ.get('LINKEDIN_ACCESS_TOKEN') or '').strip()
+LINKEDIN_USER_ID = (os.environ.get('LINKEDIN_USER_ID') or '').strip() or None  # Optional - will try to auto-fetch if not set
 
 # Random delay settings (in seconds)
 # Workflow runs every 2 hours, we add 0-60 min random delay = 2-3 hr effective interval
