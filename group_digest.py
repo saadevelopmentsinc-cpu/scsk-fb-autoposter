@@ -180,38 +180,64 @@ def gh_request(method, endpoint, **kwargs):
     return requests.request(method, url, headers=headers, timeout=30, **kwargs)
 
 
-def upload_image_to_issue_attachment(image_path):
+def commit_image_to_repo(image_path):
     """
-    GitHub doesn't have a public upload-attachment API, but we can embed
-    images via base64 data URIs. For SCSK's small post images (<1MB after
-    resize) this works fine and renders correctly in Issue body markdown.
+    Copy the image into the repo at digest_images/<filename> and commit via
+    the GitHub Contents API. Returns a markdown image URL pointing at the
+    committed file (renders inline in issue body), or (None, basename) on
+    failure.
 
-    Returns a markdown image string ready to embed in the Issue body, or
-    None if upload fails.
+    Why not base64-embed: GitHub caps issue bodies at 65,536 chars. A 50KB
+    image becomes ~70K base64 chars and blows the limit. Committing the file
+    keeps the body small and the image rendering identical.
     """
     try:
         prepared = _prepare_image(image_path)
         with open(prepared, 'rb') as f:
             data = f.read()
-        b64 = base64.b64encode(data).decode('ascii')
-        # Detect mime type from extension
-        ext = Path(prepared).suffix.lower().lstrip('.')
-        if ext == 'jpg':
-            ext = 'jpeg'
+
+        # Build the in-repo path: digest_images/2026-05-04_ad-3.png
+        date_prefix = datetime.now().strftime('%Y-%m-%d')
+        original_name = os.path.basename(image_path)
+        repo_path = f"digest_images/{date_prefix}_{original_name}"
         size_kb = len(data) / 1024
-        print(f"   📎 Embedding image: {os.path.basename(image_path)} ({size_kb:.0f}KB)")
-        # Clean up temp file if we created one
+        print(f"   📎 Committing image: {repo_path} ({size_kb:.0f}KB)")
+
+        # GitHub Contents API: PUT /repos/{owner}/{repo}/contents/{path}
+        b64 = base64.b64encode(data).decode('ascii')
+        payload = {
+            'message': f'Add digest image {repo_path} [skip ci]',
+            'content': b64,
+            'branch': 'main',
+        }
+        resp = gh_request('PUT', f'/repos/{GITHUB_REPO}/contents/{repo_path}',
+                          json=payload)
+
+        # Clean up temp file if we resized
         if prepared != str(image_path):
             try: os.unlink(prepared)
             except OSError: pass
-        return f"data:image/{ext};base64,{b64}", os.path.basename(image_path)
+
+        if resp.status_code in (200, 201):
+            # The download_url in the response is the raw.githubusercontent.com URL
+            # which renders inline in markdown.
+            download_url = resp.json().get('content', {}).get('download_url')
+            if download_url:
+                print(f"   ✓ Image URL: {download_url}")
+                return download_url, original_name
+            print(f"   ⚠️  No download_url in response — image may not render")
+            return None, original_name
+        else:
+            print(f"   ⚠️  Image commit failed: {resp.status_code}")
+            print(f"   Response: {resp.text[:300]}")
+            return None, original_name
     except Exception as e:
-        print(f"   ⚠️  Image embed failed: {e}")
+        print(f"   ⚠️  Image commit failed: {e}")
         return None, os.path.basename(image_path)
 
 
 def _prepare_image(image_path):
-    """Same resize logic as fb_poster.py — keeps images small for Issue body."""
+    """Same resize logic — keeps committed images small."""
     if not _HAS_PIL:
         return str(image_path)
     try:
@@ -387,13 +413,11 @@ def build_issue_body(source_post, country_drafts, image_data):
         body_parts.extend([
             f"### 📸 Image to attach: `{image_name}`",
             "",
-            "<details><summary>Click to expand image</summary>",
-            "",
             f"![{image_name}]({image_md})",
             "",
-            "</details>",
+            f"Direct download: {image_md}",
             "",
-            "Right-click → Save image. Or on mobile, long-press the image inside the spoiler to save.",
+            "On mobile: long-press the image to save. On desktop: right-click → Save image.",
             "",
             "---",
             "",
@@ -493,7 +517,7 @@ def main():
     image_path, image_name = pick_image_for_post(source)
     if image_path:
         print(f"   Selected: {image_name}")
-        image_data = upload_image_to_issue_attachment(image_path)
+        image_data = commit_image_to_repo(image_path)
     else:
         print("   ⚠️  No images found — skipping attachment.")
         image_data = (None, None)
@@ -506,6 +530,13 @@ def main():
     print(f"\n📬 Creating GitHub Issue...")
     print(f"   Title: {issue_title}")
     print(f"   Body length: {len(issue_body)} chars")
+
+    # GitHub caps issue bodies at 65,536 chars. With image as URL (not base64)
+    # this is impossible to hit, but failsafe: trim if somehow exceeded.
+    if len(issue_body) > 60000:
+        print(f"   ⚠️  Body too long ({len(issue_body)} chars) — truncating to 60,000")
+        issue_body = issue_body[:60000] + "\n\n_(truncated)_"
+
     issue = create_issue(issue_title, issue_body, labels=['group-digest'])
 
     if issue:
