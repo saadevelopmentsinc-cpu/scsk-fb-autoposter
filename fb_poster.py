@@ -55,6 +55,40 @@ JPEG_QUALITY = 85                     # Good visual / size balance
 # Construction-themed emojis
 EMOJIS = ['🏗️', '👷', '🔨', '⚒️', '🛠️', '⚙️', '📐', '📏', '🧰', '🪛', '🪚', '🏢', '📋', '✅', '⭐', '💡', '🚀']
 
+# Country hashtag bundles — rotated per post to broaden international reach.
+# Facebook hashtags don't drive much traffic on their own (unlike IG/LinkedIn),
+# but they do signal topic + region to Meta's content classifier and help
+# the small fraction of users who DO use hashtag search find your posts.
+# Strategy: each post gets the universal base (from CSV) + ONE country pack.
+# Weights bias slightly toward US/UK because those markets are larger.
+COUNTRY_BUNDLES = {
+    'US': {
+        'weight': 30,
+        'tags': '#contractorlife #americanbuilder #subcontractor #homebuilder '
+                '#commercialconstruction #residentialconstruction #constructionUSA',
+    },
+    'UK': {
+        'weight': 25,
+        'tags': '#britishbuilders #ukconstruction #tradesman #builderuk '
+                '#groundworker #constructionUK #plumberuk',
+    },
+    'AU_NZ': {
+        'weight': 20,
+        'tags': '#aussiebuilders #buildersofnewzealand #tradiesNZ '
+                '#australianbuilders #aussietradies #kiwibuilders',
+    },
+    'CA': {
+        'weight': 10,
+        'tags': '#canadianconstruction #canadianbuilders #buildcanada',
+    },
+    'UNIVERSAL_ONLY': {
+        # 15% of posts get NO country bundle — looks more organic over time
+        # and avoids every single post having a regional tail.
+        'weight': 15,
+        'tags': '',
+    },
+}
+
 # =============================================================================
 # HELPER FUNCTIONS
 # =============================================================================
@@ -98,11 +132,27 @@ def get_next_posts(posts, posted_log, count=1):
 
     return available[:count]
 
+def pick_country_bundle():
+    """Pick one country bundle weighted by audience size. Returns (name, tags)."""
+    names = list(COUNTRY_BUNDLES.keys())
+    weights = [COUNTRY_BUNDLES[n]['weight'] for n in names]
+    chosen = random.choices(names, weights=weights, k=1)[0]
+    return chosen, COUNTRY_BUNDLES[chosen]['tags']
+
+
 def format_post(post):
     """Format post content with random variations."""
     content = post['content']
-    hashtags = post['hashtags']
+    base_hashtags = post['hashtags']
     cta = post['cta']
+
+    # Rotate in a country-specific hashtag pack on top of the universal base.
+    bundle_name, country_tags = pick_country_bundle()
+    if country_tags:
+        hashtags = f"{base_hashtags} {country_tags}"
+    else:
+        hashtags = base_hashtags
+    print(f"   🌍 Country bundle: {bundle_name}")
 
     # Randomly vary formatting
     variant = random.choice([1, 2, 3, 4, 5])
