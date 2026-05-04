@@ -1,14 +1,13 @@
 # .github/workflows/facebook-poster.yml
 # This workflow posts to Facebook on a schedule with random intervals
-
 name: Facebook Auto-Poster
 
 on:
-  # Run every hour and let the script decide randomly whether to post
-  # This creates truly random intervals between 1h 47min and 2h 38min
+  # Run every hour and let the script decide randomly whether to post.
+  # This creates truly random intervals between 1h 47min and 2h 38min.
   schedule:
     - cron: '0 * * * *'  # Every hour
-  
+
   # Allow manual trigger
   workflow_dispatch:
     inputs:
@@ -20,29 +19,29 @@ on:
 jobs:
   post:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: '3.11'
-      
+
       - name: Install dependencies
         run: |
-          pip install requests
-      
+          pip install requests pillow
+
       - name: Run Facebook Poster
         env:
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
         run: |
           python fb_poster.py
-      
+
       - name: Commit updated log
         run: |
           git config --local user.email "action@github.com"
