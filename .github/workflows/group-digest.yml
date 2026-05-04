@@ -1,0 +1,52 @@
+# .github/workflows/group-digest.yml
+# Generates a daily group post digest as a GitHub Issue.
+# Schedule: 3pm AEDT (Sydney/Melbourne) = 04:00 UTC.
+# (If you're on AEST/Brisbane, change cron to '0 5 * * *')
+# (If you're on ACDT/Adelaide,    change cron to '30 4 * * *')
+# (If you're on AWST/Perth,       change cron to '0 7 * * *')
+name: Group Post Digest
+
+on:
+  # Run daily at 3pm AEDT (= 04:00 UTC)
+  schedule:
+    - cron: '0 4 * * *'
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write          # Required to create the digest Issue
+      contents: write        # Required to commit the updated digest_posted.json
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pillow
+
+      - name: Generate group post digest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python group_digest.py
+
+      - name: Commit updated digest log
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add digest_posted.json
+          git diff --staged --quiet || git commit -m "Update digest log [skip ci]"
+          git push || true
