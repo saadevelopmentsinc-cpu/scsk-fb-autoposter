@@ -101,14 +101,14 @@ COUNTRY_CONFIGS = {
             # understand 'site' just fine in construction context.
         },
         'soft_cta_options': [
-            "If you'd want to test it, it's at sc-sk.com — free during beta. Would really value honest feedback from US contractors.",
-            "Free during the beta. If anyone here wants to try it on a real jobsite, I'd love your input. sc-sk.com",
-            "Beta is open and free. Built it for guys like us — sc-sk.com if you want a look.",
+            "If you want a practical construction app for real jobsites, it's at https://sc-sk.com/. Built by a foreman and available now.",
+            "The Android app is on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app. I'd value feedback from US contractors.",
+            "Built it for crews who need jobs, photos, reports, and calculators in one place — https://sc-sk.com/ if you want a look.",
         ],
         'closer_options': [
             "Happy to answer any questions in the comments.",
-            "Mods — please remove if this isn't allowed. Just trying to get real users.",
-            "Not trying to spam, just looking for honest testers. Tell me what's broken.",
+            "Mods — please remove if this isn't allowed. Just sharing a tool built for real site work.",
+            "Not trying to spam, just sharing something I built for contractors who need less admin.",
         ],
     },
     'UK': {
@@ -130,14 +130,14 @@ COUNTRY_CONFIGS = {
             # UK keeps "site", "sparky", "plumber" — they translate fine.
         },
         'soft_cta_options': [
-            "Free during the beta. Would love feedback from UK tradesmen on what works and what doesn't. sc-sk.com",
-            "It's at sc-sk.com — free for now. Honest feedback from UK builders much appreciated.",
-            "Beta access is free. If anyone here would test it on a real site, I'd value your input. sc-sk.com",
+            "Available now at https://sc-sk.com/. Would love feedback from UK tradesmen on what works and what doesn't.",
+            "The Android app is on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "If anyone here would use it on a real site, I'd value your input. https://sc-sk.com/",
         ],
         'closer_options': [
             "Happy to answer any questions below.",
             "Mods — apologies if this isn't allowed, please remove. Just trying to find real users.",
-            "Not trying to flog anything, just want honest feedback. Tell me what doesn't work.",
+            "Not trying to flog anything, just sharing a practical tool built from site work.",
         ],
     },
     'AU_NZ': {
@@ -152,14 +152,14 @@ COUNTRY_CONFIGS = {
             # No swaps needed — CSV is already in AU voice
         },
         'soft_cta_options': [
-            "Free during beta. Would really value feedback from Aussie/Kiwi tradies. sc-sk.com",
-            "Beta is open and free. Have a crack at it and tell me what's broken — sc-sk.com",
-            "Free for now at sc-sk.com. Built by a foreman, for tradies. Would love your input.",
+            "Available now. Would really value feedback from Aussie/Kiwi tradies. https://sc-sk.com/",
+            "Have a crack at it on a real job and tell me what would make it better — https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "Built by a foreman, for tradies. Jobs, photos, reports, calculators, and site tools in one place. https://sc-sk.com/",
         ],
         'closer_options': [
             "Happy to answer any questions below.",
-            "Mods — pull this if it's not allowed. Just looking for honest testers.",
-            "Not trying to spam. Just want real feedback from blokes who actually use this stuff.",
+            "Mods — pull this if it's not allowed. Just sharing a tool built for the jobsite.",
+            "Not trying to spam. Just want real feedback from people who actually use this stuff.",
         ],
     },
 }
