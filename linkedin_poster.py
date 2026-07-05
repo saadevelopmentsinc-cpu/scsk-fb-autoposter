@@ -12,6 +12,7 @@ import requests
 from datetime import datetime
 import random
 import time
+from campaign import apply_tracking, choose_next_post, remember_post, PLATFORM_HASHTAGS
 
 # =============================================================================
 # CONFIGURATION
@@ -53,6 +54,9 @@ def load_content():
             posts.append({
                 'id': row['id'],
                 'pillar': row['pillar'],
+                'platform': row.get('platform', 'both'),
+                'intent': row.get('intent', ''),
+                'card': row.get('card', ''),
                 'content': row['content'],
                 'hashtags': row['hashtags'],
                 'cta': row['cta']
@@ -73,40 +77,39 @@ def save_posted_log(log):
 
 def get_next_posts(posts, posted_log, count=1):
     """Get next posts that haven't been posted yet. Cycles back to start when done."""
-    posted_ids = set(posted_log['posted_ids'])
-    available = [p for p in posts if p['id'] not in posted_ids]
-    
-    if not available:
-        # All posts have been used, reset and start from beginning
-        print("=" * 50)
-        print("🔄 ALL POSTS COMPLETE! Starting fresh cycle...")
-        print("=" * 50)
-        posted_log['posted_ids'] = []
-        save_posted_log(posted_log)
-        available = posts
-    
-    return available[:count]
+    post, eligible_count, available_count = choose_next_post(posts, posted_log, "linkedin")
+    print(f"LinkedIn eligible posts: {eligible_count}")
+    print(f"LinkedIn unposted pool: {available_count}")
+    return [post]
 
 def format_post(post):
     """Format post content for LinkedIn."""
-    content = post['content']
+    content = apply_tracking(post['content'], "linkedin")
     hashtags = post['hashtags']
-    cta = post['cta']
+    platform_tags = PLATFORM_HASHTAGS.get("linkedin", "")
+    if platform_tags:
+        hashtags = f"{hashtags} {platform_tags}"
+    cta = apply_tracking(post['cta'], "linkedin")
     
     # Combine content with hashtags and CTA
     full_post = f"{content}\n\n{cta}\n\n{hashtags}"
     
     return full_post
 
-def get_image_url(post_number):
-    """Get image URL based on post number. ad-10 every 3rd post, random otherwise."""
+def get_image_url(post_number, card_hint=None):
+    """Get image URL based on the campaign card, with rotation fallback."""
+    if card_hint:
+        image_name = card_hint
+        print(f"Campaign card: {image_name}")
+        return f"{IMAGE_BASE_URL}{image_name}"
+
     if post_number % FEATURED_EVERY == 0:
         image_num = FEATURED_IMAGE
-        print(f"📷 Using FEATURED image: ad-{image_num}{IMAGE_EXTENSION} (every {FEATURED_EVERY}rd post)")
+        print(f"Using FEATURED image: ad-{image_num}{IMAGE_EXTENSION} (every {FEATURED_EVERY}rd post)")
     else:
         image_num = random.randint(1, RANDOM_IMAGE_COUNT)
-        print(f"📷 Using random image: ad-{image_num}{IMAGE_EXTENSION}")
-    
+        print(f"Using random image: ad-{image_num}{IMAGE_EXTENSION}")
+
     return f"{IMAGE_BASE_URL}ad-{image_num}{IMAGE_EXTENSION}"
 
 def register_image_upload(image_url):
@@ -215,7 +218,7 @@ def upload_image_to_linkedin(image_url, user_id):
         print(f"  ✗ Image upload exception: {str(e)}")
         return None
 
-def post_to_linkedin(message, post_number):
+def post_to_linkedin(message, post_number, post=None):
     """Post message to LinkedIn personal profile."""
     if not LINKEDIN_ACCESS_TOKEN:
         print("ERROR: Missing LINKEDIN_ACCESS_TOKEN")
@@ -234,7 +237,7 @@ def post_to_linkedin(message, post_number):
     }
     
     # Get image URL
-    image_url = get_image_url(post_number)
+    image_url = get_image_url(post_number, card_hint=(post or {}).get('card'))
     
     # Try to upload image
     asset_urn = upload_image_to_linkedin(image_url, user_id)
@@ -342,13 +345,14 @@ def main():
     
     # Post to LinkedIn
     post_number = len(posted_log['posted_ids']) + 1
-    success, result = post_to_linkedin(message, post_number)
+    success, result = post_to_linkedin(message, post_number, post=post)
     
     if success:
         # Update log
         posted_log['posted_ids'].append(post['id'])
         posted_log['last_post_time'] = datetime.now().isoformat()
         posted_log['last_post_id'] = result
+        remember_post(posted_log, post)
         save_posted_log(posted_log)
         print(f"\n✓ Log updated. Total posted: {len(posted_log['posted_ids'])}")
     else:

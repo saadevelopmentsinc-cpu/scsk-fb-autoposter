@@ -1,600 +1,550 @@
-id,pillar,content,hashtags,cta
-001,Download,"Your phone already runs half the job.
+id,pillar,platform,intent,card,content,hashtags,cta
+001,Download,both,app_download,ad-1.png,"Your phone is already on every job. Put it to work.
 
-Make it useful.
+Try it on your next job and see how much less chasing the day needs.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+002,Pain,facebook,engagement,ad-2.png,"Still hunting through camera rolls for job photos?
 
-SCSK keeps projects, jobs, photos, reports, weather and calculators in one construction app.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,"Download on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-Website: https://sc-sk.com/"
-002,Pain,"If your site records live in your camera roll, WhatsApp, memory and a half-updated spreadsheet, you do not have a system.
+The app is made to make the boring field admin easier to keep up with. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,See the workflow: https://sc-sk.com/
+003,Jobs,both,app_download,ad-3.png,"Know what is active, done, pending and overdue without chasing the crew.
 
-You have a future headache.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-003,Jobs,"Know every job at a glance.
+Search Google Play Store for SCSK, or open the app page below.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+004,Photos,facebook,app_download,ad-4.png,"Photos are proof. Treat them like job records, not souvenirs.
 
-Active. Done. Planned. Pending.
+Try it on your next job and see how much less chasing the day needs.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+005,Reports,linkedin,website_visit,ad-5.png,"Daily reporting should take minutes, not steal the afternoon.
 
-SCSK turns scattered work into a project view you can actually use onsite.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-004,Photos,"A site photo without context is just clutter.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,See what SCSK does: https://sc-sk.com/
+006,Calculators,both,app_download,ad-6.png,"Tile, paint, brick, grout, sand and cement: quick checks in your pocket.
 
-SCSK keeps photos connected to the work, so the proof is easier to find when someone asks.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-005,Reports,"Reports should not start at 8pm.
+Search Google Play Store for SCSK, or open the app page below.",#constructiontools #contractortools #estimating #buildingtools #sitework,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+007,Offline,both,app_download,ad-7.png,"Sites do not always have perfect reception. Your records still matter.
 
-Capture the work during the day, then turn the record into something useful without rebuilding the whole story from memory.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,View the app features: https://sc-sk.com/
-006,Calculators,"Sand and cement. Tile. Paint. Grout. Roof pitch. Aggregate.
+Try it on your next job and see how much less chasing the day needs.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+008,Proof,linkedin,website_visit,ad-8.png,"If it might matter later, record it now.
 
-SCSK puts practical trade calculators beside the jobs they belong to.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-007,Weather,"Weather is not small talk in construction.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,See what SCSK does: https://sc-sk.com/
+009,Weather,both,website_visit,ad-9.png,"Weather changes the job. Your planning should see it coming.
 
-Rain affects concrete, waterproofing, roofing, access and safety.
+See the features, screenshots and download options on the SCSK website.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,Explore SCSK: https://sc-sk.com/
+010,Calendar,both,website_visit,ad-10.png,"What is happening next week should not be buried in last Tuesday's chat.
 
-SCSK keeps site conditions in the workflow.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,See what SCSK does: https://sc-sk.com/
-008,Calendar,"A construction calendar should show real work, not just neat blocks of time.
+Have a look through the workflow and decide where it fits your jobs.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,View the app and downloads: https://sc-sk.com/
+011,Founder,both,website_visit,ad-1.png,"SCSK was built because construction admin should feel lighter, not louder.
 
-Plan jobs, see the week, and stop letting dates drift out of view.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-009,Offline,"No reception should not mean no records.
+The website gives the clean overview before you install the app.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,See what SCSK does: https://sc-sk.com/
+012,Comparison,linkedin,engagement,ad-2.png,"Camera roll plus chat plus spreadsheet is not a workflow.
 
-SCSK is built for real sites where signal drops, walls get thick, and the work still has to move.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-010,Proof,"The best time to collect proof is before there is a dispute.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Learn more: https://sc-sk.com/
+013,Quick Win,facebook,engagement,ad-3.png,"Try this today: create one project, add one job, attach photos as you go.
 
-Photos, notes and job history are much easier to trust when they were captured as the work happened.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,See what SCSK does: https://sc-sk.com/
-011,Founder,"SCSK was built from site frustration, not boardroom theory.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+014,Download,both,app_download,ad-4.png,"One app for the things that keep slipping between site and office.
 
-The goal is simple: less admin pain for people doing real construction work.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,View the app features: https://sc-sk.com/
-012,Comparison,"Paper gets wet.
-Spreadsheets get ignored.
-Group chats get buried.
-Camera rolls become chaos.
+Search Google Play Store for SCSK, or open the app page below.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+015,Pain,facebook,engagement,ad-5.png,"A site record should not live in five different chats.
 
-SCSK gives the job a better home.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-013,Quick Win,"Try SCSK on one live project.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+016,Jobs,both,app_download,ad-6.png,"Projects, jobs, contacts and notes belong in one place.
 
-Not a fake demo.
-Not a perfect test.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+017,Photos,facebook,app_download,ad-7.png,"Site photos are only useful when you can find them later.
 
-A real job with real photos, notes and deadlines.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,"Download on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-Website: https://sc-sk.com/"
-014,Pain,"The client asks for a photo from three weeks ago.
+Search Google Play Store for SCSK, or open the app page below.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+018,Reports,linkedin,website_visit,ad-8.png,"Better records make cleaner handovers and fewer arguments later.
 
-You know it exists. Somewhere. That is the problem.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,View the app and downloads: https://sc-sk.com/
+019,Calculators,both,app_download,ad-9.png,"Stop opening ten tabs for basic site calculations.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,View the app features: https://sc-sk.com/
-015,Pain,"The site diary is missing one detail.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructiontools #contractortools #estimating #buildingtools #sitework,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+020,Offline,both,app_download,ad-10.png,"Capture work in the field and sync when the connection catches up.
 
-Naturally, it is the one detail everyone cares about later.
+Search Google Play Store for SCSK, or open the app page below.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+021,Proof,linkedin,website_visit,ad-1.png,"Proof is boring until the day it saves you hours.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-016,Pain,"Friday afternoon admin is not a personality trait.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,View the app and downloads: https://sc-sk.com/
+022,Weather,both,website_visit,ad-2.png,"Rain, visibility, UV and site conditions belong beside the work plan.
 
-It is a sign the workflow is stealing time from the wrong end of the day.
+The website gives the clean overview before you install the app.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,See what SCSK does: https://sc-sk.com/
+023,Calendar,both,website_visit,ad-3.png,"A job calendar is useful only when the whole picture is visible.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-017,Pain,"You should not need detective skills to manage a construction job.
+See the features, screenshots and download options on the SCSK website.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,Explore SCSK: https://sc-sk.com/
+024,Founder,linkedin,website_visit,ad-4.png,"This is not another pretty app with no field use. It is built around site records.
 
-The record should be built while the work happens.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,View the app and downloads: https://sc-sk.com/
+025,Comparison,linkedin,engagement,ad-5.png,"If your team already uses ten tools, the next one has to earn its place.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,View the app features: https://sc-sk.com/
-018,Pain,"A job can go sideways quietly.
+The app is made to make the boring field admin easier to keep up with. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,See the workflow: https://sc-sk.com/
+026,Quick Win,facebook,engagement,ad-6.png,"Five minutes in SCSK can clean up the next site handover.
 
-Missed photos, unclear notes, forgotten materials, dates that moved without being recorded.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Learn more: https://sc-sk.com/
+027,Download,both,app_download,ad-7.png,"SCSK is live on Google Play, built for real construction days.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-019,Pain,"If it is only in your head, it is already at risk.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+028,Pain,facebook,engagement,ad-8.png,"The photo you need is always the one nobody can find.
 
-SCSK gives site details somewhere better to live.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Learn more: https://sc-sk.com/
+029,Jobs,both,app_download,ad-9.png,"A cleaner job list makes the day easier before anyone opens a toolbox.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-020,Pain,"The expensive mistake often starts as a tiny missing note.
+Try it on your next job and see how much less chasing the day needs.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+030,Photos,facebook,app_download,ad-10.png,"Capture the work, keep the context, move on.
 
-Capture the small things before they become big conversations.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+031,Reports,linkedin,website_visit,ad-1.png,"When the day ends, the report should already be half built.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,View the app features: https://sc-sk.com/
-021,Pain,"Construction work creates evidence all day.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,Explore SCSK: https://sc-sk.com/
+032,Calculators,both,app_download,ad-2.png,"The small calculation mistakes are the ones that get expensive.
 
-Most systems throw that evidence into five different places.
+Try it on your next job and see how much less chasing the day needs.",#constructiontools #contractortools #estimating #buildingtools #sitework,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+033,Offline,both,app_download,ad-3.png,"No signal should not mean no record.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-022,Pain,"Your camera roll is not a filing cabinet.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+034,Proof,linkedin,app_download,ad-4.png,"A clean record beats a long argument every time.
 
-It was never meant to carry a construction project.
+Search Google Play Store for SCSK, or open the app page below. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+035,Weather,both,website_visit,ad-5.png,"A good day plan starts with what the site will actually allow.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-023,Pain,"The problem is not that you do not work hard.
+Have a look through the workflow and decide where it fits your jobs.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,View the app and downloads: https://sc-sk.com/
+036,Calendar,both,website_visit,ad-6.png,"Plan the week without rebuilding the schedule from scattered messages.
 
-The problem is the job creates more details than memory can hold.
+The website gives the clean overview before you install the app.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,See what SCSK does: https://sc-sk.com/
+037,Founder,linkedin,website_visit,ad-7.png,"The goal is simple: fewer lost details between site and office.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,View the app features: https://sc-sk.com/
-024,Pain,"A group chat feels convenient until you need to find one decision.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,Explore SCSK: https://sc-sk.com/
+038,Comparison,linkedin,engagement,ad-8.png,"The best construction software gets out of the way and keeps the record clean.
 
-Then it becomes archaeology.
+Small records, kept consistently, save big headaches later. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+039,Quick Win,facebook,engagement,ad-9.png,"Start with the job that has the messiest photo trail.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-025,Pain,"Paper is fast until it rains, tears, disappears, or needs to be searched.
+The app is made to make the boring field admin easier to keep up with. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,See the workflow: https://sc-sk.com/
+040,Download,both,app_download,ad-10.png,"If the job is moving, your records should move with it.
 
-That is where the real cost shows up.
+Try it on your next job and see how much less chasing the day needs.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+041,Pain,facebook,engagement,ad-1.png,"If your system depends on memory, it is not a system.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-026,Pain,"Every site has a moment where someone says, 'Did we document that?'
+The app is made to make the boring field admin easier to keep up with. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,See the workflow: https://sc-sk.com/
+042,Jobs,both,app_download,ad-2.png,"Stop rebuilding the same job picture every morning.
 
-SCSK is built for the answer to be yes.
+Search Google Play Store for SCSK, or open the app page below.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+043,Photos,facebook,app_download,ad-3.png,"Before it gets covered, snapped, or forgotten: record it.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,View the app features: https://sc-sk.com/
-027,Pain,"If your admin system only works when the day is calm, it is not a site system.
+Try it on your next job and see how much less chasing the day needs.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+044,Reports,both,website_visit,ad-4.png,"Give the office a clearer view of what happened on site.
 
-Busy days are the whole point.
+The website gives the clean overview before you install the app.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,See what SCSK does: https://sc-sk.com/
+045,Calculators,both,app_download,ad-5.png,"Built-in calculators for the numbers that come up on site again and again.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-028,Pain,"The work gets done onsite.
+Search Google Play Store for SCSK, or open the app page below.",#constructiontools #contractortools #estimating #buildingtools #sitework,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+046,Offline,both,app_download,ad-6.png,"Field work happens wherever the job is, not wherever the Wi-Fi is.
 
-The record should start onsite too.
+Try it on your next job and see how much less chasing the day needs.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+047,Proof,linkedin,website_visit,ad-7.png,"Future you will thank present you for the photo, note and timestamp.
 
-Try SCSK before the next messy job becomes another admin problem.",#construction #contractor #jobsite #sitemanagement #fieldwork #constructionlife #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-029,Download,"Download SCSK before your next job starts.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,See what SCSK does: https://sc-sk.com/
+048,Weather,both,website_visit,ad-8.png,"Concrete, coatings, roofing and outdoor work all care about conditions.
 
-Add the project, capture the first photo, and give the work a proper record from day one.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-030,Download,"Install it now. Test it on the next real job.
+See the features, screenshots and download options on the SCSK website.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,Explore SCSK: https://sc-sk.com/
+049,Calendar,both,website_visit,ad-9.png,"Put upcoming site work where it can be seen and acted on.
 
-The app makes the most sense when it is used where the work actually happens.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-031,Download,"Try SCSK for one week.
+Have a look through the workflow and decide where it fits your jobs.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,View the app and downloads: https://sc-sk.com/
+050,Founder,linkedin,website_visit,ad-10.png,"Built for contractors who need practical tools, not more software theatre.
 
-If it saves you one painful search, one missed note, or one report headache, you will know it helped.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-032,Download,"The app is live on Google Play.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,See what SCSK does: https://sc-sk.com/
+051,Comparison,linkedin,app_download,ad-1.png,"A simple field system beats a complex one nobody opens.
 
-Use it for jobs, photos, reports, calculators, calendar planning and site conditions.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-033,Download,"Make your phone a better site tool.
+Search Google Play Store for SCSK, or open the app page below. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+052,Quick Win,facebook,engagement,ad-2.png,"One clean project record is enough to see the difference.
 
-SCSK turns it into a simple construction workspace instead of just another place for photos to disappear.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-034,Download,"Start with one project.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+053,Download,both,app_download,ad-3.png,"Your phone is already on every job. Put it to work.
 
-You do not need to change your whole business to find out if a cleaner workflow helps.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-035,Download,"If you run construction work from your phone, try this.
+Search Google Play Store for SCSK, or open the app page below.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+054,Pain,facebook,engagement,ad-4.png,"Still hunting through camera rolls for job photos?
 
-SCSK keeps the everyday site details closer to the job.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-036,Download,"Google Play has the app. The website has the overview.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+055,Jobs,both,app_download,ad-5.png,"Know what is active, done, pending and overdue without chasing the crew.
 
-Pick the path that gets you moving faster.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,"Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-See the overview: https://sc-sk.com/"
-037,Download,"Do not wait until the job is a mess to organise it.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+056,Photos,facebook,app_download,ad-6.png,"Photos are proof. Treat them like job records, not souvenirs.
 
-Download SCSK and start the record while the work is still fresh.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-038,Download,"Try SCSK today.
+Search Google Play Store for SCSK, or open the app page below.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+057,Reports,linkedin,website_visit,ad-7.png,"Daily reporting should take minutes, not steal the afternoon.
 
-Tomorrow's admin gets easier when today's details are captured properly.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-039,Download,"This is not another bloated office system.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,View the app and downloads: https://sc-sk.com/
+058,Calculators,both,app_download,ad-8.png,"Tile, paint, brick, grout, sand and cement: quick checks in your pocket.
 
-It is a practical app for site records, photos, jobs, reports and quick tools.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-040,Download,"Use it on the job you least want to manage manually.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructiontools #contractortools #estimating #buildingtools #sitework,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+059,Offline,both,app_download,ad-9.png,"Sites do not always have perfect reception. Your records still matter.
 
-That is where the value shows up fastest.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-041,Download,"Your next site photo can be part of a proper record.
+Search Google Play Store for SCSK, or open the app page below.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+060,Proof,linkedin,website_visit,ad-10.png,"If it might matter later, record it now.
 
-Install SCSK and capture it where the job lives.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-042,Download,"One app will not fix every construction problem.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,View the app and downloads: https://sc-sk.com/
+061,Weather,both,website_visit,ad-1.png,"Weather changes the job. Your planning should see it coming.
 
-But it can make jobs, photos, notes, reports and calculators easier to manage.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-043,Download,"Give SCSK one real project.
+The website gives the clean overview before you install the app.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,See what SCSK does: https://sc-sk.com/
+062,Calendar,both,website_visit,ad-2.png,"What is happening next week should not be buried in last Tuesday's chat.
 
-Let the workflow prove itself on actual site work.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies #constructiontech,"Download on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-Website: https://sc-sk.com/"
-044,Jobs,"Active, done, planned, pending.
+See the features, screenshots and download options on the SCSK website.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,Explore SCSK: https://sc-sk.com/
+063,Founder,linkedin,website_visit,ad-3.png,"SCSK was built because construction admin should feel lighter, not louder.
 
-The job status should be obvious before someone asks.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-045,Jobs,"A job list beats a memory test.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,View the app and downloads: https://sc-sk.com/
+064,Comparison,linkedin,engagement,ad-4.png,"Camera roll plus chat plus spreadsheet is not a workflow.
 
-SCSK helps keep the work visible, separated by project and easier to follow.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Learn more about SCSK: https://sc-sk.com/
-046,Jobs,"When every project has its own record, the day gets less messy.
+The app is made to make the boring field admin easier to keep up with. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,See the workflow: https://sc-sk.com/
+065,Quick Win,facebook,engagement,ad-5.png,"Try this today: create one project, add one job, attach photos as you go.
 
-Jobs, notes and photos belong together.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-047,Jobs,"Stop asking, 'Where are we up to?'
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Learn more: https://sc-sk.com/
+066,Download,both,app_download,ad-6.png,"One app for the things that keep slipping between site and office.
 
-Open the project and see the job trail.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,View the app features: https://sc-sk.com/
-048,Jobs,"The job is more than a line item.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+067,Pain,facebook,engagement,ad-7.png,"A site record should not live in five different chats.
 
-It has dates, photos, notes, materials, contacts and decisions attached to it.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-049,Jobs,"Small builders still need proper systems.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Learn more: https://sc-sk.com/
+068,Jobs,both,app_download,ad-8.png,"Projects, jobs, contacts and notes belong in one place.
 
-SCSK gives you structure without enterprise bloat.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,See what SCSK does: https://sc-sk.com/
-050,Jobs,"If the job changes, the record should change with it.
+Try it on your next job and see how much less chasing the day needs.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+069,Photos,facebook,app_download,ad-9.png,"Site photos are only useful when you can find them later.
 
-Update it while the details are fresh.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-051,Jobs,"A whiteboard is not enough once people leave the room.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+070,Reports,linkedin,website_visit,ad-10.png,"Better records make cleaner handovers and fewer arguments later.
 
-SCSK keeps the job view mobile.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Learn more about SCSK: https://sc-sk.com/
-052,Jobs,"The best job tracker is the one the crew can actually use.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,Explore SCSK: https://sc-sk.com/
+071,Calculators,both,app_download,ad-1.png,"Stop opening ten tabs for basic site calculations.
 
-Simple beats impressive if impressive never gets opened.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-053,Jobs,"Every job needs a home.
+Try it on your next job and see how much less chasing the day needs.",#constructiontools #contractortools #estimating #buildingtools #sitework,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+072,Offline,both,app_download,ad-2.png,"Capture work in the field and sync when the connection catches up.
 
-Not three chats, two notebooks and someone's memory.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,View the app features: https://sc-sk.com/
-054,Jobs,"Your job history should not depend on who remembers what.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+073,Proof,linkedin,website_visit,ad-3.png,"Proof is boring until the day it saves you hours.
 
-SCSK keeps more of the story in one place.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-055,Jobs,"Project visibility is not a luxury.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,Explore SCSK: https://sc-sk.com/
+074,Weather,both,website_visit,ad-4.png,"Rain, visibility, UV and site conditions belong beside the work plan.
 
-It is how you avoid chasing the same answers every day.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,See what SCSK does: https://sc-sk.com/
-056,Jobs,"The job record starts with the first task.
+Have a look through the workflow and decide where it fits your jobs.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,View the app and downloads: https://sc-sk.com/
+075,Calendar,both,website_visit,ad-5.png,"A job calendar is useful only when the whole picture is visible.
 
-Do not wait until handover to organise the work.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-057,Jobs,"Use SCSK to keep jobs moving.
+The website gives the clean overview before you install the app.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,See what SCSK does: https://sc-sk.com/
+076,Founder,linkedin,website_visit,ad-6.png,"This is not another pretty app with no field use. It is built around site records.
 
-Less wondering, more seeing.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Learn more about SCSK: https://sc-sk.com/
-058,Jobs,"Clean job tracking makes cleaner reporting.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,Explore SCSK: https://sc-sk.com/
+077,Comparison,both,engagement,ad-7.png,"If your team already uses ten tools, the next one has to earn its place.
 
-The report is easier when the work was logged properly.",#jobtracking #construction #contractor #jobsite #sitemanagement #fieldmanagement #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-059,Photos,"Site photos are work assets.
+Small records, kept consistently, save big headaches later.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+078,Quick Win,facebook,engagement,ad-8.png,"Five minutes in SCSK can clean up the next site handover.
 
-Treat them like records, not random images in your phone gallery.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-060,Photos,"You took the photo for a reason.
+The app is made to make the boring field admin easier to keep up with. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,See the workflow: https://sc-sk.com/
+079,Download,both,app_download,ad-9.png,"SCSK is live on Google Play, built for real construction days.
 
-SCSK helps you keep that reason attached to the job.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-061,Photos,"Before photos. During photos. Completion photos.
+Try it on your next job and see how much less chasing the day needs.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+080,Pain,facebook,engagement,ad-10.png,"The photo you need is always the one nobody can find.
 
-They matter more when they are organised from the start.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-062,Photos,"The client asks for proof.
+The app is made to make the boring field admin easier to keep up with. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,See the workflow: https://sc-sk.com/
+081,Jobs,both,app_download,ad-1.png,"A cleaner job list makes the day easier before anyone opens a toolbox.
 
-You should not have to scroll past lunch, family photos and screenshots to find it.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-063,Photos,"A photo with no project context is half a record.
+Search Google Play Store for SCSK, or open the app page below.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+082,Photos,facebook,app_download,ad-2.png,"Capture the work, keep the context, move on.
 
-SCSK helps keep photos tied to the work.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-064,Photos,"Stop sending site photos to yourself.
+Try it on your next job and see how much less chasing the day needs.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+083,Reports,linkedin,website_visit,ad-3.png,"When the day ends, the report should already be half built.
 
-Capture them where the job record lives.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-065,Photos,"The waterproofing got covered.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,See what SCSK does: https://sc-sk.com/
+084,Calculators,both,app_download,ad-4.png,"The small calculation mistakes are the ones that get expensive.
 
-The photo you took before that moment should be easy to find.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-066,Photos,"The defect was fixed.
+Search Google Play Store for SCSK, or open the app page below.",#constructiontools #contractortools #estimating #buildingtools #sitework,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+085,Offline,both,app_download,ad-5.png,"No signal should not mean no record.
 
-Keep the proof beside the job, not buried in a chat.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-067,Photos,"A thousand photos can still be useless if none of them are organised.
+Try it on your next job and see how much less chasing the day needs.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+086,Proof,linkedin,website_visit,ad-6.png,"A clean record beats a long argument every time.
 
-SCSK is built to reduce that chaos.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-068,Photos,"Site photos should survive phone upgrades, busy days and bad memory.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,See what SCSK does: https://sc-sk.com/
+087,Weather,both,website_visit,ad-7.png,"A good day plan starts with what the site will actually allow.
 
-Put them in a workflow that respects their value.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-069,Photos,"The photo is the evidence.
+See the features, screenshots and download options on the SCSK website.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,Explore SCSK: https://sc-sk.com/
+088,Calendar,both,website_visit,ad-8.png,"Plan the week without rebuilding the schedule from scattered messages.
 
-The app is the filing system.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-070,Photos,"When photos are organised, reports get easier.
+Have a look through the workflow and decide where it fits your jobs.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,View the app and downloads: https://sc-sk.com/
+089,Founder,linkedin,website_visit,ad-9.png,"The goal is simple: fewer lost details between site and office.
 
-The record is already halfway there.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-071,Photos,"Your phone gallery was not designed for construction handover.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,See what SCSK does: https://sc-sk.com/
+090,Comparison,linkedin,engagement,ad-10.png,"The best construction software gets out of the way and keeps the record clean.
 
-SCSK was.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-072,Photos,"Capture the photo before the wall closes.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Learn more: https://sc-sk.com/
+091,Quick Win,facebook,engagement,ad-1.png,"Start with the job that has the messiest photo trail.
 
-Find it later without guessing.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-073,Photos,"Better photo habits make better project records.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+092,Download,both,app_download,ad-2.png,"If the job is moving, your records should move with it.
 
-Start with the next shot.",#constructionphotos #sitephotos #jobsite #contractor #fieldmanagement #constructionapp,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-074,Reports,"A report is only as good as the records behind it.
+Search Google Play Store for SCSK, or open the app page below.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+093,Pain,facebook,engagement,ad-3.png,"If your system depends on memory, it is not a system.
 
-SCSK helps you capture those records during the job instead of inventing them later.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-075,Reports,"Stop writing reports from memory.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+094,Jobs,both,app_download,ad-4.png,"Stop rebuilding the same job picture every morning.
 
-Use the photos, notes and job history you collected while the work was happening.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Learn more about SCSK: https://sc-sk.com/
-076,Reports,"The hard part of reporting is usually finding the details.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+095,Photos,facebook,app_download,ad-5.png,"Before it gets covered, snapped, or forgotten: record it.
 
-SCSK keeps more of those details close to the project.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-077,Reports,"Clean reports start with clean field records.
+Search Google Play Store for SCSK, or open the app page below.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+096,Reports,linkedin,website_visit,ad-6.png,"Give the office a clearer view of what happened on site.
 
-That is the workflow SCSK is built around.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,View the app features: https://sc-sk.com/
-078,Reports,"If reporting feels painful, the capture system is probably broken.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,View the app and downloads: https://sc-sk.com/
+097,Calculators,both,app_download,ad-7.png,"Built-in calculators for the numbers that come up on site again and again.
 
-Fix the record before the report.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-079,Reports,"Client-ready does not have to mean after-hours.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructiontools #contractortools #estimating #buildingtools #sitework,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+098,Offline,both,app_download,ad-8.png,"Field work happens wherever the job is, not wherever the Wi-Fi is.
 
-Capture better during the day so reporting is less of a grind.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,See what SCSK does: https://sc-sk.com/
-080,Reports,"Good reports reduce arguments.
+Search Google Play Store for SCSK, or open the app page below.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+099,Proof,both,website_visit,ad-9.png,"Future you will thank present you for the photo, note and timestamp.
 
-Dates, photos and notes give the conversation a backbone.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-081,Reports,"Your report should not be a scavenger hunt.
+Have a look through the workflow and decide where it fits your jobs.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,View the app and downloads: https://sc-sk.com/
+100,Weather,both,website_visit,ad-10.png,"Concrete, coatings, roofing and outdoor work all care about conditions.
 
-Keep the ingredients in one place.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Learn more about SCSK: https://sc-sk.com/
-082,Reports,"A simple site record beats a polished excuse.
+The website gives the clean overview before you install the app.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,See what SCSK does: https://sc-sk.com/
+101,Calendar,both,website_visit,ad-1.png,"Put upcoming site work where it can be seen and acted on.
 
-Use SCSK to capture what happened.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-083,Reports,"The more you record onsite, the less you reconstruct later.
+See the features, screenshots and download options on the SCSK website.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,Explore SCSK: https://sc-sk.com/
+102,Founder,linkedin,app_download,ad-2.png,"Built for contractors who need practical tools, not more software theatre.
 
-That is the whole reporting advantage.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,View the app features: https://sc-sk.com/
-084,Reports,"Reports are not paperwork when they protect the job.
+Try it on your next job and see how much less chasing the day needs. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+103,Comparison,linkedin,engagement,ad-3.png,"A simple field system beats a complex one nobody opens.
 
-Make the record easier to build.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-085,Reports,"Photos plus notes plus job status.
+The app is made to make the boring field admin easier to keep up with. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,See the workflow: https://sc-sk.com/
+104,Quick Win,facebook,engagement,ad-4.png,"One clean project record is enough to see the difference.
 
-That is already the start of a better report.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,See what SCSK does: https://sc-sk.com/
-086,Reports,"Every day you delay the record, the details get weaker.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Learn more: https://sc-sk.com/
+105,Download,both,app_download,ad-5.png,"Your phone is already on every job. Put it to work.
 
-Capture them while they are fresh.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-087,Reports,"SCSK helps turn field activity into useful history.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+106,Pain,facebook,engagement,ad-6.png,"Still hunting through camera rolls for job photos?
 
-That history becomes your report.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Learn more about SCSK: https://sc-sk.com/
-088,Reports,"Better records make better handovers.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Learn more: https://sc-sk.com/
+107,Jobs,both,app_download,ad-7.png,"Know what is active, done, pending and overdue without chasing the crew.
 
-Try SCSK before the next job close-out.",#constructionreports #sitereport #contractor #constructionsoftware #paperless #jobsite,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-089,Calculators,"Trade calculators belong beside the work.
+Try it on your next job and see how much less chasing the day needs.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+108,Photos,facebook,app_download,ad-8.png,"Photos are proof. Treat them like job records, not souvenirs.
 
-SCSK keeps practical construction calculators in the same app as your projects.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-090,Calculators,"Sand and cement numbers should not need a messy note.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+109,Reports,linkedin,website_visit,ad-9.png,"Daily reporting should take minutes, not steal the afternoon.
 
-Open the calculator, get the quantity, keep moving.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-091,Calculators,"Tile, paint, grout, brick, roof pitch, aggregate.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,Explore SCSK: https://sc-sk.com/
+110,Calculators,both,app_download,ad-10.png,"Tile, paint, brick, grout, sand and cement: quick checks in your pocket.
 
-Everyday site maths, built into the app.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-092,Calculators,"A quick calculation can prevent a slow mistake.
+Try it on your next job and see how much less chasing the day needs.",#constructiontools #contractortools #estimating #buildingtools #sitework,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+111,Offline,both,app_download,ad-1.png,"Sites do not always have perfect reception. Your records still matter.
 
-Use the numbers before ordering, quoting or committing.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-093,Calculators,"Stop bouncing between random calculator websites.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+112,Proof,linkedin,website_visit,ad-2.png,"If it might matter later, record it now.
 
-Keep your trade tools in SCSK.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-094,Calculators,"The calculator is only useful if it is there when you need it.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,Explore SCSK: https://sc-sk.com/
+113,Weather,both,website_visit,ad-3.png,"Weather changes the job. Your planning should see it coming.
 
-Put it in your pocket with the rest of the job.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-095,Calculators,"Material guesses become material problems.
+Have a look through the workflow and decide where it fits your jobs.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,View the app and downloads: https://sc-sk.com/
+114,Calendar,both,website_visit,ad-4.png,"What is happening next week should not be buried in last Tuesday's chat.
 
-Check the quantity first.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-096,Calculators,"The right number at the right moment saves calls, trips and rework.
+The website gives the clean overview before you install the app.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,See what SCSK does: https://sc-sk.com/
+115,Founder,linkedin,website_visit,ad-5.png,"SCSK was built because construction admin should feel lighter, not louder.
 
-That is why SCSK includes trade calculators.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-097,Calculators,"Construction maths is not glamorous.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,Explore SCSK: https://sc-sk.com/
+116,Comparison,linkedin,engagement,ad-6.png,"Camera roll plus chat plus spreadsheet is not a workflow.
 
-But wrong numbers get expensive fast.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-098,Calculators,"A calculator inside the job workflow beats a screenshot of a formula.
+Small records, kept consistently, save big headaches later. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+117,Quick Win,facebook,engagement,ad-7.png,"Try this today: create one project, add one job, attach photos as you go.
 
-Use the tool where the work is happening.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-099,Calculators,"Concrete, tiles, paint, grout.
+The app is made to make the boring field admin easier to keep up with. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,See the workflow: https://sc-sk.com/
+118,Download,both,app_download,ad-8.png,"One app for the things that keep slipping between site and office.
 
-The boring numbers are often the important ones.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-100,Calculators,"Quick tools should be quick to reach.
+Try it on your next job and see how much less chasing the day needs.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+119,Pain,facebook,app_download,ad-9.png,"A site record should not live in five different chats.
 
-SCSK keeps them close.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-101,Calculators,"Use the calculator before the supplier gets the wrong order.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+120,Jobs,both,app_download,ad-10.png,"Projects, jobs, contacts and notes belong in one place.
 
-Small check, big save.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-102,Calculators,"Planning materials?
+Search Google Play Store for SCSK, or open the app page below.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+121,Photos,both,app_download,ad-1.png,"Site photos are only useful when you can find them later.
 
-Open SCSK before the guess becomes a purchase.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-103,Calculators,"Everyday trade tools. One app.
+Try it on your next job and see how much less chasing the day needs.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+122,Reports,linkedin,website_visit,ad-2.png,"Better records make cleaner handovers and fewer arguments later.
 
-That is the point.",#constructioncalculator #tradetools #buildertools #contractor #constructionapp #tradies,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-104,Weather,"Rain changes the job.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,See what SCSK does: https://sc-sk.com/
+123,Calculators,both,app_download,ad-3.png,"Stop opening ten tabs for basic site calculations.
 
-SCSK keeps weather and site conditions close to the work plan.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-105,Weather,"Concrete does not care about your schedule.
+Search Google Play Store for SCSK, or open the app page below.",#constructiontools #contractortools #estimating #buildingtools #sitework,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+124,Offline,both,app_download,ad-4.png,"Capture work in the field and sync when the connection catches up.
 
-Check the conditions before you commit the crew.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,Learn more about SCSK: https://sc-sk.com/
-106,Weather,"Weather belongs in the construction workflow.
+Try it on your next job and see how much less chasing the day needs.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+125,Proof,linkedin,website_visit,ad-5.png,"Proof is boring until the day it saves you hours.
 
-Not as an afterthought once the day is already off track.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,See what SCSK does: https://sc-sk.com/
-107,Weather,"A site conditions warning can save a bad decision.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,See what SCSK does: https://sc-sk.com/
+126,Weather,both,website_visit,ad-6.png,"Rain, visibility, UV and site conditions belong beside the work plan.
 
-SCSK brings that context into the app.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-108,Weather,"Outdoor work needs more than optimism.
+See the features, screenshots and download options on the SCSK website.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,Explore SCSK: https://sc-sk.com/
+127,Calendar,both,website_visit,ad-7.png,"A job calendar is useful only when the whole picture is visible.
 
-Check the forecast and plan with the site in mind.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,Learn more about SCSK: https://sc-sk.com/
-109,Weather,"Weather affects quality, safety and productivity.
+Have a look through the workflow and decide where it fits your jobs.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,View the app and downloads: https://sc-sk.com/
+128,Founder,linkedin,website_visit,ad-8.png,"This is not another pretty app with no field use. It is built around site records.
 
-So SCSK treats it like job information.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,See what SCSK does: https://sc-sk.com/
-110,Weather,"Do not let the first weather update come from a wet slab.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,See what SCSK does: https://sc-sk.com/
+129,Comparison,linkedin,engagement,ad-9.png,"If your team already uses ten tools, the next one has to earn its place.
 
-Look ahead.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-111,Weather,"Sun, rain, wind, visibility.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Learn more: https://sc-sk.com/
+130,Quick Win,facebook,engagement,ad-10.png,"Five minutes in SCSK can clean up the next site handover.
 
-The site cares about all of it.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,Learn more about SCSK: https://sc-sk.com/
-112,Weather,"A good plan includes the conditions.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+131,Download,both,app_download,ad-1.png,"SCSK is live on Google Play, built for real construction days.
 
-SCSK helps keep them visible.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,See what SCSK does: https://sc-sk.com/
-113,Weather,"Site work changes when the sky changes.
+Search Google Play Store for SCSK, or open the app page below.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+132,Pain,both,engagement,ad-2.png,"The photo you need is always the one nobody can find.
 
-Keep the weather close to the schedule.",#constructionweather #siteconditions #jobsite #contractor #fieldmanagement #constructionapp,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-114,Calendar,"The calendar is where site promises become real.
+Small records, kept consistently, save big headaches later.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+133,Jobs,both,app_download,ad-3.png,"A cleaner job list makes the day easier before anyone opens a toolbox.
 
-Use SCSK to keep planned work visible.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,Learn more about SCSK: https://sc-sk.com/
-115,Calendar,"Jobs slip when nobody can see the week clearly.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+134,Photos,facebook,app_download,ad-4.png,"Capture the work, keep the context, move on.
 
-SCSK gives the plan a better place to live.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-116,Calendar,"Multi-day work needs a clear view.
+Search Google Play Store for SCSK, or open the app page below.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+135,Reports,linkedin,website_visit,ad-5.png,"When the day ends, the report should already be half built.
 
-Track the schedule before the dates blur together.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,View the app features: https://sc-sk.com/
-117,Calendar,"A construction calendar should be connected to the job.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,View the app and downloads: https://sc-sk.com/
+136,Calculators,both,app_download,ad-6.png,"The small calculation mistakes are the ones that get expensive.
 
-Not floating in a separate app with no context.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-118,Calendar,"What is happening next week?
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructiontools #contractortools #estimating #buildingtools #sitework,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+137,Offline,both,app_download,ad-7.png,"No signal should not mean no record.
 
-That should not require reading a chat from last Tuesday.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,See what SCSK does: https://sc-sk.com/
-119,Calendar,"Dates matter because crews, clients and materials depend on them.
+Search Google Play Store for SCSK, or open the app page below.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+138,Proof,linkedin,website_visit,ad-8.png,"A clean record beats a long argument every time.
 
-Keep them visible.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-120,Calendar,"Plan the work where the work is tracked.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,View the app and downloads: https://sc-sk.com/
+139,Weather,both,website_visit,ad-9.png,"A good day plan starts with what the site will actually allow.
 
-SCSK connects the calendar to the project.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,Learn more about SCSK: https://sc-sk.com/
-121,Calendar,"A messy calendar creates messy expectations.
+The website gives the clean overview before you install the app.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,See what SCSK does: https://sc-sk.com/
+140,Calendar,both,website_visit,ad-10.png,"Plan the week without rebuilding the schedule from scattered messages.
 
-Clean it up before the site feels it.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-122,Calendar,"The job does not happen in isolation.
+See the features, screenshots and download options on the SCSK website.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,Explore SCSK: https://sc-sk.com/
+141,Founder,linkedin,website_visit,ad-1.png,"The goal is simple: fewer lost details between site and office.
 
-Dates, photos, notes and reports all connect.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,View the app features: https://sc-sk.com/
-123,Calendar,"See the week before it slips.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,View the app and downloads: https://sc-sk.com/
+142,Comparison,linkedin,engagement,ad-2.png,"The best construction software gets out of the way and keeps the record clean.
 
-That is the calendar promise.",#constructionplanning #projectmanagement #jobsite #contractor #calendar #sitemanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-124,Offline,"If your app fails when reception drops, it is not a field app.
+The app is made to make the boring field admin easier to keep up with. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,See the workflow: https://sc-sk.com/
+143,Quick Win,both,engagement,ad-3.png,"Start with the job that has the messiest photo trail.
 
-SCSK is made for real site conditions.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-125,Offline,"Basements do not care about your cloud sync.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess.",#tradies #builders #contractorlife #jobsite #constructionapp,Learn more: https://sc-sk.com/
+144,Download,both,app_download,ad-4.png,"If the job is moving, your records should move with it.
 
-Capture the record now, sync when you can.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-126,Offline,"Bad signal should not erase good habits.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+145,Pain,facebook,engagement,ad-5.png,"If your system depends on memory, it is not a system.
 
-Keep logging the work.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-127,Offline,"Construction does not pause for Wi-Fi.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Learn more: https://sc-sk.com/
+146,Jobs,both,app_download,ad-6.png,"Stop rebuilding the same job picture every morning.
 
-Your site records should not either.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-128,Offline,"Offline support is not a luxury feature.
+Try it on your next job and see how much less chasing the day needs.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+147,Photos,facebook,app_download,ad-7.png,"Before it gets covered, snapped, or forgotten: record it.
 
-It is a requirement for serious field work.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-129,Offline,"The app needs to work where the work happens.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+148,Reports,linkedin,website_visit,ad-8.png,"Give the office a clearer view of what happened on site.
 
-That includes the dead zones.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-130,Offline,"One bar of signal is not enough for most software.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,Explore SCSK: https://sc-sk.com/
+149,Calculators,both,app_download,ad-9.png,"Built-in calculators for the numbers that come up on site again and again.
 
-SCSK is built with that reality in mind.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-131,Offline,"Capture before you forget.
+Try it on your next job and see how much less chasing the day needs.",#constructiontools #contractortools #estimating #buildingtools #sitework,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+150,Offline,both,app_download,ad-10.png,"Field work happens wherever the job is, not wherever the Wi-Fi is.
 
-Sync when the connection returns.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-132,Offline,"If you wait until the office, the details get weaker.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+151,Proof,linkedin,website_visit,ad-1.png,"Future you will thank present you for the photo, note and timestamp.
 
-Record them onsite.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-133,Offline,"The job keeps moving in bad coverage.
+See the features, screenshots and download options on the SCSK website. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,Explore SCSK: https://sc-sk.com/
+152,Weather,both,website_visit,ad-2.png,"Concrete, coatings, roofing and outdoor work all care about conditions.
 
-SCSK helps the record keep moving too.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-134,Offline,"A field app should not punish you for being in the field.
+Have a look through the workflow and decide where it fits your jobs.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,View the app and downloads: https://sc-sk.com/
+153,Calendar,both,app_download,ad-3.png,"Put upcoming site work where it can be seen and acted on.
 
-Offline-friendly workflows matter.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-135,Offline,"No reception. Still working.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+154,Founder,both,website_visit,ad-4.png,"Built for contractors who need practical tools, not more software theatre.
 
-That is construction.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-136,Offline,"The best record is the one captured in the moment.
+See the features, screenshots and download options on the SCSK website.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,Explore SCSK: https://sc-sk.com/
+155,Comparison,linkedin,engagement,ad-5.png,"A simple field system beats a complex one nobody opens.
 
-Do not let bad signal stop it.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-137,Offline,"Remote site? Thick walls? Patchy network?
+Small records, kept consistently, save big headaches later. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+156,Quick Win,facebook,engagement,ad-6.png,"One clean project record is enough to see the difference.
 
-Still capture the job.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-138,Offline,"Offline workflow means fewer blank spots in the project history.
+The app is made to make the boring field admin easier to keep up with. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,See the workflow: https://sc-sk.com/
+157,Download,both,app_download,ad-7.png,"Your phone is already on every job. Put it to work.
 
-SCSK helps close the gaps.",#offlineapp #construction #fieldwork #jobsite #contractor #constructionsoftware,Try SCSK on Android: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-139,Proof,"Proof is cheap before the argument.
+Try it on your next job and see how much less chasing the day needs.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+158,Pain,facebook,engagement,ad-8.png,"Still hunting through camera rolls for job photos?
 
-It gets expensive when nobody captured it.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-140,Proof,"Take the photo before the work is covered.
+The app is made to make the boring field admin easier to keep up with. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,See the workflow: https://sc-sk.com/
+159,Jobs,both,app_download,ad-9.png,"Know what is active, done, pending and overdue without chasing the crew.
 
-Record the note before the detail is forgotten.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,View the app features: https://sc-sk.com/
-141,Proof,"A proper record protects good work.
+Search Google Play Store for SCSK, or open the app page below.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+160,Photos,facebook,app_download,ad-10.png,"Photos are proof. Treat them like job records, not souvenirs.
 
-SCSK helps you build that record as you go.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-142,Proof,"When the client asks, 'was that done?', you want more than confidence.
+Try it on your next job and see how much less chasing the day needs.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+161,Reports,linkedin,website_visit,ad-1.png,"Daily reporting should take minutes, not steal the afternoon.
 
-You want proof.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,See what SCSK does: https://sc-sk.com/
-143,Proof,"Disputes love weak records.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,See what SCSK does: https://sc-sk.com/
+162,Calculators,both,app_download,ad-2.png,"Tile, paint, brick, grout, sand and cement: quick checks in your pocket.
 
-Do not feed them.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-144,Proof,"Good documentation is not paperwork.
+Search Google Play Store for SCSK, or open the app page below.",#constructiontools #contractortools #estimating #buildingtools #sitework,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+163,Offline,both,app_download,ad-3.png,"Sites do not always have perfect reception. Your records still matter.
 
-It is protection.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Learn more about SCSK: https://sc-sk.com/
-145,Proof,"The best evidence is boring.
+Try it on your next job and see how much less chasing the day needs.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,App page: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+164,Proof,linkedin,website_visit,ad-4.png,"If it might matter later, record it now.
 
-Date, photo, note, job context. Captured at the time.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-146,Proof,"If it matters, record it.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,See what SCSK does: https://sc-sk.com/
+165,Weather,both,website_visit,ad-5.png,"Weather changes the job. Your planning should see it coming.
 
-If it might matter, record it too.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,View the app features: https://sc-sk.com/
-147,Proof,"Every covered stage deserves a photo.
+See the features, screenshots and download options on the SCSK website.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,Explore SCSK: https://sc-sk.com/
+166,Calendar,both,website_visit,ad-6.png,"What is happening next week should not be buried in last Tuesday's chat.
 
-Future you may need it.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-148,Proof,"A strong project record makes everyone calmer.
+Have a look through the workflow and decide where it fits your jobs.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,View the app and downloads: https://sc-sk.com/
+167,Founder,linkedin,website_visit,ad-7.png,"SCSK was built because construction admin should feel lighter, not louder.
 
-The facts are easier to find.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,See what SCSK does: https://sc-sk.com/
-149,Proof,"Proof should not be scattered across five apps.
+The website gives the clean overview before you install the app. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,See what SCSK does: https://sc-sk.com/
+168,Comparison,linkedin,engagement,ad-8.png,"Camera roll plus chat plus spreadsheet is not a workflow.
 
-Keep it with the job.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-150,Proof,"When memory and records disagree, records win.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,Learn more: https://sc-sk.com/
+169,Quick Win,facebook,engagement,ad-9.png,"Try this today: create one project, add one job, attach photos as you go.
 
-Build better records.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Learn more about SCSK: https://sc-sk.com/
-151,Proof,"A photo today can end a debate later.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+170,Download,both,app_download,ad-10.png,"One app for the things that keep slipping between site and office.
 
-SCSK gives it somewhere to live.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-152,Proof,"Protect the job from vague conversations.
+Search Google Play Store for SCSK, or open the app page below.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+171,Pain,facebook,engagement,ad-1.png,"A site record should not live in five different chats.
 
-Capture details clearly.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,View the app features: https://sc-sk.com/
-153,Proof,"The job record is part of the work.
+Small records, kept consistently, save big headaches later. Comment with the job record your team loses most often.",#contractorlife #jobsite #sitework #constructionlife #fieldnotes,Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+172,Jobs,both,app_download,ad-2.png,"Projects, jobs, contacts and notes belong in one place.
 
-Treat it like it matters.",#construction #contractor #siteproof #jobsite #constructionphotos #fieldmanagement,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-154,Founder,"SCSK was not designed to impress a software committee.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#jobmanagement #constructionprojects #contractor #sitecrew #fieldoperations,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+173,Photos,facebook,app_download,ad-3.png,"Site photos are only useful when you can find them later.
 
-It was built to solve annoying construction admin problems.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,"Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-See the overview: https://sc-sk.com/"
-155,Founder,"Built by a foreman means the rough edges of site work matter.
+Search Google Play Store for SCSK, or open the app page below.",#constructionphotos #siteproof #jobsite #contractor #fielddocumentation,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+174,Reports,linkedin,website_visit,ad-4.png,"Better records make cleaner handovers and fewer arguments later.
 
-Bad signal, too many photos, fast decisions, messy days.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,View the app features: https://sc-sk.com/
-156,Founder,"The goal is not to make construction more digital.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#dailyreports #constructionmanagement #fieldreporting #contractors #projectdelivery,View the app and downloads: https://sc-sk.com/
+175,Calculators,both,app_download,ad-5.png,"Stop opening ten tabs for basic site calculations.
 
-The goal is to make construction admin less painful.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,Learn more about SCSK: https://sc-sk.com/
-157,Founder,"If a tool takes too long, crews stop using it.
+Built for tablets and desktop-sized workflows, fully functional on phones.",#constructiontools #contractortools #estimating #buildingtools #sitework,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+176,Offline,both,app_download,ad-6.png,"Capture work in the field and sync when the connection catches up.
 
-SCSK is designed around that truth.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,"Download on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-Website: https://sc-sk.com/"
-158,Founder,"Practical beats fancy on a busy site.
+Search Google Play Store for SCSK, or open the app page below.",#fieldwork #constructionapp #contractorlife #offlinefirst #jobsite,Get it on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+177,Proof,linkedin,website_visit,ad-7.png,"Proof is boring until the day it saves you hours.
 
-That is the product philosophy.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,View the app features: https://sc-sk.com/
-159,Founder,"The best feature is the one someone actually uses at 3pm on a hard day.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#siteproof #constructiondocumentation #riskmanagement #contractors #constructiontech,View the app and downloads: https://sc-sk.com/
+178,Weather,both,website_visit,ad-8.png,"Rain, visibility, UV and site conditions belong beside the work plan.
 
-SCSK is built for that moment.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,Learn more about SCSK: https://sc-sk.com/
-160,Founder,"Construction software should respect the people doing the work.
+The website gives the clean overview before you install the app.",#siteconditions #constructionweather #safetyfirst #jobsite #planning,See what SCSK does: https://sc-sk.com/
+179,Calendar,both,website_visit,ad-9.png,"A job calendar is useful only when the whole picture is visible.
 
-SCSK tries to earn that respect by staying useful.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,"Try the app: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-See the overview: https://sc-sk.com/"
-161,Founder,"This app exists because the old way wastes time.
+See the features, screenshots and download options on the SCSK website.",#constructionplanning #projectmanagement #jobsite #contractor #calendar,Explore SCSK: https://sc-sk.com/
+180,Founder,linkedin,website_visit,ad-10.png,"This is not another pretty app with no field use. It is built around site records.
 
-Paper, camera roll chaos, spreadsheet drift and forgotten notes.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,View the app features: https://sc-sk.com/
-162,Founder,"Simple is not basic.
+Have a look through the workflow and decide where it fits your jobs. It is aimed at contractors who need cleaner field-to-office records.",#constructiontech #startup #constructionmanagement #fieldoperations #contractors,View the app and downloads: https://sc-sk.com/
+181,Comparison,linkedin,engagement,ad-1.png,"If your team already uses ten tools, the next one has to earn its place.
 
-Simple is what survives a real workday.",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,Learn more about SCSK: https://sc-sk.com/
-163,Founder,"Every feature has to answer one question.
+The app is made to make the boring field admin easier to keep up with. It is aimed at contractors who need cleaner field-to-office records.",#constructionsoftware #fieldmanagement #constructiontech #contractors #productivity,See the workflow: https://sc-sk.com/
+182,Quick Win,facebook,engagement,ad-2.png,"Five minutes in SCSK can clean up the next site handover.
 
-Will this help on site?",#builtbytradies #construction #contractor #jobsite #constructiontech #smallbusiness,"Download on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-Website: https://sc-sk.com/"
-164,Comparison,"Paper is quick until you need to search it.
+If this sounds familiar, SCSK is built for exactly that kind of site admin mess. Comment with the job record your team loses most often.",#tradies #builders #contractorlife #jobsite #constructionapp,Learn more: https://sc-sk.com/
+183,Download,both,app_download,ad-3.png,"SCSK is live on Google Play, built for real construction days.
 
-SCSK gives records a searchable home.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,View the app features: https://sc-sk.com/
-165,Comparison,"Spreadsheets are flexible until nobody updates them.
-
-SCSK keeps the workflow closer to the site.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-166,Comparison,"Group chats are useful until the decision disappears.
-
-SCSK keeps job details with the job.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,See what SCSK does: https://sc-sk.com/
-167,Comparison,"Camera roll works until you need one photo from one job.
-
-SCSK keeps photos in context.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-168,Comparison,"Whiteboards are visible until someone leaves the office.
-
-SCSK travels with the work.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,Learn more about SCSK: https://sc-sk.com/
-169,Comparison,"Enterprise tools are powerful until the crew avoids them.
-
-SCSK aims for useful and practical.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-170,Comparison,"Memory is fast until it is wrong.
-
-Records win.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,View the app features: https://sc-sk.com/
-171,Comparison,"Notes apps are better than nothing.
-
-But jobs, photos and reports deserve a proper workflow.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-172,Comparison,"Random apps create random records.
-
-One practical workspace is easier to trust.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,See what SCSK does: https://sc-sk.com/
-173,Comparison,"Paper plus photos plus chats plus spreadsheets equals admin soup.
-
-SCSK gives the job more structure.",#constructionsoftware #paperless #jobsite #contractor #fieldmanagement #productivity,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-174,Quick Win,"Quick win: One project.
-
-Add it to SCSK today and stop letting the next job start messy.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,Learn more about SCSK: https://sc-sk.com/
-175,Quick Win,"Quick win: One photo.
-
-Take it inside SCSK and keep it tied to the work.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-176,Quick Win,"Quick win: One report.
-
-Build it from records captured during the job, not memory after the job.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-177,Quick Win,"Quick win: One calculator.
-
-Check the number before the order becomes expensive.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-178,Quick Win,"Quick win: One weather check.
-
-Look before the plan gets soaked.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,See what SCSK does: https://sc-sk.com/
-179,Quick Win,"Quick win: One job status update.
-
-Tomorrow starts clearer.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-180,Quick Win,"Quick win: One material note.
-
-Save a future phone call.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,Install SCSK from Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-181,Quick Win,"Quick win: One calendar entry.
-
-Make the promise visible.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,Download SCSK on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app
-182,Quick Win,"Quick win: One contact saved properly.
-
-Stop hunting for numbers in message threads.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,View the app features: https://sc-sk.com/
-183,Quick Win,"Quick win: One week using SCSK.
-
-That is enough to see where your current workflow leaks time.",#construction #contractor #productivity #jobsite #constructionapp #sitemanagement,Get the app here: https://play.google.com/store/apps/details?id=com.saa.scsk_app
+Built for tablets and desktop-sized workflows, fully functional on phones.",#construction #constructionapp #contractor #jobsite #fieldmanagement #tradies,Search Google Play Store for SCSK: https://play.google.com/store/apps/details?id=com.saa.scsk_app

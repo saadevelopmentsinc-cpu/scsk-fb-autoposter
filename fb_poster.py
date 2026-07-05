@@ -23,6 +23,7 @@ import time
 import tempfile
 from datetime import datetime, timedelta
 import random
+from campaign import apply_tracking, choose_next_post, remember_post, PLATFORM_HASHTAGS
 
 # Pillow is optional — if missing we fall back to uploading the original.
 try:
@@ -102,6 +103,9 @@ def load_content():
             posts.append({
                 'id': row['id'],
                 'pillar': row['pillar'],
+                'platform': row.get('platform', 'both'),
+                'intent': row.get('intent', ''),
+                'card': row.get('card', ''),
                 'content': row['content'],
                 'hashtags': row['hashtags'],
                 'cta': row['cta']
@@ -121,16 +125,11 @@ def save_posted_log(log):
         json.dump(log, f, indent=2)
 
 def get_next_posts(posts, posted_log, count=1):
-    """Get next posts that haven't been posted yet."""
-    posted_ids = set(posted_log['posted_ids'])
-    available = [p for p in posts if p['id'] not in posted_ids]
-
-    if not available:
-        print("All posts exhausted. Resetting cycle...")
-        posted_log['posted_ids'] = []
-        available = posts
-
-    return available[:count]
+    """Get the next Facebook-ready post while avoiding tight repeats."""
+    post, eligible_count, available_count = choose_next_post(posts, posted_log, "facebook")
+    print(f"Facebook eligible posts: {eligible_count}")
+    print(f"Facebook unposted pool: {available_count}")
+    return [post]
 
 def pick_country_bundle():
     """Pick one country bundle weighted by audience size. Returns (name, tags)."""
@@ -142,9 +141,9 @@ def pick_country_bundle():
 
 def format_post(post):
     """Format post content with random variations."""
-    content = post['content']
+    content = apply_tracking(post['content'], "facebook")
     base_hashtags = post['hashtags']
-    cta = post['cta']
+    cta = apply_tracking(post['cta'], "facebook")
 
     # Rotate in a country-specific hashtag pack on top of the universal base.
     bundle_name, country_tags = pick_country_bundle()
@@ -152,7 +151,10 @@ def format_post(post):
         hashtags = f"{base_hashtags} {country_tags}"
     else:
         hashtags = base_hashtags
-    print(f"   🌍 Country bundle: {bundle_name}")
+    platform_tags = PLATFORM_HASHTAGS.get("facebook", "")
+    if platform_tags:
+        hashtags = f"{hashtags} {platform_tags}"
+    print(f"   Country bundle: {bundle_name}")
 
     # Randomly vary formatting
     variant = random.choice([1, 2, 3, 4, 5])
@@ -416,20 +418,23 @@ def main():
     print(message[:200] + "..." if len(message) > 200 else message)
     print("-" * 40)
 
-    # Attach image with EVERY post
-    # Every 3rd post: Screenshot1.jpg
-    # Other posts: Random from ad-1 to ad-10
+    # Attach image with EVERY post.
+    # Prefer the campaign card hinted in content.csv so copy and image stay aligned.
     image_path = None
     posts_count = len(posted_log['posted_ids'])
+    card_hint = (post.get('card') or '').strip()
 
-    if (posts_count + 1) % 3 == 0:
-        selected_image = 'Screenshot1.jpg'
-        print(f"📸 Adding featured image: {selected_image}")
+    if card_hint:
+        selected_image = card_hint
+        print(f"Campaign card: {selected_image}")
+    elif (posts_count + 1) % 3 == 0:
+        selected_image = 'ad-10.png'
+        print(f"Adding featured image: {selected_image}")
     else:
         ad_images = ['ad-1.png', 'ad-2.png', 'ad-3.png', 'ad-4.png', 'ad-5.png',
                      'ad-6.png', 'ad-7.png', 'ad-8.png', 'ad-9.png', 'ad-10.png']
         selected_image = random.choice(ad_images)
-        print(f"📸 Adding random ad image: {selected_image}")
+        print(f"Adding random ad image: {selected_image}")
 
     image_path = os.path.join(os.path.dirname(__file__), 'images', selected_image)
     if not os.path.exists(image_path):
@@ -443,6 +448,7 @@ def main():
         posted_log['posted_ids'].append(post['id'])
         posted_log['last_post_time'] = datetime.now().isoformat()
         posted_log['last_post_id'] = result
+        remember_post(posted_log, post)
         save_posted_log(posted_log)
         print(f"\n✓ Log updated. Total posted: {len(posted_log['posted_ids'])}")
     else:
