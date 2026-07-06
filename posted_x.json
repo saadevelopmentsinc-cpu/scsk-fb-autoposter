@@ -1,4 +1,14 @@
 {
-  "posted_ids": [],
-  "last_post_time": null
+  "posted_ids": [
+    "006"
+  ],
+  "last_post_time": "2026-07-06T11:07:46.234046",
+  "last_post_id": "2074087905820303601",
+  "next_wait_minutes": 455,
+  "recent_pillars": [
+    "Calculators"
+  ],
+  "recent_cards": [
+    "ad-6.png"
+  ]
 }
