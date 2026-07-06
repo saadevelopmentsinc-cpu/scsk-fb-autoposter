@@ -28,9 +28,14 @@ Add these GitHub repository secrets:
 - `X_CLIENT_ID`
 - `X_CLIENT_SECRET`
 - `X_REFRESH_TOKEN`
+- `X_API_KEY`
+- `X_API_SECRET`
+- `X_ACCESS_TOKEN`
+- `X_ACCESS_TOKEN_SECRET`
 - `X_ALLOWED_MENTIONS` optional, comma-separated, only for accounts you are allowed to tag
 
 `X_REFRESH_TOKEN` is the `refresh_token` value from the local X OAuth token cache created by `python x_poster.py auth`.
+The four `X_API_*` / `X_ACCESS_*` secrets come from the X Developer app's Keys and Tokens screen and are used to upload the same card images used by Facebook.
 
 The X poster avoids mass tagging or random community spam. It uses construction-focused hashtags and direct SCSK product descriptions for better long-term reach.
 

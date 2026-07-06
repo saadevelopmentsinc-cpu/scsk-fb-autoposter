@@ -9,6 +9,12 @@ Required GitHub secrets / environment variables:
   X_CLIENT_SECRET
   X_REFRESH_TOKEN
 
+For card image uploads, also set:
+  X_API_KEY
+  X_API_SECRET
+  X_ACCESS_TOKEN
+  X_ACCESS_TOKEN_SECRET
+
 Optional:
   X_ALLOWED_MENTIONS - comma-separated account handles you are allowed to tag.
                        Defaults to no mentions.
@@ -32,6 +38,10 @@ ME_URL = "https://api.x.com/2/users/me"
 X_CLIENT_ID = (os.environ.get("X_CLIENT_ID") or "").strip()
 X_CLIENT_SECRET = (os.environ.get("X_CLIENT_SECRET") or "").strip()
 X_REFRESH_TOKEN = (os.environ.get("X_REFRESH_TOKEN") or "").strip()
+X_API_KEY = (os.environ.get("X_API_KEY") or "").strip()
+X_API_SECRET = (os.environ.get("X_API_SECRET") or "").strip()
+X_ACCESS_TOKEN = (os.environ.get("X_ACCESS_TOKEN") or "").strip()
+X_ACCESS_TOKEN_SECRET = (os.environ.get("X_ACCESS_TOKEN_SECRET") or "").strip()
 
 MIN_POST_INTERVAL_MINUTES = 420
 MAX_POST_INTERVAL_MINUTES = 540
@@ -45,6 +55,33 @@ def http():
             "Missing Python dependency: requests. Install it with: pip install requests"
         ) from exc
     return requests
+
+
+def tweepy_client():
+    try:
+        import tweepy
+    except ImportError as exc:
+        raise SystemExit(
+            "Missing Python dependency: tweepy. Install it with: pip install tweepy"
+        ) from exc
+
+    if not all([X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET]):
+        return None, None
+
+    auth = tweepy.OAuth1UserHandler(
+        X_API_KEY,
+        X_API_SECRET,
+        X_ACCESS_TOKEN,
+        X_ACCESS_TOKEN_SECRET,
+    )
+    api = tweepy.API(auth)
+    client = tweepy.Client(
+        consumer_key=X_API_KEY,
+        consumer_secret=X_API_SECRET,
+        access_token=X_ACCESS_TOKEN,
+        access_token_secret=X_ACCESS_TOKEN_SECRET,
+    )
+    return api, client
 
 
 PRODUCT_COPY = [
@@ -66,14 +103,18 @@ PILLAR_COPY = {
 }
 
 CONSTRUCTION_HASHTAGS = [
+    "#Construction",
+    "#Contractors",
+    "#ConstructionLife",
+    "#ConTech",
+    "#Jobsite",
+    "#Builders",
+    "#Trades",
+    "#ProjectManagement",
     "#ConstructionTech",
     "#ConstructionManagement",
-    "#SiteManagement",
-    "#Contractors",
     "#ConstructionSoftware",
-    "#FieldManagement",
-    "#ConstructionApps",
-    "#Builders",
+    "#Building",
 ]
 
 
@@ -134,6 +175,17 @@ def get_next_posts(posts, posted_log, count=1):
     print(f"X eligible posts: {eligible_count}")
     print(f"X unposted pool: {available_count}")
     return [post]
+
+
+def get_card_image_path(post):
+    card = (post.get("card") or "").strip()
+    if not card:
+        return None
+    image_path = os.path.join(os.path.dirname(__file__), "images", card)
+    if not os.path.exists(image_path):
+        print(f"Card image missing: images/{card}")
+        return None
+    return image_path
 
 
 def allowed_mentions():
@@ -228,7 +280,7 @@ def validate_token(access_token):
     return False
 
 
-def post_to_x(message, access_token):
+def post_text_to_x(message, access_token):
     response = http().post(
         POST_URL,
         headers=api_headers(access_token),
@@ -244,6 +296,28 @@ def post_to_x(message, access_token):
     print(f"Failed to post to X: {response.status_code}")
     print(response.text)
     return False, response.text
+
+
+def post_to_x(message, access_token, image_path=None):
+    if image_path:
+        api, client = tweepy_client()
+        if api and client:
+            try:
+                print(f"Attaching X card image: {os.path.basename(image_path)}")
+                media = api.simple_upload(image_path)
+                response = client.create_tweet(
+                    text=message,
+                    media_ids=[media.media_id],
+                )
+                post_id = getattr(response, "data", {}).get("id", "unknown")
+                print(f"Posted successfully with card image. X post ID: {post_id}")
+                return True, post_id
+            except Exception as exc:
+                print(f"Image post failed, falling back to text-only: {exc}")
+        else:
+            print("X media secrets not set; posting text-only.")
+
+    return post_text_to_x(message, access_token)
 
 
 def is_manual_run():
@@ -284,14 +358,17 @@ def main():
 
     post = get_next_posts(posts, posted_log, count=1)[0]
     message = format_post(post)
+    image_path = get_card_image_path(post)
 
     print(f"\nPosting [{post['pillar']}] - ID: {post['id']}")
+    if image_path:
+        print(f"Card image: images/{os.path.basename(image_path)}")
     print("-" * 40)
     print(message)
     print(f"Characters: {len(message)}/280")
     print("-" * 40)
 
-    success, result = post_to_x(message, access_token)
+    success, result = post_to_x(message, access_token, image_path=image_path)
     if success:
         posted_log.setdefault("posted_ids", []).append(post["id"])
         posted_log["last_post_time"] = datetime.now().isoformat()
@@ -317,7 +394,10 @@ def test_mode():
     next_posts = get_next_posts(posts, posted_log, count=3)
     for i, post in enumerate(next_posts, 1):
         message = format_post(post)
+        image_path = get_card_image_path(post)
         print(f"\n--- X Post {i} [{post['pillar']}] ID {post['id']} ---")
+        if image_path:
+            print(f"Card image: images/{os.path.basename(image_path)}")
         print(message)
         print(f"Characters: {len(message)}/280")
 
