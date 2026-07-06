@@ -48,9 +48,11 @@ python x_poster.py auth-test
 
 ## Schedule
 
-Default: Posts every 30 minutes from 6am-10pm AEST
+Facebook checks hourly and posts using its own delay rules.
+LinkedIn runs on its workflow schedule.
+X checks hourly and posts after a random 7-9 hour interval, averaging about 3 posts per day.
 
-Edit `.github/workflows/facebook-poster.yml` to customize.
+Edit `.github/workflows/` to customize.
 
 ## Cost
 

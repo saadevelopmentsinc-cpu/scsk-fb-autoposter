@@ -2,8 +2,9 @@ name: X Auto-Poster
 
 on:
   schedule:
-    # Runs every 3 hours from roughly 6am to 9pm AEST.
-    - cron: '0 19,22,1,4,7,10 * * *'
+    # Runs hourly; x_poster.py posts only after a random 7-9 hour interval.
+    # That averages about 3 posts per day.
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:

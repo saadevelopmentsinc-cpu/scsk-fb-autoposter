@@ -18,7 +18,6 @@ import csv
 import json
 import os
 import random
-import time
 from datetime import datetime
 
 from campaign import choose_next_post, remember_post, PLATFORM_HASHTAGS
@@ -34,8 +33,8 @@ X_CLIENT_ID = (os.environ.get("X_CLIENT_ID") or "").strip()
 X_CLIENT_SECRET = (os.environ.get("X_CLIENT_SECRET") or "").strip()
 X_REFRESH_TOKEN = (os.environ.get("X_REFRESH_TOKEN") or "").strip()
 
-MIN_RANDOM_DELAY = 0
-MAX_RANDOM_DELAY = 1800
+MIN_POST_INTERVAL_MINUTES = 420
+MAX_POST_INTERVAL_MINUTES = 540
 
 
 def http():
@@ -108,6 +107,26 @@ def load_posted_log():
 def save_posted_log(log):
     with open(POSTED_LOG, "w", encoding="utf-8") as f:
         json.dump(log, f, indent=2)
+
+
+def should_post_now(posted_log, skip_wait=False):
+    if skip_wait or not posted_log.get("last_post_time"):
+        return True, 0, 0
+
+    last_post = datetime.fromisoformat(posted_log["last_post_time"])
+    minutes_since = (datetime.now() - last_post).total_seconds() / 60
+    required_minutes = posted_log.get("next_wait_minutes")
+    if not isinstance(required_minutes, int):
+        required_minutes = random.randint(
+            MIN_POST_INTERVAL_MINUTES,
+            MAX_POST_INTERVAL_MINUTES,
+        )
+        posted_log["next_wait_minutes"] = required_minutes
+        save_posted_log(posted_log)
+
+    if minutes_since >= required_minutes:
+        return True, 0, required_minutes
+    return False, int(required_minutes - minutes_since), required_minutes
 
 
 def get_next_posts(posts, posted_log, count=1):
@@ -227,13 +246,8 @@ def post_to_x(message, access_token):
     return False, response.text
 
 
-def maybe_delay():
-    if os.environ.get("GITHUB_ACTIONS") and os.environ.get("GITHUB_EVENT_NAME") != "workflow_dispatch":
-        delay = random.randint(MIN_RANDOM_DELAY, MAX_RANDOM_DELAY)
-        print(f"Random delay: {delay // 60}m {delay % 60}s")
-        time.sleep(delay)
-    else:
-        print("Manual run - skipping delay")
+def is_manual_run():
+    return os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
 
 
 def main():
@@ -242,18 +256,31 @@ def main():
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
 
-    maybe_delay()
+    posts = load_content()
+    posted_log = load_posted_log()
+    print(f"Total posts available: {len(posts)}")
+    print(f"Already posted to X: {len(posted_log.get('posted_ids', []))}")
+
+    should_post, wait_minutes, required_minutes = should_post_now(
+        posted_log,
+        skip_wait=is_manual_run(),
+    )
+    if is_manual_run():
+        print("Manual run - skipping 7-9 hour timer")
+    elif not should_post:
+        print(
+            f"Not time to post yet. Random interval is {required_minutes} minutes; "
+            f"wait about {wait_minutes} more minutes."
+        )
+        print(f"Last post: {posted_log.get('last_post_time')}")
+        return
+
     access_token, new_refresh_token = refresh_access_token()
     if not access_token:
         raise SystemExit(1)
     if new_refresh_token and new_refresh_token != X_REFRESH_TOKEN:
         print("WARNING: X returned a rotated refresh token.")
         print("If future X posts fail to refresh, re-run local auth and update the X_REFRESH_TOKEN GitHub secret.")
-
-    posts = load_content()
-    posted_log = load_posted_log()
-    print(f"Total posts available: {len(posts)}")
-    print(f"Already posted to X: {len(posted_log.get('posted_ids', []))}")
 
     post = get_next_posts(posts, posted_log, count=1)[0]
     message = format_post(post)
@@ -269,8 +296,13 @@ def main():
         posted_log.setdefault("posted_ids", []).append(post["id"])
         posted_log["last_post_time"] = datetime.now().isoformat()
         posted_log["last_post_id"] = result
+        posted_log["next_wait_minutes"] = random.randint(
+            MIN_POST_INTERVAL_MINUTES,
+            MAX_POST_INTERVAL_MINUTES,
+        )
         remember_post(posted_log, post)
         save_posted_log(posted_log)
+        print(f"Next automatic X post window: {posted_log['next_wait_minutes']} minutes")
         print(f"\nLog updated. Total X posts: {len(posted_log['posted_ids'])}")
     else:
         raise SystemExit(1)
