@@ -84,6 +84,10 @@ def tweepy_client():
     return api, client
 
 
+def has_oauth1_credentials():
+    return all([X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET])
+
+
 PRODUCT_COPY = [
     "SCSK is a construction management app for site teams. Track jobs, project photos, documents, notes, calendar events and sync across Windows and Android.",
     "SCSK helps builders and contractors keep site work organised: jobs, photos, plans, documents, notes, contacts and project updates in one app.",
@@ -300,10 +304,10 @@ def post_text_to_x(message, access_token):
     return False, response.text
 
 
-def post_to_x(message, access_token, image_path=None):
-    if image_path:
-        api, client = tweepy_client()
-        if api and client:
+def post_to_x(message, access_token=None, image_path=None):
+    api, client = tweepy_client()
+    if api and client:
+        if image_path:
             try:
                 print(f"Attaching X card image: {os.path.basename(image_path)}")
                 media = api.simple_upload(image_path)
@@ -316,10 +320,38 @@ def post_to_x(message, access_token, image_path=None):
                 return True, post_id
             except Exception as exc:
                 print(f"Image post failed, falling back to text-only: {exc}")
-        else:
-            print("X media secrets not set; posting text-only.")
+
+        try:
+            response = client.create_tweet(text=message)
+            post_id = getattr(response, "data", {}).get("id", "unknown")
+            print(f"Posted successfully. X post ID: {post_id}")
+            return True, post_id
+        except Exception as exc:
+            print(f"OAuth1 post failed: {exc}")
+            if not access_token:
+                return False, str(exc)
+    elif image_path:
+        print("X media secrets not set; posting text-only.")
+
+    if not access_token:
+        print("ERROR: Missing OAuth1 media secrets and no OAuth2 access token is available.")
+        return False, "missing_auth"
 
     return post_text_to_x(message, access_token)
+
+
+def authenticate_for_posting():
+    if has_oauth1_credentials():
+        print("Using OAuth1 user tokens for X posting.")
+        return None
+
+    access_token, new_refresh_token = refresh_access_token()
+    if not access_token:
+        raise SystemExit(1)
+    if new_refresh_token and new_refresh_token != X_REFRESH_TOKEN:
+        print("WARNING: X returned a rotated refresh token.")
+        print("Update the X_REFRESH_TOKEN GitHub secret before the next OAuth2-only run.")
+    return access_token
 
 
 def is_manual_run():
@@ -351,12 +383,7 @@ def main():
         print(f"Last post: {posted_log.get('last_post_time')}")
         return
 
-    access_token, new_refresh_token = refresh_access_token()
-    if not access_token:
-        raise SystemExit(1)
-    if new_refresh_token and new_refresh_token != X_REFRESH_TOKEN:
-        print("WARNING: X returned a rotated refresh token.")
-        print("If future X posts fail to refresh, re-run local auth and update the X_REFRESH_TOKEN GitHub secret.")
+    access_token = authenticate_for_posting()
 
     post = get_next_posts(posts, posted_log, count=1)[0]
     message = format_post(post)
