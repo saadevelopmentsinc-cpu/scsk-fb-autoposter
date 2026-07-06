@@ -105,16 +105,18 @@ PILLAR_COPY = {
 CONSTRUCTION_HASHTAGS = [
     "#Construction",
     "#Contractors",
-    "#ConstructionLife",
-    "#ConTech",
-    "#Jobsite",
     "#Builders",
-    "#Trades",
-    "#ProjectManagement",
-    "#ConstructionTech",
+    "#Tradies",
+    "#Jobsite",
+    "#ConstructionIndustry",
+    "#ConstructionProject",
     "#ConstructionManagement",
+    "#ConstructionTechnology",
+    "#ConTech",
     "#ConstructionSoftware",
-    "#Building",
+    "#ProjectManagement",
+    "#SiteManagement",
+    "#SmallBusiness",
 ]
 
 

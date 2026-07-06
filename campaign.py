@@ -15,7 +15,7 @@ PLATFORM_LABELS = {
 PLATFORM_HASHTAGS = {
     "facebook": "#constructionlife #contractorlife #builders #tradies #sitework",
     "linkedin": "#constructiontechnology #constructionmanagement #contractors #fieldoperations #proptech",
-    "x": "#Construction #Contractors #ConstructionLife #ConTech #Jobsite",
+    "x": "#Construction #Contractors #Builders #ConstructionTechnology #ProjectManagement",
 }
 
 
