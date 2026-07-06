@@ -9,18 +9,21 @@ WEBSITE_URL = "https://sc-sk.com/"
 PLATFORM_LABELS = {
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
+    "x": "X",
 }
 
 PLATFORM_HASHTAGS = {
     "facebook": "#constructionlife #contractorlife #builders #tradies #sitework",
     "linkedin": "#constructiontechnology #constructionmanagement #contractors #fieldoperations #proptech",
+    "x": "#ConstructionTech #ConstructionManagement #SiteManagement #Contractors #ConstructionApps",
 }
 
 
 def row_platforms(post):
     raw = (post.get("platform") or "both").lower()
     if raw in ("all", "both", ""):
-        return {"facebook", "linkedin"}
+        return {"facebook", "linkedin", "x"}
+    raw = raw.replace("twitter", "x")
     return {part.strip() for part in raw.replace("/", ",").split(",") if part.strip()}
 
 

@@ -1,0 +1,47 @@
+name: X Auto-Poster
+
+on:
+  schedule:
+    # Runs every 3 hours from roughly 6am to 9pm AEST.
+    - cron: '0 19,22,1,4,7,10 * * *'
+  workflow_dispatch:
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run X Poster
+        env:
+          X_CLIENT_ID: ${{ secrets.X_CLIENT_ID }}
+          X_CLIENT_SECRET: ${{ secrets.X_CLIENT_SECRET }}
+          X_REFRESH_TOKEN: ${{ secrets.X_REFRESH_TOKEN }}
+          X_ALLOWED_MENTIONS: ${{ secrets.X_ALLOWED_MENTIONS }}
+        run: |
+          python x_poster.py
+
+      - name: Commit and push log
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add posted_x.json
+          git commit -m "Update X posted log [skip ci]" || exit 0
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            echo "Retry $i..."
+            sleep 5
+          done
