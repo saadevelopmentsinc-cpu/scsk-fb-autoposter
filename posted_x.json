@@ -2,19 +2,22 @@
   "posted_ids": [
     "006",
     "003",
-    "011"
+    "011",
+    "010"
   ],
-  "last_post_time": "2026-07-06T19:28:44.429935",
-  "last_post_id": "2074213978419376497",
-  "next_wait_minutes": 513,
+  "last_post_time": "2026-07-07T04:41:16.901866",
+  "last_post_id": "2074353030385049913",
+  "next_wait_minutes": 441,
   "recent_pillars": [
     "Calculators",
     "Jobs",
-    "Founder"
+    "Founder",
+    "Calendar"
   ],
   "recent_cards": [
     "ad-6.png",
     "ad-3.png",
-    "ad-1.png"
+    "ad-1.png",
+    "ad-10.png"
   ]
 }
