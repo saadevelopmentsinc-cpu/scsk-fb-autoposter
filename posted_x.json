@@ -4,23 +4,26 @@
     "003",
     "011",
     "010",
-    "009"
+    "009",
+    "007"
   ],
-  "last_post_time": "2026-07-07T14:04:39.467066",
-  "last_post_id": "2074494808454832342",
-  "next_wait_minutes": 482,
+  "last_post_time": "2026-07-07T22:50:31.469460",
+  "last_post_id": "2074627147096871004",
+  "next_wait_minutes": 422,
   "recent_pillars": [
     "Calculators",
     "Jobs",
     "Founder",
     "Calendar",
-    "Weather"
+    "Weather",
+    "Offline"
   ],
   "recent_cards": [
     "ad-6.png",
     "ad-3.png",
     "ad-1.png",
     "ad-10.png",
-    "ad-9.png"
+    "ad-9.png",
+    "ad-7.png"
   ]
 }
