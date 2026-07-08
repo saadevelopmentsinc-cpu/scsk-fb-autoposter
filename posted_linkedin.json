@@ -162,24 +162,25 @@
     "166",
     "168",
     "170",
-    "163"
+    "163",
+    "175"
   ],
-  "last_post_time": "2026-07-08T04:32:59.895046",
-  "last_post_id": "urn:li:share:7480479022737682432",
+  "last_post_time": "2026-07-08T07:41:25.338177",
+  "last_post_id": "urn:li:share:7480526441407795200",
   "recent_pillars": [
-    "Weather",
     "Calculators",
     "Calendar",
     "Comparison",
     "Download",
-    "Offline"
+    "Offline",
+    "Calculators"
   ],
   "recent_cards": [
-    "ad-5.png",
     "ad-2.png",
     "ad-6.png",
     "ad-8.png",
     "ad-10.png",
-    "ad-3.png"
+    "ad-3.png",
+    "ad-5.png"
   ]
 }
