@@ -14,25 +14,26 @@
     "027",
     "036",
     "044",
-    "042"
+    "042",
+    "020"
   ],
-  "last_post_time": "2026-07-11T14:17:27.879398",
-  "last_post_id": "2075947582874943895",
-  "next_wait_minutes": 509,
+  "last_post_time": "2026-07-11T23:42:21.852711",
+  "last_post_id": "2076089744543326412",
+  "next_wait_minutes": 495,
   "recent_pillars": [
-    "Offline",
     "Weather",
     "Download",
     "Calendar",
     "Reports",
-    "Jobs"
+    "Jobs",
+    "Offline"
   ],
   "recent_cards": [
-    "ad-3.png",
     "ad-2.png",
     "ad-7.png",
     "ad-6.png",
     "ad-4.png",
-    "ad-2.png"
+    "ad-2.png",
+    "ad-10.png"
   ]
 }
