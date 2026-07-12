@@ -16,25 +16,26 @@
     "044",
     "042",
     "020",
-    "019"
+    "019",
+    "053"
   ],
-  "last_post_time": "2026-07-12T07:57:31.830718",
-  "last_post_id": "2076214357256536363",
-  "next_wait_minutes": 529,
+  "last_post_time": "2026-07-12T17:49:53.815531",
+  "last_post_id": "2076363431158903128",
+  "next_wait_minutes": 498,
   "recent_pillars": [
-    "Download",
     "Calendar",
     "Reports",
     "Jobs",
     "Offline",
-    "Calculators"
+    "Calculators",
+    "Download"
   ],
   "recent_cards": [
-    "ad-7.png",
     "ad-6.png",
     "ad-4.png",
     "ad-2.png",
     "ad-10.png",
-    "ad-9.png"
+    "ad-9.png",
+    "ad-3.png"
   ]
 }
