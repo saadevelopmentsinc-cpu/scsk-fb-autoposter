@@ -162,24 +162,25 @@
     "137",
     "123",
     "156",
-    "172"
+    "172",
+    "179"
   ],
-  "last_post_time": "2026-07-12T06:39:50.367970",
-  "last_post_id": "122130460623194814",
+  "last_post_time": "2026-07-12T09:06:54.897553",
+  "last_post_id": "122130470067194814",
   "recent_pillars": [
-    "Jobs",
     "Weather",
     "Offline",
     "Calculators",
     "Quick Win",
-    "Jobs"
+    "Jobs",
+    "Calendar"
   ],
   "recent_cards": [
-    "ad-9.png",
     "ad-8.png",
     "ad-7.png",
     "ad-3.png",
     "ad-6.png",
-    "ad-2.png"
+    "ad-2.png",
+    "ad-9.png"
   ]
 }
