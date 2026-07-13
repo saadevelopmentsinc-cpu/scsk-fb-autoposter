@@ -17,25 +17,26 @@
     "042",
     "020",
     "019",
-    "053"
+    "053",
+    "062"
   ],
-  "last_post_time": "2026-07-12T17:49:53.815531",
-  "last_post_id": "2076363431158903128",
-  "next_wait_minutes": 498,
+  "last_post_time": "2026-07-13T05:24:49.831756",
+  "last_post_id": "2076538316892094916",
+  "next_wait_minutes": 491,
   "recent_pillars": [
-    "Calendar",
     "Reports",
     "Jobs",
     "Offline",
     "Calculators",
-    "Download"
+    "Download",
+    "Calendar"
   ],
   "recent_cards": [
-    "ad-6.png",
     "ad-4.png",
     "ad-2.png",
     "ad-10.png",
     "ad-9.png",
-    "ad-3.png"
+    "ad-3.png",
+    "ad-2.png"
   ]
 }
