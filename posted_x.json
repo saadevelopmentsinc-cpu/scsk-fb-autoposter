@@ -20,25 +20,26 @@
     "053",
     "062",
     "061",
-    "046"
+    "046",
+    "045"
   ],
-  "last_post_time": "2026-07-13T22:43:49.083941",
-  "last_post_id": "2076799786624143560",
-  "next_wait_minutes": 455,
+  "last_post_time": "2026-07-14T07:02:44.290802",
+  "last_post_id": "2076925344058122384",
+  "next_wait_minutes": 517,
   "recent_pillars": [
-    "Offline",
     "Calculators",
     "Download",
     "Calendar",
     "Weather",
-    "Offline"
+    "Offline",
+    "Calculators"
   ],
   "recent_cards": [
-    "ad-10.png",
     "ad-9.png",
     "ad-3.png",
     "ad-2.png",
     "ad-1.png",
-    "ad-6.png"
+    "ad-6.png",
+    "ad-5.png"
   ]
 }
