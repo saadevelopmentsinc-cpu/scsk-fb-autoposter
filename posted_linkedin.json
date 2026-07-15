@@ -34,24 +34,25 @@
     "038",
     "045",
     "057",
-    "046"
+    "046",
+    "048"
   ],
-  "last_post_time": "2026-07-15T07:22:48.170389",
-  "last_post_id": "urn:li:share:7483058470384988160",
+  "last_post_time": "2026-07-15T11:33:59.561902",
+  "last_post_id": "urn:li:share:7483121684481200129",
   "recent_pillars": [
-    "Download",
     "Offline",
     "Comparison",
     "Calculators",
     "Reports",
-    "Offline"
+    "Offline",
+    "Weather"
   ],
   "recent_cards": [
-    "ad-10.png",
     "ad-3.png",
     "ad-8.png",
     "ad-5.png",
     "ad-7.png",
-    "ad-6.png"
+    "ad-6.png",
+    "ad-8.png"
   ]
 }
