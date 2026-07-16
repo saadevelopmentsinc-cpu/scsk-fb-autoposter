@@ -41,24 +41,25 @@
     "051",
     "042",
     "050",
-    "047"
+    "047",
+    "061"
   ],
-  "last_post_time": "2026-07-16T07:43:49.591300",
-  "last_post_id": "urn:li:share:7483426149256032257",
+  "last_post_time": "2026-07-16T11:07:26.975991",
+  "last_post_id": "urn:li:share:7483477392741560320",
   "recent_pillars": [
-    "Calendar",
     "Download",
     "Comparison",
     "Jobs",
     "Founder",
-    "Proof"
+    "Proof",
+    "Weather"
   ],
   "recent_cards": [
-    "ad-9.png",
     "ad-3.png",
     "ad-1.png",
     "ad-2.png",
     "ad-10.png",
-    "ad-7.png"
+    "ad-7.png",
+    "ad-1.png"
   ]
 }
