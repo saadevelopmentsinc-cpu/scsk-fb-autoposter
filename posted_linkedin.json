@@ -58,24 +58,25 @@
     "073",
     "079",
     "084",
-    "070"
+    "070",
+    "085"
   ],
-  "last_post_time": "2026-07-18T12:42:41.352622",
-  "last_post_id": "urn:li:share:7484226136105852928",
+  "last_post_time": "2026-07-18T20:52:46.209469",
+  "last_post_id": "urn:li:share:7484349469182939136",
   "recent_pillars": [
-    "Weather",
     "Comparison",
     "Proof",
     "Download",
     "Calculators",
-    "Reports"
+    "Reports",
+    "Offline"
   ],
   "recent_cards": [
-    "ad-4.png",
     "ad-7.png",
     "ad-3.png",
     "ad-9.png",
     "ad-4.png",
-    "ad-10.png"
+    "ad-10.png",
+    "ad-5.png"
   ]
 }
