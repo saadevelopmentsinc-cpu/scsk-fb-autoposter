@@ -77,24 +77,25 @@
     "103",
     "100",
     "062",
-    "109"
+    "109",
+    "111"
   ],
-  "last_post_time": "2026-07-21T11:54:03.626174",
-  "last_post_id": "urn:li:share:7485301062208225281",
+  "last_post_time": "2026-07-21T20:20:56.400828",
+  "last_post_id": "urn:li:share:7485428622082899968",
   "recent_pillars": [
-    "Calculators",
     "Founder",
     "Comparison",
     "Weather",
     "Calendar",
-    "Reports"
+    "Reports",
+    "Offline"
   ],
   "recent_cards": [
-    "ad-7.png",
     "ad-6.png",
     "ad-3.png",
     "ad-10.png",
     "ad-2.png",
-    "ad-9.png"
+    "ad-9.png",
+    "ad-1.png"
   ]
 }
