@@ -69,24 +69,25 @@
     "094",
     "095",
     "091",
-    "100"
+    "100",
+    "079"
   ],
-  "last_post_time": "2026-07-21T23:02:38.345625",
-  "last_post_id": "122131361289194814",
+  "last_post_time": "2026-07-22T03:21:36.047180",
+  "last_post_id": "122131377591194814",
   "recent_pillars": [
-    "Calendar",
     "Proof",
     "Jobs",
     "Photos",
     "Quick Win",
-    "Weather"
+    "Weather",
+    "Download"
   ],
   "recent_cards": [
-    "ad-8.png",
     "ad-9.png",
     "ad-4.png",
     "ad-5.png",
     "ad-1.png",
-    "ad-10.png"
+    "ad-10.png",
+    "ad-9.png"
   ]
 }
