@@ -85,24 +85,25 @@
     "114",
     "116",
     "105",
-    "060"
+    "060",
+    "113"
   ],
-  "last_post_time": "2026-07-22T22:56:36.694853",
-  "last_post_id": "urn:li:share:7485830186220007424",
+  "last_post_time": "2026-07-23T00:56:32.232846",
+  "last_post_id": "urn:li:share:7485860366460035072",
   "recent_pillars": [
-    "Founder",
     "Reports",
     "Calendar",
     "Comparison",
     "Download",
-    "Proof"
+    "Proof",
+    "Weather"
   ],
   "recent_cards": [
-    "ad-2.png",
     "ad-3.png",
     "ad-4.png",
     "ad-6.png",
     "ad-5.png",
-    "ad-10.png"
+    "ad-10.png",
+    "ad-3.png"
   ]
 }
