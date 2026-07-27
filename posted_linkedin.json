@@ -114,24 +114,25 @@
     "110",
     "148",
     "144",
-    "152"
+    "152",
+    "140"
   ],
-  "last_post_time": "2026-07-27T05:20:39.228163",
-  "last_post_id": "urn:li:share:7487376385162977281",
+  "last_post_time": "2026-07-27T09:00:35.765275",
+  "last_post_id": "urn:li:share:7487431735157301249",
   "recent_pillars": [
-    "Jobs",
     "Founder",
     "Calculators",
     "Reports",
     "Download",
-    "Weather"
+    "Weather",
+    "Calendar"
   ],
   "recent_cards": [
-    "ad-6.png",
     "ad-1.png",
     "ad-10.png",
     "ad-8.png",
     "ad-4.png",
-    "ad-2.png"
+    "ad-2.png",
+    "ad-10.png"
   ]
 }
