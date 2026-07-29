@@ -125,24 +125,25 @@
     "155",
     "164",
     "166",
-    "162"
+    "162",
+    "163"
   ],
-  "last_post_time": "2026-07-29T00:00:18.981577",
-  "last_post_id": "urn:li:share:7488020545196974080",
+  "last_post_time": "2026-07-29T04:24:51.143452",
+  "last_post_id": "urn:li:share:7488087117806452736",
   "recent_pillars": [
-    "Quick Win",
     "Reports",
     "Comparison",
     "Proof",
     "Calendar",
-    "Calculators"
+    "Calculators",
+    "Offline"
   ],
   "recent_cards": [
-    "ad-3.png",
     "ad-1.png",
     "ad-5.png",
     "ad-4.png",
     "ad-6.png",
-    "ad-2.png"
+    "ad-2.png",
+    "ad-3.png"
   ]
 }
