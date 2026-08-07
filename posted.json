@@ -46,24 +46,25 @@
     "059",
     "077",
     "080",
-    "068"
+    "068",
+    "069"
   ],
-  "last_post_time": "2026-08-07T07:25:02.781551",
-  "last_post_id": "122132848905194814",
+  "last_post_time": "2026-08-07T10:57:52.601055",
+  "last_post_id": "122132866905194814",
   "recent_pillars": [
-    "Weather",
     "Calculators",
     "Offline",
     "Comparison",
     "Pain",
-    "Jobs"
+    "Jobs",
+    "Photos"
   ],
   "recent_cards": [
-    "ad-1.png",
     "ad-8.png",
     "ad-9.png",
     "ad-7.png",
     "ad-10.png",
-    "ad-8.png"
+    "ad-8.png",
+    "ad-9.png"
   ]
 }
