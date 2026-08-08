@@ -42,24 +42,25 @@
     "058",
     "029",
     "061",
-    "053"
+    "053",
+    "062"
   ],
-  "last_post_time": "2026-08-07T22:30:11.870772",
-  "last_post_id": "urn:li:share:7491621744689213440",
+  "last_post_time": "2026-08-08T00:18:38.147103",
+  "last_post_id": "urn:li:share:7491649034172919808",
   "recent_pillars": [
-    "Reports",
     "Founder",
     "Calculators",
     "Jobs",
     "Weather",
-    "Download"
+    "Download",
+    "Calendar"
   ],
   "recent_cards": [
-    "ad-7.png",
     "ad-10.png",
     "ad-8.png",
     "ad-9.png",
     "ad-1.png",
-    "ad-3.png"
+    "ad-3.png",
+    "ad-2.png"
   ]
 }
