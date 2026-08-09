@@ -54,24 +54,25 @@
     "066",
     "068",
     "072",
-    "075"
+    "075",
+    "071"
   ],
-  "last_post_time": "2026-08-09T04:48:39.746352",
-  "last_post_id": "urn:li:share:7492079376478638082",
+  "last_post_time": "2026-08-09T06:02:48.892040",
+  "last_post_id": "urn:li:share:7492098037595697152",
   "recent_pillars": [
-    "Reports",
     "Proof",
     "Download",
     "Jobs",
     "Offline",
-    "Calendar"
+    "Calendar",
+    "Calculators"
   ],
   "recent_cards": [
-    "ad-10.png",
     "ad-3.png",
     "ad-6.png",
     "ad-8.png",
     "ad-2.png",
-    "ad-5.png"
+    "ad-5.png",
+    "ad-1.png"
   ]
 }
