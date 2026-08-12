@@ -81,24 +81,25 @@
     "111",
     "102",
     "107",
-    "079"
+    "079",
+    "113"
   ],
-  "last_post_time": "2026-08-12T10:53:04.125030",
-  "last_post_id": "urn:li:share:7493258245780697088",
+  "last_post_time": "2026-08-12T12:09:04.002769",
+  "last_post_id": "urn:li:share:7493277371299725312",
   "recent_pillars": [
-    "Comparison",
     "Proof",
     "Offline",
     "Founder",
     "Jobs",
-    "Download"
+    "Download",
+    "Weather"
   ],
   "recent_cards": [
-    "ad-3.png",
     "ad-9.png",
     "ad-1.png",
     "ad-2.png",
     "ad-7.png",
-    "ad-9.png"
+    "ad-9.png",
+    "ad-3.png"
   ]
 }
