@@ -90,24 +90,25 @@
     "122",
     "123",
     "126",
-    "120"
+    "120",
+    "124"
   ],
-  "last_post_time": "2026-08-13T12:06:15.692978",
-  "last_post_id": "urn:li:share:7493639053339451393",
+  "last_post_time": "2026-08-13T20:26:45.367914",
+  "last_post_id": "urn:li:share:7493765006975557633",
   "recent_pillars": [
-    "Download",
     "Calendar",
     "Reports",
     "Calculators",
     "Weather",
-    "Jobs"
+    "Jobs",
+    "Offline"
   ],
   "recent_cards": [
-    "ad-8.png",
     "ad-4.png",
     "ad-2.png",
     "ad-3.png",
     "ad-6.png",
-    "ad-10.png"
+    "ad-10.png",
+    "ad-4.png"
   ]
 }
