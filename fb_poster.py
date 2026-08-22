@@ -23,7 +23,14 @@ import time
 import tempfile
 from datetime import datetime, timedelta
 import random
-from campaign import apply_tracking, choose_next_post, remember_post, PLATFORM_HASHTAGS
+from campaign import (
+    apply_tracking,
+    choose_next_post,
+    download_links,
+    refresh_platform_copy,
+    remember_post,
+    PLATFORM_HASHTAGS,
+)
 
 # Pillow is optional — if missing we fall back to uploading the original.
 try:
@@ -141,9 +148,9 @@ def pick_country_bundle():
 
 def format_post(post):
     """Format post content with random variations."""
-    content = apply_tracking(post['content'], "facebook")
+    content = apply_tracking(refresh_platform_copy(post['content']), "facebook")
     base_hashtags = post['hashtags']
-    cta = apply_tracking(post['cta'], "facebook")
+    cta = download_links("facebook")
 
     # Rotate in a country-specific hashtag pack on top of the universal base.
     bundle_name, country_tags = pick_country_bundle()

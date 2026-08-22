@@ -3,8 +3,9 @@ import re
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
-APP_URL = "https://play.google.com/store/apps/details?id=com.saa.scsk_app"
 WEBSITE_URL = "https://sc-sk.com/"
+IOS_APP_STORE_URL = "https://apps.apple.com/au/app/construction-site-manager-scsk/id6758083839"
+GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.saa.scsk_app"
 
 PLATFORM_LABELS = {
     "facebook": "Facebook",
@@ -55,6 +56,30 @@ def apply_tracking(text, platform):
         replace_url,
         text,
     )
+
+
+def refresh_platform_copy(text):
+    """Replace launch-era Google-Play-only wording with current availability."""
+    if not text:
+        return text
+
+    text = text.replace(
+        "Search Google Play Store for SCSK, or open the app page below.",
+        "SCSK is now available on iPhone, iPad, Android and Windows.",
+    )
+    return text.replace(
+        "Search Google Play Store for SCSK",
+        "Find SCSK on the Apple App Store or Google Play",
+    )
+
+
+def download_links(platform):
+    """Return the canonical cross-platform links included with every post."""
+    return "\n".join([
+        f"Website: {tracked_url(WEBSITE_URL, platform)}",
+        f"Apple App Store: {IOS_APP_STORE_URL}",
+        f"Google Play: {tracked_url(GOOGLE_PLAY_URL, platform)}",
+    ])
 
 
 def get_recent_values(posted_log, key, limit=4):

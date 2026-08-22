@@ -12,7 +12,14 @@ import requests
 from datetime import datetime
 import random
 import time
-from campaign import apply_tracking, choose_next_post, remember_post, PLATFORM_HASHTAGS
+from campaign import (
+    apply_tracking,
+    choose_next_post,
+    download_links,
+    refresh_platform_copy,
+    remember_post,
+    PLATFORM_HASHTAGS,
+)
 
 # =============================================================================
 # CONFIGURATION
@@ -84,12 +91,12 @@ def get_next_posts(posts, posted_log, count=1):
 
 def format_post(post):
     """Format post content for LinkedIn."""
-    content = apply_tracking(post['content'], "linkedin")
+    content = apply_tracking(refresh_platform_copy(post['content']), "linkedin")
     hashtags = post['hashtags']
     platform_tags = PLATFORM_HASHTAGS.get("linkedin", "")
     if platform_tags:
         hashtags = f"{hashtags} {platform_tags}"
-    cta = apply_tracking(post['cta'], "linkedin")
+    cta = download_links("linkedin")
     
     # Combine content with hashtags and CTA
     full_post = f"{content}\n\n{cta}\n\n{hashtags}"
