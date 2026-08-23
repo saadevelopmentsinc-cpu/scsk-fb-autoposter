@@ -64,6 +64,10 @@ Canada, Ireland, South Africa, the UAE/Gulf, Singapore/Malaysia, India, and
 the Philippines. Group posts remain manual so you can check each group's rules
 and post only where promotion is allowed.
 
+Facebook Page posts rotate through country and construction-topic hashtag
+pools. Each post samples a different mix capped at 12 unique hashtags, so the
+campaign covers more searches over time without stuffing every post.
+
 Edit `.github/workflows/` to customize.
 
 ## Cost

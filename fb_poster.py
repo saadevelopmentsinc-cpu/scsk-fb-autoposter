@@ -73,51 +73,66 @@ COUNTRY_BUNDLES = {
     'US': {
         'weight': 20,
         'tags': '#contractorlife #americanbuilder #subcontractor #homebuilder '
-                '#commercialconstruction #residentialconstruction #constructionUSA',
+                '#commercialconstruction #residentialconstruction '
+                '#constructionUSA #generalcontractor #UScontractors '
+                '#jobsiteUSA',
     },
     'UK': {
         'weight': 15,
         'tags': '#britishbuilders #ukconstruction #tradesman #builderuk '
-                '#groundworker #constructionUK #plumberuk',
+                '#groundworker #constructionUK #plumberuk #ukbuilders '
+                '#uksitemanager #britishtrades',
     },
     'AU_NZ': {
         'weight': 15,
         'tags': '#aussiebuilders #buildersofnewzealand #tradiesNZ '
-                '#australianbuilders #aussietradies #kiwibuilders',
+                '#australianbuilders #aussietradies #kiwibuilders '
+                '#australianconstruction #nzconstruction #aussiesitemanager '
+                '#constructiondownunder',
     },
     'CA': {
         'weight': 10,
-        'tags': '#canadianconstruction #canadianbuilders #buildcanada',
+        'tags': '#canadianconstruction #canadianbuilders #buildcanada '
+                '#canadiancontractors #constructioncanada #canadiansites '
+                '#canadiantrades #generalcontractorcanada',
     },
     'IE': {
         'weight': 6,
         'tags': '#irishconstruction #irishbuilders #constructionireland '
-                '#irishtrades',
+                '#irishtrades #irelandbuilders #irishcontractors '
+                '#irishsitemanager #buildingireland',
     },
     'ZA': {
         'weight': 8,
         'tags': '#southafricanconstruction #sabuilders #constructionSA '
-                '#southafricancontractors',
+                '#southafricancontractors #buildersSA #SAsitemanagers '
+                '#constructionafrica #southafricantrades',
     },
     'UAE_GCC': {
         'weight': 7,
         'tags': '#uaeconstruction #dubaiconstruction #gccconstruction '
-                '#middleeastconstruction',
+                '#middleeastconstruction #uaecontractors #dubaisitemanager '
+                '#gulfcontractors #constructiondubai',
     },
     'SG_MY': {
         'weight': 6,
         'tags': '#singaporeconstruction #malaysiaconstruction '
-                '#constructionasia #siteoperations',
+                '#constructionasia #siteoperations #singaporecontractors '
+                '#malaysianbuilders #sitemanagersasia #aseanconstruction',
     },
     'IN': {
         'weight': 7,
         'tags': '#indiaconstruction #indiancontractors #buildersofindia '
-                '#constructionmanagementindia',
+                '#constructionmanagementindia #indiabuilders '
+                '#siteengineersindia #indianconstructionindustry '
+                '#contractorsofindia',
     },
     'PH': {
         'weight': 4,
         'tags': '#philippineconstruction #filipinobuilders '
-                '#contractorsphilippines #constructionPH',
+                '#contractorsphilippines #constructionPH #pinoybuilders '
+                '#siteengineersPH #philippinecontractors '
+                '#constructionphilippines',
     },
     'UNIVERSAL_ONLY': {
         # A small share gets no country bundle so the page feed retains a
@@ -126,6 +141,55 @@ COUNTRY_BUNDLES = {
         'tags': '',
     },
 }
+
+# Topic bundles are mixed with the country pack on every Page post. Each
+# bundle contains more tags than a single post uses; sampling gives the feed a
+# much wider long-term mix without turning each post into hashtag stuffing.
+TOPIC_BUNDLES = {
+    'SITE_MANAGEMENT': (
+        '#sitemanagement #sitemanager #sitesupervisor #constructionmanager '
+        '#fieldmanagement #fieldoperations #jobsiteoperations'
+    ),
+    'DAILY_REPORTING': (
+        '#sitediary #dailyreport #constructionreporting #fieldreport '
+        '#dailylog #projectdocumentation #siteadmin'
+    ),
+    'PHOTOS_DOCUMENTS': (
+        '#constructionphotos #jobsitephotos #photodocumentation '
+        '#constructiondocuments #projectrecords #fieldnotes #sitephotos'
+    ),
+    'SAFETY_QUALITY': (
+        '#constructionsafety #sitesafety #qualitycontrol #qualityassurance '
+        '#constructionchecklist #siteinspection #safetyfirst'
+    ),
+    'BUILDERS_CONTRACTORS': (
+        '#builders #contractors #generalcontractor #subcontractors '
+        '#constructionbusiness #buildingcontractor #smallcontractor'
+    ),
+    'TRADES': (
+        '#constructiontrades #electricians #plumbers #carpenters #tilers '
+        '#tradies #skilledtrades #tradebusiness'
+    ),
+    'OFFLINE_MOBILE': (
+        '#offlineapp #constructionapp #mobileworkforce #fieldapp '
+        '#constructionsoftware #contech #constructiontechnology'
+    ),
+    'PROJECT_CONTROL': (
+        '#constructionprojects #projectmanagement #constructionplanning '
+        '#projectcontrols #jobmanagement #worktracking #projectdelivery'
+    ),
+    'COMMERCIAL_RESIDENTIAL': (
+        '#commercialconstruction #residentialconstruction #homebuilder '
+        '#renovationcontractor #buildingprojects #propertydevelopment'
+    ),
+    'PRODUCTIVITY': (
+        '#constructionproductivity #lessadmin #digitalconstruction '
+        '#paperlessconstruction #workflowmanagement #crewefficiency '
+        '#constructioninnovation'
+    ),
+}
+
+MAX_HASHTAGS_PER_POST = 12
 
 # =============================================================================
 # HELPER FUNCTIONS
@@ -176,22 +240,56 @@ def pick_country_bundle():
     return chosen, COUNTRY_BUNDLES[chosen]['tags']
 
 
+def pick_topic_bundle():
+    """Pick a construction topic bundle. Returns (name, tags)."""
+    chosen = random.choice(list(TOPIC_BUNDLES.keys()))
+    return chosen, TOPIC_BUNDLES[chosen]
+
+
+def _sample_hashtags(raw_tags, count):
+    """Return up to count unique hashtags sampled from a whitespace pack."""
+    unique = list(dict.fromkeys(raw_tags.split()))
+    if len(unique) <= count:
+        return unique
+    return random.sample(unique, count)
+
+
+def build_hashtag_mix(base_tags, country_tags, topic_tags, platform_tags):
+    """Build a varied, de-duplicated hashtag line with a sensible cap."""
+    selected = []
+    for raw_tags, count in (
+        (base_tags, 4),
+        (country_tags, 3),
+        (topic_tags, 3),
+        (platform_tags, 2),
+    ):
+        for tag in _sample_hashtags(raw_tags, count):
+            normalized = tag.lower()
+            if normalized not in {existing.lower() for existing in selected}:
+                selected.append(tag)
+
+    return ' '.join(selected[:MAX_HASHTAGS_PER_POST])
+
+
 def format_post(post):
     """Format post content with random variations."""
     content = apply_tracking(refresh_platform_copy(post['content']), "facebook")
     base_hashtags = post['hashtags']
     cta = download_links("facebook")
 
-    # Rotate in a country-specific hashtag pack on top of the universal base.
+    # Rotate country and topic packs, sampling a subset from each. This keeps
+    # the long-term mix broad while capping each individual post.
     bundle_name, country_tags = pick_country_bundle()
-    if country_tags:
-        hashtags = f"{base_hashtags} {country_tags}"
-    else:
-        hashtags = base_hashtags
+    topic_name, topic_tags = pick_topic_bundle()
     platform_tags = PLATFORM_HASHTAGS.get("facebook", "")
-    if platform_tags:
-        hashtags = f"{hashtags} {platform_tags}"
+    hashtags = build_hashtag_mix(
+        base_hashtags,
+        country_tags,
+        topic_tags,
+        platform_tags,
+    )
     print(f"   Country bundle: {bundle_name}")
+    print(f"   Topic bundle: {topic_name}")
 
     # Randomly vary formatting
     variant = random.choice([1, 2, 3, 4, 5])

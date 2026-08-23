@@ -96,6 +96,9 @@ COUNTRY_CONFIGS = {
             'construction contractors USA',
             'general contractors USA',
             'construction site managers USA',
+            'construction project managers USA',
+            'small construction business USA',
+            'construction technology USA',
         ],
         'opener_options': [
             "Hey folks — I'm a site foreman who got tired of bad construction software.",
@@ -140,6 +143,9 @@ COUNTRY_CONFIGS = {
             'UK builders and trades',
             'construction site managers UK',
             'UK contractors network',
+            'UK site supervisors',
+            'small builders UK',
+            'construction technology UK',
         ],
         'opener_options': [
             "Hello all — I'm a site foreman who got fed up with rubbish construction software.",
@@ -174,6 +180,9 @@ COUNTRY_CONFIGS = {
             'Australian builders and tradies',
             'construction site managers Australia',
             'New Zealand builders and tradies',
+            'site supervisors Australia',
+            'construction project managers New Zealand',
+            'construction technology Australia',
         ],
         'opener_options': [
             "Gday all — I'm a site foreman who got sick of bad construction apps.",
@@ -201,6 +210,9 @@ COUNTRY_CONFIGS = {
             'Canadian construction contractors',
             'builders and trades Canada',
             'construction site managers Canada',
+            'Canadian general contractors',
+            'construction project managers Canada',
+            'construction technology Canada',
         ],
         'opener_options': [
             "Hello — I'm a site foreman who got tired of construction software that falls apart in the field.",
@@ -233,6 +245,9 @@ COUNTRY_CONFIGS = {
             'Irish builders and trades',
             'construction professionals Ireland',
             'site managers Ireland',
+            'Irish construction contractors',
+            'construction project managers Ireland',
+            'construction technology Ireland',
         ],
         'opener_options': [
             "Hello all — I'm a site foreman who built a practical app for keeping site records together.",
@@ -263,6 +278,9 @@ COUNTRY_CONFIGS = {
             'South African construction professionals',
             'builders and contractors South Africa',
             'site managers South Africa',
+            'construction project managers South Africa',
+            'small contractors South Africa',
+            'construction technology South Africa',
         ],
         'opener_options': [
             "Hello — I'm a site foreman who built an offline-first app for everyday construction records.",
@@ -293,6 +311,9 @@ COUNTRY_CONFIGS = {
             'UAE construction professionals',
             'Dubai contractors and site managers',
             'GCC construction network',
+            'UAE construction project managers',
+            'Gulf site engineers',
+            'Middle East construction technology',
         ],
         'opener_options': [
             "Hello — I'm a construction foreman who built an app to simplify daily site records.",
@@ -325,6 +346,9 @@ COUNTRY_CONFIGS = {
             'Singapore construction professionals',
             'Malaysia contractors and builders',
             'construction site managers Singapore Malaysia',
+            'Singapore construction project managers',
+            'Malaysia site engineers',
+            'Southeast Asia construction technology',
         ],
         'opener_options': [
             "Hello — I'm a site foreman who built an offline-first construction management app.",
@@ -357,6 +381,9 @@ COUNTRY_CONFIGS = {
             'Indian construction professionals',
             'builders and contractors India',
             'site engineers and managers India',
+            'construction project managers India',
+            'small contractors India',
+            'construction technology India',
         ],
         'opener_options': [
             "Hello — I'm a site foreman who built an app to make daily construction records easier.",
@@ -389,6 +416,9 @@ COUNTRY_CONFIGS = {
             'Philippines construction professionals',
             'Filipino contractors and builders',
             'site engineers Philippines',
+            'construction project managers Philippines',
+            'small contractors Philippines',
+            'construction technology Philippines',
         ],
         'opener_options': [
             "Hello — I'm a site foreman who built an offline-first app for managing everyday site records.",
