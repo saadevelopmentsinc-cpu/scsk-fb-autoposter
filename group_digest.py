@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 SCSK Group Post Digest
-Generates 3 country-specific group-ready posts (US, UK, AU/NZ) every morning
-and opens a GitHub Issue with all of them, ready to copy/paste manually
-into trade Facebook groups.
+Generates market-specific group-ready posts every morning and opens a GitHub
+Issue with all of them, ready to copy/paste manually into relevant trade
+Facebook groups whose rules allow member or product posts.
 
 Why semi-automated?
 - Facebook removed third-party group posting from the Graph API in 2020.
@@ -62,6 +62,24 @@ GOOD_PILLARS_FOR_GROUPS = {
 # How many days before the same source post can be reused
 COOLDOWN_DAYS = 30
 
+MARKET_ORDER = (
+    'AU_NZ', 'US', 'UK', 'CA', 'IE',
+    'ZA', 'UAE_GCC', 'SG_MY', 'IN', 'PH',
+)
+
+MARKET_EMOJI = {
+    'AU_NZ': '🇦🇺🇳🇿',
+    'US': '🇺🇸',
+    'UK': '🇬🇧',
+    'CA': '🇨🇦',
+    'IE': '🇮🇪',
+    'ZA': '🇿🇦',
+    'UAE_GCC': '🇦🇪',
+    'SG_MY': '🇸🇬🇲🇾',
+    'IN': '🇮🇳',
+    'PH': '🇵🇭',
+}
+
 # =============================================================================
 # COUNTRY-SPECIFIC REWORDING
 # =============================================================================
@@ -74,6 +92,11 @@ COOLDOWN_DAYS = 30
 COUNTRY_CONFIGS = {
     'US': {
         'name': 'United States',
+        'search_queries': [
+            'construction contractors USA',
+            'general contractors USA',
+            'construction site managers USA',
+        ],
         'opener_options': [
             "Hey folks — I'm a site foreman who got tired of bad construction software.",
             "Posting this for any other GCs or subs in the group:",
@@ -113,6 +136,11 @@ COUNTRY_CONFIGS = {
     },
     'UK': {
         'name': 'United Kingdom',
+        'search_queries': [
+            'UK builders and trades',
+            'construction site managers UK',
+            'UK contractors network',
+        ],
         'opener_options': [
             "Hello all — I'm a site foreman who got fed up with rubbish construction software.",
             "Quick post for the tradesmen here:",
@@ -142,6 +170,11 @@ COUNTRY_CONFIGS = {
     },
     'AU_NZ': {
         'name': 'Australia / New Zealand',
+        'search_queries': [
+            'Australian builders and tradies',
+            'construction site managers Australia',
+            'New Zealand builders and tradies',
+        ],
         'opener_options': [
             "Gday all — I'm a site foreman who got sick of bad construction apps.",
             "Quick one for the tradies here:",
@@ -160,6 +193,226 @@ COUNTRY_CONFIGS = {
             "Happy to answer any questions below.",
             "Mods — pull this if it's not allowed. Just sharing a tool built for the jobsite.",
             "Not trying to spam. Just want real feedback from people who actually use this stuff.",
+        ],
+    },
+    'CA': {
+        'name': 'Canada',
+        'search_queries': [
+            'Canadian construction contractors',
+            'builders and trades Canada',
+            'construction site managers Canada',
+        ],
+        'opener_options': [
+            "Hello — I'm a site foreman who got tired of construction software that falls apart in the field.",
+            "Quick share for the Canadian contractors and site managers here:",
+            "I built this after years of paper notes, scattered photos, and unreliable site apps.",
+        ],
+        'dialect_swaps': {
+            'tradie': 'contractor',
+            'tradies': 'contractors',
+            'sparky': 'electrician',
+            'sparkies': 'electricians',
+            'subbie': 'subcontractor',
+            'subbies': 'subcontractors',
+            'smoko': 'coffee break',
+        },
+        'soft_cta_options': [
+            "It's available now at https://sc-sk.com/. I'd value feedback from Canadian construction teams.",
+            "The Android app is on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "If your crew needs offline site records, photos, and reports in one place, have a look at https://sc-sk.com/.",
+        ],
+        'closer_options': [
+            "Happy to answer practical questions in the comments.",
+            "Mods — please remove if product posts aren't allowed here.",
+            "Sharing for feedback from people who actually run work in the field.",
+        ],
+    },
+    'IE': {
+        'name': 'Ireland',
+        'search_queries': [
+            'Irish builders and trades',
+            'construction professionals Ireland',
+            'site managers Ireland',
+        ],
+        'opener_options': [
+            "Hello all — I'm a site foreman who built a practical app for keeping site records together.",
+            "Quick one for the Irish builders, trades, and site managers here:",
+            "I built this after years of paper, spreadsheets, and job photos scattered everywhere.",
+        ],
+        'dialect_swaps': {
+            'tradie': 'tradesperson',
+            'tradies': 'tradespeople',
+            'sparky': 'electrician',
+            'sparkies': 'electricians',
+            'smoko': 'tea break',
+        },
+        'soft_cta_options': [
+            "Available at https://sc-sk.com/. I'd genuinely value feedback from Irish site teams.",
+            "The Android app is on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "If it sounds useful on a real job, take a look at https://sc-sk.com/ and tell me what it still needs.",
+        ],
+        'closer_options': [
+            "Happy to answer any questions below.",
+            "Mods — apologies if this type of post isn't allowed.",
+            "Sharing for practical feedback, not to flood the group with ads.",
+        ],
+    },
+    'ZA': {
+        'name': 'South Africa',
+        'search_queries': [
+            'South African construction professionals',
+            'builders and contractors South Africa',
+            'site managers South Africa',
+        ],
+        'opener_options': [
+            "Hello — I'm a site foreman who built an offline-first app for everyday construction records.",
+            "Quick share for the South African contractors and site managers here:",
+            "I built this because site photos, notes, checklists, and reports should not live in five different places.",
+        ],
+        'dialect_swaps': {
+            'tradie': 'contractor',
+            'tradies': 'contractors',
+            'sparky': 'electrician',
+            'sparkies': 'electricians',
+            'smoko': 'tea break',
+        },
+        'soft_cta_options': [
+            "Available now at https://sc-sk.com/. Feedback from South African construction teams would be valuable.",
+            "The Android app is here: https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "If reliable offline site records matter to your crew, have a look at https://sc-sk.com/.",
+        ],
+        'closer_options': [
+            "Happy to answer questions from anyone working on site.",
+            "Mods — please remove if product posts aren't permitted.",
+            "I'd value honest feedback from contractors using it in real conditions.",
+        ],
+    },
+    'UAE_GCC': {
+        'name': 'UAE / Gulf',
+        'search_queries': [
+            'UAE construction professionals',
+            'Dubai contractors and site managers',
+            'GCC construction network',
+        ],
+        'opener_options': [
+            "Hello — I'm a construction foreman who built an app to simplify daily site records.",
+            "Sharing this for the contractors, engineers, and site managers working across the Gulf:",
+            "I built this to keep job photos, notes, checklists, and reports usable even when connectivity is poor.",
+        ],
+        'dialect_swaps': {
+            'tradie': 'site professional',
+            'tradies': 'site professionals',
+            'sparky': 'electrician',
+            'sparkies': 'electricians',
+            'subbie': 'subcontractor',
+            'subbies': 'subcontractors',
+            'smoko': 'break',
+        },
+        'soft_cta_options': [
+            "You can see it at https://sc-sk.com/. Feedback from UAE and Gulf construction teams would be welcome.",
+            "The Android app is available here: https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "If your team needs structured daily site records, take a look at https://sc-sk.com/.",
+        ],
+        'closer_options': [
+            "Happy to answer workflow or product questions below.",
+            "Admins — please remove if member product posts aren't allowed.",
+            "Sharing to learn what Gulf construction teams need from a field app.",
+        ],
+    },
+    'SG_MY': {
+        'name': 'Singapore / Malaysia',
+        'search_queries': [
+            'Singapore construction professionals',
+            'Malaysia contractors and builders',
+            'construction site managers Singapore Malaysia',
+        ],
+        'opener_options': [
+            "Hello — I'm a site foreman who built an offline-first construction management app.",
+            "Quick share for the Singapore and Malaysian contractors and site teams here:",
+            "I built this to replace scattered site photos, paper notes, and late daily reports.",
+        ],
+        'dialect_swaps': {
+            'tradie': 'site professional',
+            'tradies': 'site professionals',
+            'sparky': 'electrician',
+            'sparkies': 'electricians',
+            'subbie': 'subcontractor',
+            'subbies': 'subcontractors',
+            'smoko': 'break',
+        },
+        'soft_cta_options': [
+            "It's available at https://sc-sk.com/. I'd value feedback from Singaporean and Malaysian site teams.",
+            "The Android app is here: https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "If it suits your field workflow, take a look at https://sc-sk.com/ and tell me what should improve.",
+        ],
+        'closer_options': [
+            "Happy to answer any questions in the comments.",
+            "Admins — please remove if this isn't suitable for the group.",
+            "Looking for practical feedback from people running active sites.",
+        ],
+    },
+    'IN': {
+        'name': 'India',
+        'search_queries': [
+            'Indian construction professionals',
+            'builders and contractors India',
+            'site engineers and managers India',
+        ],
+        'opener_options': [
+            "Hello — I'm a site foreman who built an app to make daily construction records easier.",
+            "Sharing this for the contractors, site engineers, and project teams in India:",
+            "I built this because site photos, notes, checklists, and reports should stay organised even offline.",
+        ],
+        'dialect_swaps': {
+            'tradie': 'site professional',
+            'tradies': 'site professionals',
+            'sparky': 'electrician',
+            'sparkies': 'electricians',
+            'subbie': 'subcontractor',
+            'subbies': 'subcontractors',
+            'smoko': 'break',
+        },
+        'soft_cta_options': [
+            "Available now at https://sc-sk.com/. Feedback from Indian construction teams would be genuinely useful.",
+            "The Android app is on Google Play: https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "If your team needs offline field records, have a look at https://sc-sk.com/.",
+        ],
+        'closer_options': [
+            "Happy to answer practical questions below.",
+            "Admins — please remove if member product posts are not allowed.",
+            "I'd value direct feedback from engineers and contractors using it on site.",
+        ],
+    },
+    'PH': {
+        'name': 'Philippines',
+        'search_queries': [
+            'Philippines construction professionals',
+            'Filipino contractors and builders',
+            'site engineers Philippines',
+        ],
+        'opener_options': [
+            "Hello — I'm a site foreman who built an offline-first app for managing everyday site records.",
+            "Quick share for the Filipino contractors, engineers, and builders here:",
+            "I built this to keep job photos, daily notes, checklists, and reports together on site.",
+        ],
+        'dialect_swaps': {
+            'tradie': 'construction professional',
+            'tradies': 'construction professionals',
+            'sparky': 'electrician',
+            'sparkies': 'electricians',
+            'subbie': 'subcontractor',
+            'subbies': 'subcontractors',
+            'smoko': 'break',
+        },
+        'soft_cta_options': [
+            "Available now at https://sc-sk.com/. I'd really value feedback from Philippine construction teams.",
+            "The Android app is here: https://play.google.com/store/apps/details?id=com.saa.scsk_app",
+            "If it sounds useful for your site workflow, take a look at https://sc-sk.com/.",
+        ],
+        'closer_options': [
+            "Happy to answer questions below.",
+            "Admins — please remove if this type of post isn't allowed.",
+            "Sharing for honest feedback from people working on real projects.",
         ],
     },
 }
@@ -392,7 +645,8 @@ def build_issue_body(source_post, country_drafts, image_data):
     Layout:
       - Header with date + source post info
       - Image preview (collapsible)
-      - 3 sections (US, UK, AU/NZ), each with copy-friendly code block
+      - One section per configured market, each with search ideas and a
+        copy-friendly code block
       - Tips footer
     """
     today = datetime.now().strftime('%A, %d %B %Y')
@@ -431,12 +685,16 @@ def build_issue_body(source_post, country_drafts, image_data):
         ])
 
     # Country drafts
-    country_emoji = {'US': '🇺🇸', 'UK': '🇬🇧', 'AU_NZ': '🇦🇺🇳🇿'}
     for country_key, draft in country_drafts.items():
         config = COUNTRY_CONFIGS[country_key]
-        emoji = country_emoji.get(country_key, '🌍')
+        emoji = MARKET_EMOJI.get(country_key, '🌍')
+        search_queries = ' · '.join(
+            f'`{query}`' for query in config['search_queries']
+        )
         body_parts.extend([
             f"## {emoji} {config['name']} version",
+            "",
+            f"**Facebook group searches:** {search_queries}",
             "",
             "```",
             draft,
@@ -452,17 +710,23 @@ def build_issue_body(source_post, country_drafts, image_data):
         "",
         "Tick off as you post (helps you remember which groups you've hit):",
         "",
-        "- [ ] Posted to a US group",
-        "- [ ] Posted to a UK group",
-        "- [ ] Posted to an AU/NZ group",
+    ])
+
+    for country_key in MARKET_ORDER:
+        body_parts.append(
+            f"- [ ] Posted to one approved {COUNTRY_CONFIGS[country_key]['name']} group"
+        )
+
+    body_parts.extend([
         "- [ ] Replied to first comment within 30 min",
         "- [ ] Closed this issue when done",
         "",
         "## 🛡️ Group posting reminders",
         "",
-        "- Lurk + comment in a group at least a week before you post.",
-        "- One group per day per country (avoid spam network detection).",
-        "- Different group → don't paste the exact same wording. Tweak a sentence.",
+        "- Post only where the group's rules allow member or product posts.",
+        "- Join as a genuine member and contribute before sharing your product.",
+        "- Limit activity to one relevant group per market per day; quality beats volume.",
+        "- Tailor at least one sentence to the group instead of pasting identical copy.",
         "- Read pinned rules — many groups have \"Self-Promo Sundays\" or \"Founder Friday\".",
         "- Reply to comments fast — response speed boosts group algorithm reach.",
         "",
@@ -508,7 +772,7 @@ def main():
     # Reword for each country
     print("\n🌍 Generating country variants...")
     country_drafts = {}
-    for country_key in ('US', 'UK', 'AU_NZ'):
+    for country_key in MARKET_ORDER:
         country_drafts[country_key] = reword_for_country(source, country_key)
         print(f"   ✓ {country_key} version ({len(country_drafts[country_key])} chars)")
 

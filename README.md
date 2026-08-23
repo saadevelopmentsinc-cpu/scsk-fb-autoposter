@@ -13,6 +13,7 @@ Automatically posts SCSK content to Facebook, LinkedIn, and X using GitHub Actio
 ## Files
 
 - `fb_poster.py` - Main posting script
+- `group_digest.py` - Creates manual-ready international Facebook Group drafts
 - `linkedin_poster.py` - LinkedIn posting script
 - `x_poster.py` - X posting script with direct product-focused ads
 - `content.csv` - 133 pre-written posts
@@ -57,6 +58,12 @@ Facebook checks hourly and posts using its own delay rules.
 LinkedIn runs on its workflow schedule.
 X checks hourly and posts after a random 7-9 hour interval, averaging about 3 posts per day.
 
+The daily Facebook Group Digest creates localized drafts and group-search
+phrases for Australia/New Zealand, the United States, the United Kingdom,
+Canada, Ireland, South Africa, the UAE/Gulf, Singapore/Malaysia, India, and
+the Philippines. Group posts remain manual so you can check each group's rules
+and post only where promotion is allowed.
+
 Edit `.github/workflows/` to customize.
 
 ## Cost
@@ -70,4 +77,4 @@ Edit `.github/workflows/` to customize.
 
 ---
 
-Built for [SCSK - Site Companion Side Kick](https://sc-sk.com)
+Built for [SCSK Construction Site Manager](https://sc-sk.com)

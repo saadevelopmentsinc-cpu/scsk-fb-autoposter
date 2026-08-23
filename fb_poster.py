@@ -71,17 +71,17 @@ EMOJIS = ['🏗️', '👷', '🔨', '⚒️', '🛠️', '⚙️', '📐', '�
 # Weights bias slightly toward US/UK because those markets are larger.
 COUNTRY_BUNDLES = {
     'US': {
-        'weight': 30,
+        'weight': 20,
         'tags': '#contractorlife #americanbuilder #subcontractor #homebuilder '
                 '#commercialconstruction #residentialconstruction #constructionUSA',
     },
     'UK': {
-        'weight': 25,
+        'weight': 15,
         'tags': '#britishbuilders #ukconstruction #tradesman #builderuk '
                 '#groundworker #constructionUK #plumberuk',
     },
     'AU_NZ': {
-        'weight': 20,
+        'weight': 15,
         'tags': '#aussiebuilders #buildersofnewzealand #tradiesNZ '
                 '#australianbuilders #aussietradies #kiwibuilders',
     },
@@ -89,10 +89,40 @@ COUNTRY_BUNDLES = {
         'weight': 10,
         'tags': '#canadianconstruction #canadianbuilders #buildcanada',
     },
+    'IE': {
+        'weight': 6,
+        'tags': '#irishconstruction #irishbuilders #constructionireland '
+                '#irishtrades',
+    },
+    'ZA': {
+        'weight': 8,
+        'tags': '#southafricanconstruction #sabuilders #constructionSA '
+                '#southafricancontractors',
+    },
+    'UAE_GCC': {
+        'weight': 7,
+        'tags': '#uaeconstruction #dubaiconstruction #gccconstruction '
+                '#middleeastconstruction',
+    },
+    'SG_MY': {
+        'weight': 6,
+        'tags': '#singaporeconstruction #malaysiaconstruction '
+                '#constructionasia #siteoperations',
+    },
+    'IN': {
+        'weight': 7,
+        'tags': '#indiaconstruction #indiancontractors #buildersofindia '
+                '#constructionmanagementindia',
+    },
+    'PH': {
+        'weight': 4,
+        'tags': '#philippineconstruction #filipinobuilders '
+                '#contractorsphilippines #constructionPH',
+    },
     'UNIVERSAL_ONLY': {
-        # 15% of posts get NO country bundle — looks more organic over time
-        # and avoids every single post having a regional tail.
-        'weight': 15,
+        # A small share gets no country bundle so the page feed retains a
+        # universal construction-software voice.
+        'weight': 2,
         'tags': '',
     },
 }
