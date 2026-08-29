@@ -68,24 +68,25 @@
     "090",
     "092",
     "094",
-    "075"
+    "075",
+    "098"
   ],
-  "last_post_time": "2026-08-29T02:46:08.594489",
-  "last_post_id": "urn:li:share:7499296300669198336",
+  "last_post_time": "2026-08-29T09:47:16.805570",
+  "last_post_id": "urn:li:share:7499402283210821632",
   "recent_pillars": [
-    "Jobs",
     "Weather",
     "Comparison",
     "Download",
     "Jobs",
-    "Calendar"
+    "Calendar",
+    "Offline"
   ],
   "recent_cards": [
-    "ad-1.png",
     "ad-7.png",
     "ad-10.png",
     "ad-2.png",
     "ad-4.png",
-    "ad-5.png"
+    "ad-5.png",
+    "ad-8.png"
   ]
 }
