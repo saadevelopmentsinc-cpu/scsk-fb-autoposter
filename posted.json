@@ -119,24 +119,25 @@
     "137",
     "144",
     "160",
-    "166"
+    "166",
+    "172"
   ],
-  "last_post_time": "2026-09-05T12:31:10.436841",
-  "last_post_id": "122135649483194814",
+  "last_post_time": "2026-09-05T15:52:43.476670",
+  "last_post_id": "122135659977194814",
   "recent_pillars": [
-    "Weather",
     "Calendar",
     "Offline",
     "Download",
     "Photos",
-    "Calendar"
+    "Calendar",
+    "Jobs"
   ],
   "recent_cards": [
-    "ad-5.png",
     "ad-3.png",
     "ad-7.png",
     "ad-4.png",
     "ad-10.png",
-    "ad-6.png"
+    "ad-6.png",
+    "ad-2.png"
   ]
 }
