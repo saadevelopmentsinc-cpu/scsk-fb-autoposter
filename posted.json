@@ -54,24 +54,25 @@
     "078",
     "079",
     "081",
-    "072"
+    "072",
+    "075"
   ],
-  "last_post_time": "2026-09-17T16:42:42.997859",
-  "last_post_id": "122136843915194814",
+  "last_post_time": "2026-09-17T20:07:15.724152",
+  "last_post_id": "122136860847194814",
   "recent_pillars": [
-    "Photos",
     "Calculators",
     "Quick Win",
     "Download",
     "Jobs",
-    "Offline"
+    "Offline",
+    "Calendar"
   ],
   "recent_cards": [
-    "ad-6.png",
     "ad-5.png",
     "ad-8.png",
     "ad-9.png",
     "ad-1.png",
-    "ad-2.png"
+    "ad-2.png",
+    "ad-5.png"
   ]
 }
