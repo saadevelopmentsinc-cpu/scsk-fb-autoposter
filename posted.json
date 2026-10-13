@@ -40,24 +40,25 @@
     "061",
     "056",
     "020",
-    "023"
+    "023",
+    "068"
   ],
-  "last_post_time": "2026-10-12T18:53:55.146469",
-  "last_post_id": "122139921699194814",
+  "last_post_time": "2026-10-13T01:12:12.704843",
+  "last_post_id": "122139956883194814",
   "recent_pillars": [
-    "Jobs",
     "Calculators",
     "Weather",
     "Photos",
     "Offline",
-    "Calendar"
+    "Calendar",
+    "Jobs"
   ],
   "recent_cards": [
-    "ad-5.png",
     "ad-8.png",
     "ad-1.png",
     "ad-6.png",
     "ad-10.png",
-    "ad-3.png"
+    "ad-3.png",
+    "ad-8.png"
   ]
 }
