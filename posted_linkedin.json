@@ -46,24 +46,25 @@
     "064",
     "071",
     "063",
-    "062"
+    "062",
+    "060"
   ],
-  "last_post_time": "2026-10-14T06:17:51.752669",
-  "last_post_id": "urn:li:share:7516019422558609408",
+  "last_post_time": "2026-10-14T13:21:31.747406",
+  "last_post_id": "urn:li:share:7516126041560535040",
   "recent_pillars": [
-    "Download",
     "Proof",
     "Comparison",
     "Calculators",
     "Founder",
-    "Calendar"
+    "Calendar",
+    "Proof"
   ],
   "recent_cards": [
-    "ad-10.png",
     "ad-7.png",
     "ad-4.png",
     "ad-1.png",
     "ad-3.png",
-    "ad-2.png"
+    "ad-2.png",
+    "ad-10.png"
   ]
 }
