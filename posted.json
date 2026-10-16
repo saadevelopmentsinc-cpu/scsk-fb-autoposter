@@ -55,24 +55,25 @@
     "078",
     "059",
     "080",
-    "053"
+    "053",
+    "052"
   ],
-  "last_post_time": "2026-10-16T01:05:57.294453",
-  "last_post_id": "122140323447194814",
+  "last_post_time": "2026-10-16T06:56:41.270708",
+  "last_post_id": "122140342473194814",
   "recent_pillars": [
-    "Calendar",
     "Weather",
     "Quick Win",
     "Offline",
     "Pain",
-    "Download"
+    "Download",
+    "Quick Win"
   ],
   "recent_cards": [
-    "ad-5.png",
     "ad-4.png",
     "ad-8.png",
     "ad-9.png",
     "ad-10.png",
-    "ad-3.png"
+    "ad-3.png",
+    "ad-2.png"
   ]
 }
