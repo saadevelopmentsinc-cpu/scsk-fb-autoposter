@@ -63,24 +63,25 @@
     "057",
     "086",
     "090",
-    "088"
+    "088",
+    "072"
   ],
-  "last_post_time": "2026-10-18T12:41:00.503007",
-  "last_post_id": "urn:li:share:7517565395193483266",
+  "last_post_time": "2026-10-18T22:06:40.905400",
+  "last_post_id": "urn:li:share:7517707751779917824",
   "recent_pillars": [
-    "Offline",
     "Jobs",
     "Reports",
     "Proof",
     "Comparison",
-    "Calendar"
+    "Calendar",
+    "Offline"
   ],
   "recent_cards": [
-    "ad-5.png",
     "ad-1.png",
     "ad-7.png",
     "ad-6.png",
     "ad-10.png",
-    "ad-8.png"
+    "ad-8.png",
+    "ad-2.png"
   ]
 }
