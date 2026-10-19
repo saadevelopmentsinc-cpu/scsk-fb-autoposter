@@ -75,24 +75,25 @@
     "088",
     "111",
     "117",
-    "105"
+    "105",
+    "100"
   ],
-  "last_post_time": "2026-10-19T15:26:19.540448",
-  "last_post_id": "122140646175194814",
+  "last_post_time": "2026-10-19T20:57:02.876694",
+  "last_post_id": "122140666611194814",
   "recent_pillars": [
-    "Jobs",
     "Calculators",
     "Calendar",
     "Offline",
     "Quick Win",
-    "Download"
+    "Download",
+    "Weather"
   ],
   "recent_cards": [
-    "ad-7.png",
     "ad-10.png",
     "ad-8.png",
     "ad-1.png",
     "ad-7.png",
-    "ad-5.png"
+    "ad-5.png",
+    "ad-10.png"
   ]
 }
