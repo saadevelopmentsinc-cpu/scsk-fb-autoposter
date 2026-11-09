@@ -34,24 +34,25 @@
     "042",
     "046",
     "049",
-    "048"
+    "048",
+    "032"
   ],
-  "last_post_time": "2026-11-09T05:44:58.507742",
-  "last_post_id": "122142881883194814",
+  "last_post_time": "2026-11-09T15:49:55.063791",
+  "last_post_id": "122142924003194814",
   "recent_pillars": [
-    "Calculators",
     "Photos",
     "Jobs",
     "Offline",
     "Calendar",
-    "Weather"
+    "Weather",
+    "Calculators"
   ],
   "recent_cards": [
-    "ad-5.png",
     "ad-3.png",
     "ad-2.png",
     "ad-6.png",
     "ad-9.png",
-    "ad-8.png"
+    "ad-8.png",
+    "ad-2.png"
   ]
 }
