@@ -48,24 +48,25 @@
     "062",
     "068",
     "069",
-    "077"
+    "077",
+    "072"
   ],
-  "last_post_time": "2026-11-13T16:01:21.274521",
-  "last_post_id": "122143312389194814",
+  "last_post_time": "2026-11-13T22:26:23.207603",
+  "last_post_id": "122143335147194814",
   "recent_pillars": [
-    "Offline",
     "Download",
     "Calendar",
     "Jobs",
     "Photos",
-    "Comparison"
+    "Comparison",
+    "Offline"
   ],
   "recent_cards": [
-    "ad-9.png",
     "ad-6.png",
     "ad-2.png",
     "ad-8.png",
     "ad-9.png",
-    "ad-7.png"
+    "ad-7.png",
+    "ad-2.png"
   ]
 }
