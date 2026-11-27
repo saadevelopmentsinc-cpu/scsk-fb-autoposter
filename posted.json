@@ -91,24 +91,25 @@
     "075",
     "111",
     "120",
-    "134"
+    "134",
+    "123"
   ],
-  "last_post_time": "2026-11-27T07:50:12.332534",
-  "last_post_id": "122144638401194814",
+  "last_post_time": "2026-11-27T17:59:50.494616",
+  "last_post_id": "122144679525194814",
   "recent_pillars": [
-    "Quick Win",
     "Weather",
     "Calendar",
     "Offline",
     "Jobs",
-    "Photos"
+    "Photos",
+    "Calculators"
   ],
   "recent_cards": [
-    "ad-4.png",
     "ad-6.png",
     "ad-5.png",
     "ad-1.png",
     "ad-10.png",
-    "ad-4.png"
+    "ad-4.png",
+    "ad-3.png"
   ]
 }
